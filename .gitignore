@@ -1,0 +1,6 @@
+# ignore backup files
+old/
+
+# ignore editor files
+.*.swp
+.*.swo
