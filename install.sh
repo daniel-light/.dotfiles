@@ -3,7 +3,7 @@ set -x #-o xtrace
 set -u #-o nounset
 
 
-dir="$HOME/.dot-files"
+dir="$HOME/.dotfiles"
 subdirdot='dot'
 subdirnot='not'
 olddir='old'
@@ -11,7 +11,7 @@ dotfiles='vimrc zshrc zlogin gemrc'
 notfiles=''
 
 #mkdir -p $olddir && echo "Creating $olddir"
-mkdir -p ~/.dot-files/{$olddir,$subdirdot,$subdirnot}
+mkdir -p $dir/{$olddir,$subdirdot,$subdirnot}
 
 cd $dir
 cd $subdirdot
