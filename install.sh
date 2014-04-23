@@ -9,8 +9,7 @@ subdirdot='dot'
 subdirnot='not'
 olddir='old'
 
-#mkdir -p $olddir && echo "Creating $olddir"
-mkdir -p $dir/{$olddir,$subdirdot,$subdirnot}
+mkdir -p $dir/$subdirdot $dir/$subdirnot $dir/$olddir && echo 'Creating directory structure'
 
 cd $dir
 cd $subdirdot
