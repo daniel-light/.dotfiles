@@ -9,3 +9,6 @@ if has("autocmd")
   filetype plugin indent on
 endif
 syntax on
+
+map ; :
+noremap ;; ;
