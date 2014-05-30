@@ -1,0 +1,6 @@
+# vim tmp files
+*.swp
+*.swo
+
+# os x wut
+.DS_Store

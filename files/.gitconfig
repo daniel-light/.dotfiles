@@ -3,6 +3,7 @@
 	email = dsl7v3@mail.missouri.edu
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
 [color]
