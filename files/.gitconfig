@@ -8,3 +8,6 @@
 	default = simple
 [color]
 	ui = auto
+[alias]
+	check = diff --cached
+	co = checkout
