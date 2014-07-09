@@ -1,3 +1,6 @@
+call pathogen#infect()
+call pathogen#helptags()
+
 set ai
 set nosi
 set ts=4
