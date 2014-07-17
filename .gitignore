@@ -1,9 +1,12 @@
-# ignore bin files unless explicitly added
+# bin files unless explicitly added
 files/bin
 
-# ignore backup files
+# backup files
 old/
 
-# ignore editor files
+# editor files
 .*.swp
 .*.swo
+
+# vim stuff
+files/.vim/.netrwhist
