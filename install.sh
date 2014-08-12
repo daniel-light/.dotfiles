@@ -1,5 +1,4 @@
 #!/bin/sh
-set -x #-o xtrace
 set -u #-o nounset
 set -e #-o errexit
 
