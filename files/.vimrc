@@ -1,3 +1,5 @@
+let g:go_disable_autoinstall = 1
+
 call pathogen#infect()
 call pathogen#helptags()
 
