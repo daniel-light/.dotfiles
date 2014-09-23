@@ -7,5 +7,7 @@ alias -r ls='ls --color=auto' \
 		 g='git' \
          gtypist='gtypist -b'
 
+fpath=($HOME/.config/zsh/zsh-completions/src $fpath)
+
 #options
 #PUSHD_MINUS
