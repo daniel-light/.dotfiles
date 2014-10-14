@@ -23,9 +23,10 @@
 	amend = commit --amend --no-edit
 	aa = add -A
 	d = diff
+	changes = !git diff $(git merge-base HEAD $1)
 [merge]
-	  tool = deltawalker
-[mergetool  "deltawalker"]
-	  cmd = '/Applications/DeltaWalker.app/Contents/MacOS/git-merge' "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+	tool = deltawalker
+[mergetool "deltawalker"]
+	cmd = '/Applications/DeltaWalker.app/Contents/MacOS/git-merge' "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [diff]
 	algorithm = histogram
