@@ -13,3 +13,9 @@
 [submodule "files/.vim/bundle/vim-tmux-navigator"]
 	path = files/.vim/bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "files/.vim/bundle/vim-bundler"]
+	path = files/.vim/bundle/vim-bundler
+	url = git://github.com/tpope/vim-bundler.git
+[submodule "files/.vim/bundle/vim-rails"]
+	path = files/.vim/bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
