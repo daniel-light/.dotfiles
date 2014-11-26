@@ -24,6 +24,7 @@
 	aa = add -A
 	d = diff
 	changes = !git diff $(git merge-base HEAD $1)
+	home = rev-parse --show-toplevel
 [merge]
 	tool = deltawalker
 [mergetool "deltawalker"]
