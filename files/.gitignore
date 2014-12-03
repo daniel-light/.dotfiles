@@ -1,7 +1,7 @@
 # Editor files #
 ################
-.swp
-.swo
+*.swp
+*.swo
 *.idea/*
 .DS*
 
