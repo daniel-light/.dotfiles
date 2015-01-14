@@ -23,11 +23,10 @@
 	amend = commit --amend --no-edit
 	aa = add -A
 	d = diff
-	changes = !git diff $(git merge-base HEAD $1)
 	home = rev-parse --show-toplevel
 	pp = pull --prune
 [merge]
-	tool = deltawalker
+	tool = vimdiff
 [mergetool "deltawalker"]
 	cmd = '/Applications/DeltaWalker.app/Contents/MacOS/git-merge' "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [diff]
