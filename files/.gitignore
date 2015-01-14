@@ -39,3 +39,7 @@
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# Local installation files #
+############################
+.bundle/*
