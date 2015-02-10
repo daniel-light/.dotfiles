@@ -24,7 +24,7 @@
 	aa = add -A
 	d = diff
 	home = rev-parse --show-toplevel
-	pp = pull --prune
+	f = fetch --prune --tags --recurse-submodules=on-demand
 [merge]
 	tool = vimdiff
 [mergetool "deltawalker"]
