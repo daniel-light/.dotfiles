@@ -1,10 +1,11 @@
+# path setup
+PATH_RBENV="$HOME/.rbenv/bin"
+PATH_HEROKU="/usr/local/heroku/bin"
+PATH_NPM="$HOME/.lib/npm/bin"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$PATH:/usr/local/heroku/bin"
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/$GOPATH/bin"
+export PATH="$HOME/bin:$PATH_RBENV:$GOPATH/bin:$PATH_NPM:$PATH:$PATH_HEROKU"
+
 #export GEM_HOME=$(ruby -e 'puts Gem.user_dir')
-#export BUNDLE_PATH="~/.bundler/gems"
 eval "$(rbenv init -)"
 
 
