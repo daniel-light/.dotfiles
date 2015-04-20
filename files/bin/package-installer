@@ -1,4 +1,11 @@
 #!/bin/sh
+set -e
 
 gem install bundle pry
 npm install -g gulp
+
+$HOME/.dotfiles
+git submodule init
+git submodule update
+# todo: you need to build the command-t extension it has to be built against the
+# same version of ruby as vim. See the README
