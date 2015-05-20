@@ -1,0 +1,5 @@
+#!/bin/sh
+
+dd if=/dev/zero of=/tmp/swap bs=1M count=1024
+mkswap /tmp/swap
+sudo swapon /tmp/swap
