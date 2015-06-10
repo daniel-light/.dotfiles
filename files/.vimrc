@@ -17,3 +17,13 @@ syntax on
 
 map ; :
 noremap ;; ;
+
+" tmux navigator plugin settings and mappings
+let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_save_on_switch = 0 " 0 is default
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
