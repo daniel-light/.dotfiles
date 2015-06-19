@@ -3,6 +3,7 @@ let g:go_disable_autoinstall = 1
 call pathogen#infect()
 call pathogen#helptags()
 
+set smartcase
 set ai
 set nosi
 set ts=4

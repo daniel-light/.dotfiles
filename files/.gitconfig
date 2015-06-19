@@ -31,3 +31,5 @@
 	cmd = '/Applications/DeltaWalker.app/Contents/MacOS/git-merge' "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [diff]
 	algorithm = histogram
+[rebase]
+	autosquash = true
