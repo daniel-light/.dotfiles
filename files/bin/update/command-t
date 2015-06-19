@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+# switch to the right directory (hopefully)
+cd "$HOME/.vim/bundle/command-t/ruby/command-t"
+
+### clean up step ###
+# some files do get generated during make that we need to keep after, so clean
+# them up before regeneration
+git reset HEAD --hard
+git checkout master
+git fetch
+git merge @{upstream}
+
+# you need to be using the ruby vim is linked against, which is usually system
+(type rbenv && rbenv local system) || (type rvm && rvm use system)
+ruby extconf.rb
+make

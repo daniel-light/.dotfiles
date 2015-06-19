@@ -1,23 +1,18 @@
 #!/bin/sh
 set -e
 
+# grab rbenv somehow
 gem install bundle pry
 npm install -g gulp
 
-$HOME/.dotfiles
+cd $HOME/.dotfiles
 git submodule init
 git submodule update
-# todo: you need to build the command-t extension it has to be built against the
-# same version of ruby as vim. See the README
-
+"$HOME/bin/update/command-t"
 
 #####
 # Update instructions
 # git submodule foreach "git checkout master && git pull"
-# command-t:
-#   switch to the vim-linked ruby (run :ruby puts "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}")
-#   cd to command-t/ruby/command-t
-#   ruby extconf.rb
-#   make
+# run scripts in update
 # vim-go:
 #   definitely requires some set up. Not sure about updating. :GoInstall maybe does it?
