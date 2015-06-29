@@ -3,7 +3,10 @@ let g:go_disable_autoinstall = 1
 call pathogen#infect()
 call pathogen#helptags()
 
+" you have to set both of these together
+set ignorecase
 set smartcase
+set hidden " automatically hide modified buffers ons switch
 set ai
 set nosi
 set ts=4
