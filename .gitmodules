@@ -28,3 +28,6 @@
 [submodule "files/.vim/bundle/vim-unimpaired"]
 	path = files/.vim/bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "files/.vim/bundle/vim-jsx"]
+	path = files/.vim/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
