@@ -1,3 +1,4 @@
+" I think this needs configured above the call to pathogen
 let g:go_disable_autoinstall = 1
 
 call pathogen#infect()
@@ -39,3 +40,5 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 " automatically expand %% to the current buffer's directory
 cnoremap <expr>	%% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+runtime macros/matchit.vim
