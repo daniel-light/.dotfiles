@@ -27,7 +27,8 @@ endif
 syntax on
 
 map ; :
-noremap ;; ;
+map ' ;
+noremap ;; '
 
 " tmux navigator plugin settings and mappings
 let g:tmux_navigator_no_mappings = 1
