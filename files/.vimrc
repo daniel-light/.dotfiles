@@ -4,13 +4,14 @@ let g:go_disable_autoinstall = 1
 call pathogen#infect()
 call pathogen#helptags()
 
+set ruler
+set hidden " automatically hide modified buffers ons switch
+
 " you have to set both of these together to get the expected behavior
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-
-set hidden " automatically hide modified buffers ons switch
 
 " indentation settings
 set ai
