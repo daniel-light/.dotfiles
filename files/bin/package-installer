@@ -3,7 +3,7 @@ set -e
 
 # grab rbenv somehow
 gem install bundle pry
-npm install -g gulp
+npm install -g gulp elm
 
 cd $HOME/.dotfiles
 git submodule init

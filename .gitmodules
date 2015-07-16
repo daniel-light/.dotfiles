@@ -31,3 +31,6 @@
 [submodule "files/.vim/bundle/vim-jsx"]
 	path = files/.vim/bundle/vim-jsx
 	url = git@github.com:mxw/vim-jsx.git
+[submodule "files/.vim/bundle/elm.vim"]
+	path = files/.vim/bundle/elm.vim
+	url = git@github.com:lambdatoast/elm.vim
