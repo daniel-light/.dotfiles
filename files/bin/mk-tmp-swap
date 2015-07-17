@@ -1,4 +1,6 @@
 #!/bin/sh
+-o nounset
+-o errexit
 
 BASE_DIR= $1
 OF= "$BASE_DIR/swap"
