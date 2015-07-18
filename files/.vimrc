@@ -6,6 +6,7 @@ call pathogen#helptags()
 
 set ruler
 set hidden " automatically hide modified buffers ons switch
+set visualbell " mutes the audio bell
 
 " you have to set both of these together to get the expected behavior
 set ignorecase
