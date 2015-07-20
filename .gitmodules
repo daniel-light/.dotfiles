@@ -37,3 +37,6 @@
 [submodule "files/.vim/bundle/rust.vim"]
 	path = files/.vim/bundle/rust.vim
 	url = git@github.com:rust-lang/rust.vim
+[submodule "files/.vim/bundle/vim-surround"]
+	path = files/.vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
