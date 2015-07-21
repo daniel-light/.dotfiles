@@ -3,5 +3,6 @@ set -o errexit
 
 NIGHTLY="nightly"
 CHANNEL=${1-$NIGHTLY}
+LOCATION="$HOME/bin"
 
-curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --channel="$CHANNEL"
+curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --channel=$CHANNEL --prefix=$PREFIX --yes
