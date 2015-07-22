@@ -22,6 +22,7 @@
 [submodule "files/.vim/bundle/command-t"]
 	path = files/.vim/bundle/command-t
 	url = git://git.wincent.com/command-t
+	ignore = dirty
 [submodule "files/.vim/bundle/vim-commentary"]
 	path = files/.vim/bundle/vim-commentary
 	url = git://github.com/tpope/vim-commentary.git
@@ -34,6 +35,7 @@
 [submodule "files/.vim/bundle/elm.vim"]
 	path = files/.vim/bundle/elm.vim
 	url = git@github.com:lambdatoast/elm.vim
+	ignore = dirty
 [submodule "files/.vim/bundle/rust.vim"]
 	path = files/.vim/bundle/rust.vim
 	url = git@github.com:rust-lang/rust.vim
