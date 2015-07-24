@@ -13,6 +13,7 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+hi Search ctermfg=grey ctermbg=0
 
 " indentation settings
 set ai
