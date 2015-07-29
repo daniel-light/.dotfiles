@@ -1,8 +1,0 @@
-#!/bin/sh
-set -o errexit
-
-NIGHTLY="nightly"
-CHANNEL=${1-$NIGHTLY}
-PREFIX="$HOME/bin"
-
-curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --channel=$CHANNEL --prefix=$PREFIX --yes
