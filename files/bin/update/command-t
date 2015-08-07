@@ -12,7 +12,6 @@ git checkout master
 git fetch
 git merge @{upstream}
 
-# you need to be using the ruby vim is linked against, which is usually system
-(type rbenv && rbenv local system) || (type rvm && rvm use system)
+### build step ###
 ruby extconf.rb
 make
