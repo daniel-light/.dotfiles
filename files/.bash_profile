@@ -6,8 +6,6 @@ export LSCOLORS=ExFxCxDxBxegedababagacad
 PS1="\t:\u:\W$ "
 
 alias be="bundle exec"
-alias bm="BUNDLE_GEMFILE=.MyGemfile bundle"
-alias bme="BUNDLE_GEMFILE=.MyGemfile bundle exec"
 alias g="git"
 
 if [ -f ~/.git-completion.bash ]; then

@@ -1,3 +1,6 @@
+set nocompatible " this is done automatically, just here for explicitness
+set modelines=0 " http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html
+
 " I think this needs configured above the call to pathogen
 let g:go_disable_autoinstall = 1
 
