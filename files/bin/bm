@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cp Gemfile .tmpGemfile
+cp Gemfile.lock .tmpGemfile.lock
+
+if [ -f .localBundler ]; then
+	source .localBundler
+fi
+
+BUNDLE_GEMFILE=".tmpGemfile" bundle install
+BUNDLE_GEMFILE=".tmpGemfile" bundle "$@"
