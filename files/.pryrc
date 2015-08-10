@@ -1,15 +1,16 @@
 Pry.config.editor = "vim"
 
+bye_bug_commands = ['continue', 'step', 'next', 'finish']
+
 if defined?(PryByebug)
-  Pry.commands.alias_command 'c', 'continue'
-  Pry.commands.alias_command 's', 'step'
-  Pry.commands.alias_command 'n', 'next'
-  Pry.commands.alias_command 'f', 'finish'
+  bye_bug_commands.each do |command|
+    Pry.commands.alias_command command.first, command
+  end
 end
 
 Pry::Commands.command /^$/, "repeat last command" do
   command = Pry.history.to_a.last
-  if ['continue', 'step', 'next', 'finish'].include?(command)
+  if bye_bug_commands.concat(bye_bug_commands.map(&:first)).include?(command)
     _pry_.run_command command
   end
 end
