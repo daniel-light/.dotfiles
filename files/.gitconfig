@@ -25,6 +25,8 @@
 	d = diff
 	home = rev-parse --show-toplevel
 	f = fetch --prune --tags --recurse-submodules=on-demand
+	m = merge
+	g = grep
 [merge]
 	tool = vimdiff
 [mergetool "deltawalker"]
@@ -33,3 +35,5 @@
 	algorithm = histogram
 [rebase]
 	autosquash = true
+[grep]
+	extendedRegexp = true
