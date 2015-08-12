@@ -61,3 +61,11 @@ function! s:VSetSearch()
 	let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
 	let @s = temp
 endfunction
+
+" falls back to find if git won't work. Find may break on some systems, use
+" ruby in that case
+let g:CommandTFileScanner = "git"
+" settings this to file instead will show all files in the directory
+let g:CommandTTraverseSCM = "pwd"
+let g:CommandTGitScanSubmodules = 1
+let g:CommandTScanDotDirectories = 1
