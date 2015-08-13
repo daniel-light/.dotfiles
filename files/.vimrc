@@ -69,3 +69,8 @@ let g:CommandTFileScanner = "git"
 let g:CommandTTraverseSCM = "pwd"
 let g:CommandTGitScanSubmodules = 1
 let g:CommandTScanDotDirectories = 1
+
+" fugitive leader key mappings
+nnoremap \gd :Gdiff
+nnoremap \gst :Gstatus
+nnoremap \gg :Ggrep
