@@ -62,9 +62,10 @@ function! s:VSetSearch()
 	let @s = temp
 endfunction
 
-" falls back to find if git won't work. Find may break on some systems, use
-" ruby in that case
-let g:CommandTFileScanner = "git"
+" setting to git will use git ls-files, which is faster, but breaks slightly
+" more often. git falls back to find if git won't work. Find may break on some
+" systems, use ruby in that case
+let g:CommandTFileScanner = "find"
 " settings this to file instead will show all files in the directory
 let g:CommandTTraverseSCM = "pwd"
 let g:CommandTGitScanSubmodules = 1
