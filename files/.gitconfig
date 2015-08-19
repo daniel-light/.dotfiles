@@ -27,6 +27,7 @@
 	f = fetch --prune --tags --recurse-submodules=on-demand
 	m = merge
 	g = grep
+	e = rebase
 [merge]
 	tool = vimdiff
 [mergetool "deltawalker"]
