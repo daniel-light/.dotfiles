@@ -46,3 +46,8 @@ Thumbs.db
 .tmpGemfile
 .tmpGemfile.lock
 .localBundler
+
+# automatically generated config files #
+########################################
+files/.config/fish/fish_history
+files/.config/fish/fishd.*
