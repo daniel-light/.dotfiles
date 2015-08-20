@@ -14,7 +14,6 @@
 	status = auto
 	ui = auto
 [alias]
-	st = status -sb
 	s = status -sb
 	ci = commit
 	check = diff --cached
@@ -29,6 +28,8 @@
 	m = merge
 	g = grep
 	e = rebase
+	l = log
+	a = add
 [merge]
 	tool = vimdiff
 [mergetool "deltawalker"]
