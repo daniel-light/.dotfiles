@@ -73,5 +73,6 @@ let g:CommandTScanDotDirectories = 1
 " fugitive leader key mappings
 nnoremap \g : :Git
 nnoremap \gd :Gdiff
+nnoremap \gs :Gstatus
 nnoremap \gst :Gstatus
 nnoremap \gg :Ggrep
