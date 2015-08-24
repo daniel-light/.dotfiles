@@ -65,14 +65,17 @@ endfunction
 " falls back to find if git won't work. Find may break on some systems, use
 " ruby in that case
 let g:CommandTFileScanner = "git"
-" settings this to file instead will show all files in the directory
-let g:CommandTTraverseSCM = "pwd"
+" file will show all files in the repo for the current file
+" pwd will show all files below pwd
+let g:CommandTTraverseSCM = "file"
 let g:CommandTGitScanSubmodules = 1
 let g:CommandTScanDotDirectories = 1
+let g:CommandTMatchWindowReverse = 1 " show match near bottom
 
 " fugitive leader key mappings
-nnoremap \g : :Git
-nnoremap \gd :Gdiff
-nnoremap \gg :Ggrep
-nnoremap \gl :Glog
-nnoremap \gs :Gstatus
+nnoremap \g   :Git
+nnoremap \gd  :Gdiff
+nnoremap \gg  :Ggrep
+nnoremap \gl  :Glog
+nnoremap \gs  :Gstatus
+nnoremap \gci :Gcommit
