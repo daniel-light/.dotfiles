@@ -18,11 +18,13 @@ fi
 export CC=gcc
 
 launchctl setenv PATH /opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-# MacPorts Installer addition on 2014-08-11_at_11:57:20: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+PATH_MACPORTS="/opt/local/bin:/opt/local/sbin"
+PATH_RBENV="$HOME/.rbenv/bin"
+PATH_HEROKU="/usr/local/heroku/bin"
+PATH_NPM="$HOME/.lib/npm/bin"
+PATH_RVM="$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export PATH="$HOME/bin:$PATH_RVM:$PATH_NPM:$PATH_MACPORTS:$PATH:$PATH_HEROKU"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-export PATH="$HOME/bin:$PATH"
