@@ -3,7 +3,7 @@ set -e
 
 # grab rbenv somehow
 gem install bundle pry
-npm install -g gulp elm
+npm install -g gulp elm coffee-script coffeelint
 
 cd $HOME/.dotfiles
 git submodule init
