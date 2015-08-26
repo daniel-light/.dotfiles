@@ -2,6 +2,7 @@
 set -e
 
 # grab rbenv somehow
+# and ctags
 gem install bundle pry
 npm install -g gulp elm coffee-script coffeelint
 

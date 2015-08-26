@@ -2,6 +2,7 @@
 ################
 *.swp
 *.swo
+Session.vim
 *.idea/*
 .DS*
 
