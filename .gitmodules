@@ -19,10 +19,6 @@
 [submodule "files/.vim/bundle/vim-rails"]
 	path = files/.vim/bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
-[submodule "files/.vim/bundle/command-t"]
-	path = files/.vim/bundle/command-t
-	url = git://git.wincent.com/command-t
-	ignore = dirty
 [submodule "files/.vim/bundle/vim-commentary"]
 	path = files/.vim/bundle/vim-commentary
 	url = git://github.com/tpope/vim-commentary.git
