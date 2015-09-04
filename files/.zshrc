@@ -11,3 +11,5 @@ fpath=($HOME/.config/zsh/zsh-completions/src $fpath)
 
 #options
 #PUSHD_MINUS
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
