@@ -7,7 +7,7 @@ alias -r ls='ls --color=auto' \
          gtypist='gtypist -b' \
          nv='nvim'
 
-fpath=($HOME/.config/zsh/zsh-completions/src $fpath)
+fpath=("$HOME/.config/zsh/zsh-completions/src" $fpath)
 
 #options
 #PUSHD_MINUS

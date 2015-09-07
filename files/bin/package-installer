@@ -1,21 +1,26 @@
 #!/bin/sh
 set -e
 
-# grab rbenv somehow
-# and ctags
-gem install bundle pry
-npm install -g gulp elm coffee-script coffeelint
+# brew install zsh node ctags
+# brew tap neovim/neovim
+# brew install --HEAD neovim
+# gem install bundle pry
+# npm install -g gulp elm coffee-script coffeelint
 
 $DOT_DIR = $HOME/.dotfiles
+$BUILD_DIR = $DOT_DIR/build
 
 cd $DOT_DIR
 git submodule init
 git submodule update
 "$HOME/bin/update/command-t"
-$DOT_DIR/build/fzf/install
+"$BUILD_DIR/build/fzf/install"
+# this will action put it in bin/share/whatever, which isn't actually what we want
+# PREFIX="$BIN_DIR" "$BUILD_DIR/ruby-build/install.sh"
 
 
-curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh
+multirust > /dev/null || \
+	curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh
 
 #####
 # Update instructions
