@@ -65,3 +65,9 @@
 [submodule "build/fzf"]
 	path = build/fzf
 	url = https://github.com/junegunn/fzf
+[submodule "files/.rbenv"]
+	path = files/.rbenv
+	url = https://github.com/sstephenson/rbenv
+[submodule "build/ruby-build"]
+	path = build/ruby-build
+	url = https://github.com/sstephenson/ruby-build
