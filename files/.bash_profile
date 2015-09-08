@@ -25,6 +25,7 @@ PATH_HEROKU="/usr/local/heroku/bin"
 PATH_NPM="$HOME/.lib/npm/bin"
 PATH_RVM="$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export PATH="$HOME/bin:$PATH_RVM:$PATH_NPM:$PATH_MACPORTS:$PATH:$PATH_HEROKU"
+export PATH="$HOME/bin:$PATH_RBENV:$PATH_RVM:$PATH_NPM:$PATH_MACPORTS:$PATH:$PATH_HEROKU"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+which rbenv > /dev/null && eval "$(rbenv init -)"
