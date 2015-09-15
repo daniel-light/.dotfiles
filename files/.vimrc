@@ -33,7 +33,6 @@ syntax on
 
 map ; :
 noremap ' ;
-noremap ;; ;
 
 " tmux navigator plugin settings and mappings
 let g:tmux_navigator_no_mappings = 1
@@ -77,4 +76,6 @@ nnoremap \gs  :Gstatus
 nnoremap \gci :Gcommit
 
 if has("nvim")
+	" terminal mode!
+	tnoremap <c-\> <c-\><c-n>
 end
