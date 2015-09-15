@@ -13,5 +13,7 @@ fpath=("$HOME/.config/zsh/zsh-completions/src" $fpath)
 
 #options
 #PUSHD_MINUS
+# don't treat aliases as separate commands for completion purposes
+setopt NO_COMPLETE_ALIASES
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
