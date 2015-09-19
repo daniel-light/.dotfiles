@@ -67,3 +67,6 @@
 [submodule "build/ruby-build"]
 	path = build/ruby-build
 	url = https://github.com/sstephenson/ruby-build
+[submodule "files/.vim/bundle/rainbow_parentheses"]
+	path = files/.vim/bundle/rainbow_parentheses
+	url = https://github.com/kien/rainbow_parentheses.vim
