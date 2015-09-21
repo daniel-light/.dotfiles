@@ -14,9 +14,15 @@ set visualbell " mutes the audio bell
 " you have to set both of these together to get the expected behavior
 set ignorecase
 set smartcase
+
+" search / search coloring
 set incsearch
 set hlsearch
 hi Search ctermfg=grey ctermbg=0
+
+" indent guides settings (black / darkgrey is default for dark colorschemes)
+hi IndentGuidesOdd  ctermbg=white
+hi IndentGuidesEven ctermbg=lightgrey
 
 " indentation settings
 set ai
@@ -56,10 +62,10 @@ runtime macros/matchit.vim
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 function! s:VSetSearch()
-	let temp = @s
-	norm! gv"sy
-	let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
-	let @s = temp
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+  let @s = temp
 endfunction
 
 " configure fzf
@@ -76,6 +82,6 @@ nnoremap \gs  :Gstatus
 nnoremap \gci :Gcommit
 
 if has("nvim")
-	" terminal mode!
-	tnoremap <c-\> <c-\><c-n>
+  " terminal mode!
+  tnoremap <c-\> <c-\><c-n>
 end
