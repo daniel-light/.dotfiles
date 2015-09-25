@@ -52,3 +52,7 @@ Thumbs.db
 ########################################
 files/.config/fish/fish_history
 files/.config/fish/fishd.*
+
+# Local tmp files #
+###################
+.nrepl-port
