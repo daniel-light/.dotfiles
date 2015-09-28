@@ -1,47 +1,60 @@
 [user]
 	name = Daniel Light
 	email = daniel.sj.light@gmail.com
+
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
 	autcrlf = input
+
 [push]
 	default = simple
+
 [color]
 	branch = auto
 	diff = auto
 	interactive = auto
 	status = auto
 	ui = auto
+
 [alias]
-	b = branch
-	s = status -sb
-	ci = commit
-	check = diff --cached
-	co = checkout
-	br = branch
-	wipe = !git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard
-	amend = commit --amend --no-edit
-	aa = add -A
-	d = diff
-	home = rev-parse --show-toplevel
-	f = fetch --prune --tags --recurse-submodules=on-demand
-	m = merge
-	g = grep
-	e = rebase
-	l = log
 	a = add
+	b = branch
+	d = diff
+	e = rebase
+	f = fetch --prune --tags --recurse-submodules=on-demand
+	g = grep
+	l = log
+	m = merge
+	s = status -sb
+
+	amend = commit --amend --no-edit
+	check = diff --cached
+	ci = commit
+	co = checkout
+	home = rev-parse --show-toplevel
+	wipe = !git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard
+
+	aa = add -A
+	br = branch
+
 [merge]
 	tool = vimdiff
+
 [mergetool "deltawalker"]
 	cmd = '/Applications/DeltaWalker.app/Contents/MacOS/git-merge' "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+
 [diff]
 	algorithm = histogram
+
 [rebase]
 	autosquash = true
+
 [grep]
 	extendedRegexp = true
+
 [commit]
 	template = ~/.gitmessage
+
 [init]
 	templatedir = ~/.git_template
