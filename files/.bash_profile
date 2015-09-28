@@ -8,6 +8,7 @@ PS1="\t:\u:\W$ "
 alias be="bundle exec"
 alias g="git"
 alias vim="/usr/bin/vim"
+alias nv="nvim"
 
 if [ -f ~/.git-completion.bash ]; then
 	  . ~/.git-completion.bash

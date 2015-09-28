@@ -51,7 +51,7 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 " nnoremap <silent> <c-s-l> :nohlsearch<cr><c-l>
-nnoremap <silent> <cr> :nohlsearch<cr>
+" nnoremap <silent> <cr> :nohlsearch<cr>
 
 " automatically expand %% to the current buffer's directory
 cnoremap <expr>	%% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
