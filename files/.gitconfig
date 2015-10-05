@@ -35,9 +35,6 @@
 	home = rev-parse --show-toplevel
 	wipe = !git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard
 
-	aa = add -A
-	br = branch
-
 [merge]
 	tool = vimdiff
 
