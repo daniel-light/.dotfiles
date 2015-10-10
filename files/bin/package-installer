@@ -4,27 +4,27 @@ set -e
 # brew install zsh node ctags
 # brew tap neovim/neovim
 # brew install --HEAD neovim
-# gem install bundle pry
+# gem install bundle pry rerun
 # npm install -g gulp elm coffee-script coffeelint
 
-$DOT_DIR = $HOME/.dotfiles
-$BUILD_DIR = $DOT_DIR/build
+DOT_DIR="$HOME/.dotfiles"
+BUILD_DIR="$DOT_DIR/build"
 
 cd $DOT_DIR
 git submodule init
 git submodule update
-"$HOME/bin/update/command-t"
-"$BUILD_DIR/build/fzf/install"
+"$BUILD_DIR/fzf/install"
 # this will action put it in bin/share/whatever, which isn't actually what we want
 # PREFIX="$BIN_DIR" "$BUILD_DIR/ruby-build/install.sh"
-
+mkdir "$HOME/.rbenv/plugins"
+ln -s "$DOT_DIR/build/ruby-build" "$HOME/.rbenv/plugins/ruby-build" 
 
 multirust > /dev/null || \
 	curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh
 
 #####
 # Update instructions
-# git submodule foreach "git checkout master && git pull"
+# git submodule update --remote
 # run scripts in update
 # vim-go:
 #   definitely requires some set up. Not sure about updating. :GoInstall maybe does it?
