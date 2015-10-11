@@ -1,20 +1,20 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" =~ "/Users/daniellight/.dotfiles/build/fzf/bin" ]]; then
-  export PATH="$PATH:/Users/daniellight/.dotfiles/build/fzf/bin"
+if [[ ! "$PATH" =~ "$HOME/.dotfiles/build/fzf/bin" ]]; then
+  export PATH="$PATH:$HOME/.dotfiles/build/fzf/bin"
 fi
 
 # Man path
 # --------
-if [[ ! "$MANPATH" =~ "/Users/daniellight/.dotfiles/build/fzf/man" && -d "/Users/daniellight/.dotfiles/build/fzf/man" ]]; then
-  export MANPATH="$MANPATH:/Users/daniellight/.dotfiles/build/fzf/man"
+if [[ ! "$MANPATH" =~ "$HOME/.dotfiles/build/fzf/man" && -d "$HOME/.dotfiles/build/fzf/man" ]]; then
+  export MANPATH="$MANPATH:$HOME/.dotfiles/build/fzf/man"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- =~ i ]] && source "/Users/daniellight/.dotfiles/build/fzf/shell/completion.bash" 2> /dev/null
+# [[ $- =~ i ]] && source "$HOME/.dotfiles/build/fzf/shell/completion.bash" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/Users/daniellight/.dotfiles/build/fzf/shell/key-bindings.bash"
+source "$HOME/.dotfiles/build/fzf/shell/key-bindings.bash"
 
