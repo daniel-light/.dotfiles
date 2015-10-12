@@ -2,7 +2,8 @@
 set -e
 set -n
 
-# inner arrays are laid out as: ubuntu, 
+# inner arrays are laid out as: ubuntu, homebrew
+# if there's only one, assume it's the same throughout
 TARGETS=(
 	(neovim)
 	(git)
@@ -10,7 +11,7 @@ TARGETS=(
 	(newsbeuter)
 	(postgresql)
 	(libpq-dev)
-	(avrdude)
+	(avrdude "avrdude --with-usb")
 	(avr-libc)
 	(emacs)
 	(jq)
