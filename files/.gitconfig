@@ -33,7 +33,6 @@
 	ci = commit
 	co = checkout
 	home = rev-parse --show-toplevel
-	wipe = !git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard
 
 [merge]
 	tool = vimdiff
