@@ -1,4 +1,3 @@
-set nocompatible " this is done automatically, just here for explicitness
 set modelines=0 " http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html
 
 " I think this needs configured above the call to pathogen
@@ -7,6 +6,7 @@ let g:go_disable_autoinstall = 1
 call pathogen#infect()
 call pathogen#helptags()
 
+set autoread " automatically reload buffers that have changed on disk
 set ruler
 set hidden " automatically hide modified buffers ons switch
 set visualbell " mutes the audio bell
