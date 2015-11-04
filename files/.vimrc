@@ -7,6 +7,8 @@ call pathogen#infect()
 call pathogen#helptags()
 
 set autoread " automatically reload buffers that have changed on disk
+au FocusGained,BufEnter * :checktime
+au BufEnter * :mks!
 set ruler
 set hidden " automatically hide modified buffers ons switch
 set visualbell " mutes the audio bell
