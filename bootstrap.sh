@@ -1,37 +1,34 @@
-#!/bin/sh
-set -e
-set -n
-
-# inner arrays are laid out as: ubuntu, homebrew
-# if there's only one, assume it's the same throughout
-TARGETS=(
-	(neovim)
-	(git)
-	(oracle-java8-installer)
-	(newsbeuter)
-	(postgresql)
-	(libpq-dev)
-	(avrdude "avrdude --with-usb")
-	(avr-libc)
-	(emacs)
-	(jq)
-)
+#!/bin/bash
+# TODO don't require bash?
 
 if [ $(which apt-get) ]; then
-	sudo add-apt-repository ppa:neovim-ppa/unstable
-	sudo add-apt-repository ppa:git-core/ppa
-	sudo add-apt-repository ppa:webupd8team/java
+
+	sudo add-apt-repository -y ppa:neovim-ppa/unstable
+	sudo add-apt-repository -y ppa:git-core/ppa
+	sudo add-apt-repository -y ppa:webupd8team/java
 
 	sudo apt-get update
 
-	for target in ${TARGETS[@]}; do
-		sudo apt-get install -y $target
-	done
+	sudo apt-get install -y \
+                neovim \
+                git \
+                oracle-java8-installer \
+                newsbeuter \
+                postgresql \
+                libpq-dev \
+                avrdude \
+                avr-libc \
+                emacs \
+                jq
 
-	# sudo apt-get install -y neovim \ # ppa:neovim-ppa
-	# 						git \ # ppa:git-core
-	# 						oracle-java8-installer \ # ppa:webupd8team
-	# 						newsbeuter \ # random userland
-	# 						postgresql libpq-dev \
-	# 						avrdude gcc-avr avr-libc emacs jq # for atreus firmware
+fi
+
+# this doesn't work right now
+if [ $(which brew) ]; then
+
+	# some notes for self
+	# "--HEAD neovim"
+	# "avrdude --with-usb"
+
+	brew tap neovim/neovim
 fi

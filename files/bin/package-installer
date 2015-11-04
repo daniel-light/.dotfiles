@@ -2,8 +2,6 @@
 set -e
 
 # brew install zsh node ctags
-# brew tap neovim/neovim
-# brew install --HEAD neovim
 # gem install bundle pry rerun
 # npm install -g gulp elm coffee-script coffeelint
 
