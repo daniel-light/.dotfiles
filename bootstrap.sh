@@ -19,16 +19,18 @@ if [ $(which apt-get) ]; then
                 avrdude \
                 avr-libc \
                 emacs \
-                jq
+                jq \
+				zsh \
+				p7zip
 
 fi
 
 # this doesn't work right now
 if [ $(which brew) ]; then
 
-	# some notes for self
-	# "--HEAD neovim"
-	# "avrdude --with-usb"
-
 	brew tap neovim/neovim
+
+	brew install --HEAD neovim
+	brew install avrdude --with-usb
+	brew install node zsh p7zip
 fi
