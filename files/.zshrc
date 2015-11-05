@@ -7,7 +7,7 @@ ls '--color=auto' > /dev/null 2>&1 && alias -r ls='ls --color=auto' || alias -r 
 alias -r bx='bundle exec' be='bundle exec' \
          g='git' \
          gtypist='gtypist -b' \
-         nv='nvim -S'
+         nv='nvim'
 
 fpath=("$HOME/.config/zsh/zsh-completions/src" $fpath)
 

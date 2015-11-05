@@ -3,7 +3,7 @@ set -e
 
 # brew install zsh node ctags
 # gem install bundle pry rerun
-# npm install -g gulp elm coffee-script coffeelint
+# npm install -g gulp coffee-script coffeelint eslint
 
 DOT_DIR="$HOME/.dotfiles"
 BUILD_DIR="$DOT_DIR/build"
