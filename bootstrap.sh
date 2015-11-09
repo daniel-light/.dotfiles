@@ -28,9 +28,12 @@ fi
 # this doesn't work right now
 if [ $(which brew) ]; then
 
-	brew tap neovim/neovim
+	brew tap homebrew/dupes
+	brew install grep --with-default-names
 
+	brew tap neovim/neovim
 	brew install --HEAD neovim
+
 	brew install avrdude --with-usb
 	brew install node zsh p7zip
 fi

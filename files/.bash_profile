@@ -30,3 +30,7 @@ export PATH="$HOME/bin:$PATH_RBENV:$PATH_RVM:$PATH_NPM:$PATH_MACPORTS:$PATH:$PAT
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 which rbenv > /dev/null && eval "$(rbenv init -)"
+
+if [ -e ~/ab/localdev/.profile ]; then
+	source ~/ab/localdev/.profile
+fi
