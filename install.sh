@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -u #-o nounset
 set -e #-o errexit
 

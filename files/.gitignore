@@ -44,9 +44,9 @@ Thumbs.db
 # Local installation files #
 ############################
 .bundle/*
-.tmpGemfile
-.tmpGemfile.lock
-.localBundler
+Gemfile.tmp
+Gemfile.tmp.lock
+.local-gems
 
 # automatically generated config files #
 ########################################

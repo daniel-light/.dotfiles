@@ -1,2 +1,24 @@
 #!/bin/sh
+
 .git/hooks/ctags >/dev/null 2>&1 &
+
+base_dir=`pwd`
+
+for dir in . */; do
+
+	if [ -d "$dir" ]; then
+		if [ -f "${dir}/.local-gems" ]; then
+
+			cp "${dir}/Gemfile" "${dir}/Gemfile.tmp"
+			cp "${dir}/Gemfile.lock" "${dir}/Gemfile.tmp.lock"
+
+			cat "${dir}/.local-gems" >> "${dir}/Gemfile.tmp"
+
+			cd $dir
+			bundle config --local gemfile "Gemfile.tmp"
+			bundle install
+			cd $base_dir
+
+		fi
+	fi
+done
