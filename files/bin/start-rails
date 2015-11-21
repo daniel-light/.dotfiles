@@ -1,3 +1,10 @@
-#!/bin/sh
+#!/bin/zsh
 
-tmux new-session 'for i in $(seq 6); do; tmux new-window "bundle exec rails s -p 300${i} -P tmp/pids/server${i}.pid"; done; zsh --login'
+tmux new-window "bundle exec rails c"
+
+for i in $(seq 6); do
+	tmux new-window "bundle exec rails s -p 300${i} -P tmp/pids/server${i}.pid"
+done
+
+tmux new-window "bundle exec spork"
+tmux new-window "bundle exec rake konacha:serve"
