@@ -1,0 +1,3 @@
+#!/bin/sh
+
+tmux new-session 'for i in $(seq 6); do; tmux new-window "bundle exec rails s -p 300${i} -P tmp/pids/server${i}.pid"; done; zsh --login'
