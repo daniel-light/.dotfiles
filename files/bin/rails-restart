@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+killall ruby
+sleep 1
+kill -kill ruby
+rails-start
