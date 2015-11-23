@@ -56,3 +56,4 @@ files/.config/fish/fishd.*
 # Local tmp files #
 ###################
 .nrepl-port
+.byebug_history
