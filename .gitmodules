@@ -74,3 +74,6 @@
 [submodule "files/.vim/bundle/vim-indent-guides"]
 	path = files/.vim/bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
+[submodule "files/.vim/bundle/vim-sleuth"]
+	path = files/.vim/bundle/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
