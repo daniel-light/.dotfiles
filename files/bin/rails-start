@@ -1,10 +1,12 @@
 #!/bin/zsh
 
-tmux new-window "bundle exec rails c"
+tmux new-window -d -n "dashboard-console" "bundle exec rails c"
 
 for i in $(seq 6); do
-	tmux new-window "bundle exec rails s -p 300${i} -P tmp/pids/server${i}.pid"
+	formatted_i="$(printf "%02d" $i)"
+
+	tmux new-window -d -n "dashboard-server-${formatted_i}" "bundle exec rails s -p 30${formatted_i} -P tmp/pids/server-${formatted_i}.pid"
 done
 
-tmux new-window "bundle exec spork"
-tmux new-window "bundle exec rake konacha:serve"
+tmux new-window -d -n "dashboard-spork" "bundle exec spork"
+tmux new-window -d -n "dashboard-konacha" "bundle exec rake konacha:serve"

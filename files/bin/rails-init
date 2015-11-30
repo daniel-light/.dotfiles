@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-tmux new-window "tail -F log/development.log"
+tmux new-window -d -n "dashboard-log-development"  "tail -F log/development.log"
+
 # tmux new-window "rerun -x -i "{app,spec}
 rails-start
-zsh
