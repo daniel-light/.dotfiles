@@ -8,6 +8,7 @@ call pathogen#helptags()
 
 set autoread " automatically reload buffers that have changed on disk
 au FocusGained,BufEnter * :checktime
+au FocusLost * silent! wa
 
 set ruler
 set hidden " automatically hide modified buffers ons switch
