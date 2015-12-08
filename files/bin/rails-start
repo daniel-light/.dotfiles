@@ -1,12 +1,18 @@
 #!/bin/zsh
 
-tmux new-window -d -n "dashboard-console" "bundle exec rails c"
+app_name=$(basename $(pwd))
+
+mkdir -p log
+touch log/development.log
+tmux new-window -d -n "${app_name}-log-development"  "tail -F log/development.log"
+
+tmux new-window -d -n "${app_name}-console" "bundle exec ruby -W0 script/rails c"
 
 for i in $(seq 6); do
 	formatted_i="$(printf "%02d" $i)"
 
-	tmux new-window -d -n "dashboard-server-${formatted_i}" "bundle exec rails s -p 30${formatted_i} -P tmp/pids/server-${formatted_i}.pid"
+	tmux new-window -d -n "${app_name}-server-${formatted_i}" "bundle exec ruby -W0 script/rails s -p 30${formatted_i} -P tmp/pids/server-${formatted_i}.pid"
 done
 
-tmux new-window -d -n "dashboard-spork" "bundle exec spork"
-tmux new-window -d -n "dashboard-konacha" "bundle exec rake konacha:serve"
+tmux new-window -d -n "${app_name}-spork" "bundle exec spork"
+tmux new-window -d -n "${app_name}-konacha" "bundle exec rake konacha:serve"
