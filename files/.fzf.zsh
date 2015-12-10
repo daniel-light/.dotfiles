@@ -17,4 +17,3 @@ fi
 # Key bindings
 # ------------
 source "$HOME/.dotfiles/build/fzf/shell/key-bindings.zsh"
-

@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+app_name=$(basename $(pwd))
+
+for window in $(tmux list-windows -F "#{window_name}" | grep $app_name); do
+	tmux kill-window -t $window
+done
