@@ -23,9 +23,23 @@ if [ $(which apt-get) ]; then
 				zsh \
 				p7zip
 
+# TODO install node / npm
+npm install -g grunt gulp \
+               jshint eslint \
+               coffee-script coffeelint
+
+# TODO install ruby
+gem install bundler pry rerun
+
+multirust > /dev/null || \
+	curl -sf \
+	https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh
+multirust update
+
 fi
 
 # this doesn't work right now
+# also this package list is not up to date
 if [ $(which brew) ]; then
 
 	brew tap homebrew/dupes

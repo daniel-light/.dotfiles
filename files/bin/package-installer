@@ -2,8 +2,6 @@
 set -e
 
 # brew install zsh node ctags
-# gem install bundle pry rerun
-# npm install -g gulp coffee-script coffeelint eslint
 
 DOT_DIR="$HOME/.dotfiles"
 BUILD_DIR="$DOT_DIR/build"
@@ -17,8 +15,6 @@ git submodule update
 mkdir "$HOME/.rbenv/plugins"
 ln -s "$DOT_DIR/build/ruby-build" "$HOME/.rbenv/plugins/ruby-build" 
 
-multirust > /dev/null || \
-	curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh
 
 #####
 # Update instructions

@@ -11,7 +11,8 @@ alias -r bx='bundle exec' be='bundle exec' \
 
 fpath=("$HOME/.config/zsh/zsh-completions/src" $fpath)
 
-autoload -Uz compinit && compinit
+# this is slow, need a better place for it
+# autoload -Uz compinit && compinit
 
 #options
 #PUSHD_MINUS
