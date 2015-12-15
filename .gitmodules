@@ -77,3 +77,9 @@
 [submodule "files/.vim/bundle/vim-sleuth"]
 	path = files/.vim/bundle/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
+[submodule "files/.vim/bundle/vim-eco"]
+	path = files/.vim/bundle/vim-eco
+	url = https://github.com/AndrewRadev/vim-eco
+[submodule "files/.vim/bundle/supertab"]
+	path = files/.vim/bundle/supertab
+	url = https://github.com/ervandew/supertab

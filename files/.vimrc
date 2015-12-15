@@ -7,9 +7,10 @@ call pathogen#infect()
 call pathogen#helptags()
 
 set autoread " automatically reload buffers that have changed on disk
-au FocusGained,BufEnter * :checktime
+au FocusGained,BufEnter * :checktime " hopefully notice when files do change
+:au FocusLost * silent! wa " hopefully save things when focus is lost
 
-set ruler
+set ruler " the numbers in the lower right corner
 set hidden " automatically hide modified buffers ons switch
 set visualbell " mutes the audio bell
 
@@ -41,6 +42,7 @@ syntax on
 
 map ; :
 noremap ' ;
+map Q <Nop>
 
 " tmux navigator plugin settings and mappings
 let g:tmux_navigator_no_mappings = 1
@@ -51,9 +53,6 @@ nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
-
-" nnoremap <silent> <c-s-l> :nohlsearch<cr><c-l>
-" nnoremap <silent> <cr> :nohlsearch<cr>
 
 " automatically expand %% to the current buffer's directory
 cnoremap <expr>	%% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -75,6 +74,8 @@ let $FZF_DEFAULT_COMMAND="find ."
 set rtp+=~/.dotfiles/build/fzf
 nnoremap \t :FZF<cr>
 
+cmap w!! w !sudo tee % > /dev/null
+
 " fugitive leader key mappings
 nnoremap \g   :Git
 nnoremap \gd  :Gdiff
@@ -82,6 +83,9 @@ nnoremap \gg  :Ggrep
 nnoremap \gl  :Glog
 nnoremap \gs  :Gstatus
 nnoremap \gci :Gcommit
+
+" autocomplete stuff
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 if has("nvim")
   " terminal mode!
