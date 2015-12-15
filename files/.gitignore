@@ -57,3 +57,4 @@ files/.config/fish/fishd.*
 ###################
 .nrepl-port
 .byebug_history
+node_modules
