@@ -2,6 +2,10 @@
 
 app_name=$(basename $(pwd))
 
+for pidfile in $(ls tmp/pids); do
+	kill -TERM $(cat tmp/pids/$pidfile)
+done
+
 for window in $(tmux list-windows -F "#{window_name}" | grep $app_name); do
-	tmux kill-window -t $window
+	tmux kill-window -t $window # this chokes if there are multiple windows that match a given name
 done
