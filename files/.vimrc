@@ -1,6 +1,6 @@
 set modelines=0 " http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html
 
-" I think this needs configured above the call to pathogen
+" set this above the call to pathogen (so it doesn't get set off)
 let g:go_disable_autoinstall = 1
 
 call pathogen#infect()
@@ -52,10 +52,6 @@ nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
-
-" automatically expand %% to the current buffer's directory
-cnoremap <expr>	%% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 runtime macros/matchit.vim
 
@@ -74,8 +70,6 @@ let $FZF_DEFAULT_COMMAND="find ."
 set rtp+=~/.dotfiles/build/fzf
 nnoremap \t :FZF<cr>
 
-cmap w!! w !sudo tee % > /dev/null
-
 " fugitive leader key mappings
 nnoremap \g   :Git
 nnoremap \gd  :Gdiff
@@ -91,3 +85,14 @@ if has("nvim")
   " terminal mode!
   tnoremap <c-\> <c-\><c-n>
 end
+
+function! ReopenInSplit()
+  execute "normal! \<c-^>"
+  execute "vsplit #"
+endfunction
+
+" custom commands
+
+cmap w!! w !sudo tee % > /dev/null
+
+command! ReopenInSplit call ReopenInSplit()
