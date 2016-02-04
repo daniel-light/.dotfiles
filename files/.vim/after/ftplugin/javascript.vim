@@ -6,3 +6,5 @@ setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * :%s/\s\+$//e
 
 let jshint2_save = 1
+
+let syntastic_javascript_checkers = ['eslint']
