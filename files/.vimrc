@@ -6,6 +6,8 @@ let g:go_disable_autoinstall = 1
 call pathogen#infect()
 call pathogen#helptags()
 
+" set mouse= " rodents, man
+
 set autoread " automatically reload buffers that have changed on disk
 au FocusGained,BufEnter * :checktime " hopefully notice when files do change
 :au FocusLost * silent! wa " hopefully save things when focus is lost
@@ -66,7 +68,6 @@ function! s:VSetSearch()
 endfunction
 
 " configure fzf
-let $FZF_DEFAULT_COMMAND="find ."
 set rtp+=~/.dotfiles/build/fzf
 nnoremap \t :FZF<cr>
 
