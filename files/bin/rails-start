@@ -11,7 +11,13 @@ tmux new-window -d -n "${app_name}-console" "bundle exec ruby -W0 script/rails c
 for i in $(seq 6); do
 	formatted_i="$(printf "%02d" $i)"
 
-	tmux new-window -d -n "${app_name}-server-${formatted_i}" "bundle exec ruby -W0 script/rails s -p 30${formatted_i} -P tmp/pids/server-${formatted_i}.pid"
+	if [ $i -eq 1 ]; then
+		rails_s_flags="--debugger"
+	else
+		rails_s_flags=""
+	fi
+
+	tmux new-window -d -n "${app_name}-server-${formatted_i}" "bundle exec ruby -W0 script/rails s ${rails_s_flags} -p 30${formatted_i} -P tmp/pids/server-${formatted_i}.pid"
 done
 
 tmux new-window -d -n "${app_name}-spork" "bundle exec spork"
