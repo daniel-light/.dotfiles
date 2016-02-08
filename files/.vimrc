@@ -42,6 +42,8 @@ if has("autocmd")
 endif
 syntax on
 
+let g:syntastic_enable_highlighting = 0
+
 map ; :
 noremap ' ;
 map Q <Nop>
