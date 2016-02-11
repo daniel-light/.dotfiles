@@ -10,7 +10,8 @@ call pathogen#helptags()
 
 set autoread " automatically reload buffers that have changed on disk
 au FocusGained,BufEnter * :checktime " hopefully notice when files do change
-:au FocusLost * silent! wa " hopefully save things when focus is lost
+au FocusLost * silent! wa " hopefully save things when focus is lost
+au BufWrite * silent! :Neomake
 
 set ruler " the numbers in the lower right corner
 set hidden " automatically hide modified buffers ons switch
@@ -42,7 +43,7 @@ if has("autocmd")
 endif
 syntax on
 
-let g:syntastic_enable_highlighting = 0
+" let g:syntastic_enable_highlighting = 0
 
 map ; :
 noremap ' ;

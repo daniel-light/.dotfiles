@@ -7,4 +7,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 let jshint2_save = 1
 
-let syntastic_javascript_checkers = ['eslint']
+" let syntastic_javascript_checkers = ['eslint']
+
+let g:neomake_javascript_enabled_makers = ['eslint']
