@@ -33,6 +33,7 @@
 	ci = commit
 	co = checkout
 	home = rev-parse --show-toplevel
+	dsf = "!git diff --color $@ | diff-highlight | diff-so-fancy | less --RAW-CONTROL-CHARS"
 
 [merge]
 	tool = vimdiff
