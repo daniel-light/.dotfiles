@@ -9,10 +9,14 @@ alias -r bx='bundle exec' be='bundle exec' \
          gtypist='gtypist -b' \
          nv='nvim'
 
-fpath=("$HOME/.config/zsh/zsh-completions/src" $fpath)
+fpath=(
+         "$HOME/.config/zsh/zsh-completions/src"
+         # /usr/local/share/zsh-completions # for homebrew
+         $fpath
+)
 
 # this is slow, need a better place for it
-# autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit
 
 #options
 #PUSHD_MINUS
