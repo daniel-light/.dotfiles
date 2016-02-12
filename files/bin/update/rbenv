@@ -1,7 +1,0 @@
-#!/bin/sh
-set -e
-
-cd ~/.rbenv
-git pull
-cd plugins
-for d in * ; do cd "$d" && git pull ; cd ~/.rbenv/plugins ; done
