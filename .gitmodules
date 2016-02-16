@@ -83,9 +83,6 @@
 [submodule "files/.vim/bundle/supertab"]
 	path = files/.vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
-[submodule "files/.vim/bundle/syntastic"]
-	path = files/.vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "files/.vim/bundle/neomake"]
 	path = files/.vim/bundle/neomake
 	url = https://github.com/benekastah/neomake

@@ -43,11 +43,11 @@ if has("autocmd")
 endif
 syntax on
 
-" let g:syntastic_enable_highlighting = 0
-
 map ; :
 noremap ' ;
 map Q <Nop>
+" J for Join, K for Krack?
+nnoremap K mmi<cr><esc>`m
 
 " tmux navigator plugin settings and mappings
 let g:tmux_navigator_no_mappings = 1
