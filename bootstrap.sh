@@ -17,10 +17,7 @@ if [ $(which apt-get) ]; then
 # TODO install ruby
 # cat straps/gems | xargs gem install
 
-multirust > /dev/null || \
-	curl -sf \
-	https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh
-multirust update
+	curl https://sh.rustup.rs -sSf | sh
 
 fi
 
