@@ -27,14 +27,14 @@
 	url = git://github.com/tpope/vim-unimpaired.git
 [submodule "files/.vim/bundle/vim-jsx"]
 	path = files/.vim/bundle/vim-jsx
-	url = git@github.com:mxw/vim-jsx.git
+	url = https://github.com/mxw/vim-jsx.git
 [submodule "files/.vim/bundle/elm.vim"]
 	path = files/.vim/bundle/elm.vim
-	url = git@github.com:lambdatoast/elm.vim
+	url = https://github.com/lambdatoast/elm.vim
 	ignore = dirty
 [submodule "files/.vim/bundle/rust.vim"]
 	path = files/.vim/bundle/rust.vim
-	url = git@github.com:rust-lang/rust.vim
+	url = https://github.com/rust-lang/rust.vim
 [submodule "files/.vim/bundle/vim-surround"]
 	path = files/.vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
