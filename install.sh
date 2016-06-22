@@ -9,6 +9,7 @@ olddir='old'
 
 mkdir -p $dir/$contentdir $dir/$olddir && echo 'Creating directory structure'
 
+# make symlinks for dotfiles, saving existing files
 cd $dir/$contentdir
 for file in $(ls -A); do
 	if [ "$(readlink $HOME/$file)" != "$dir/$contentdir/$file" ]; then
@@ -16,3 +17,8 @@ for file in $(ls -A); do
 		ln -s $dir/$contentdir/$file ~/$file && echo "Link ~/$file to $dir/$contentdir/$file"
 	fi
 done
+
+# fetch all of the expected submodules
+cd $dir
+git submodule init
+git submodule update
