@@ -3,13 +3,16 @@
 
 if [ $(which apt-get) ]; then
 
+	sudo apt-get install -y software-properties-common # required for add-apt-repository
+
 	sudo add-apt-repository -y ppa:neovim-ppa/unstable
 	sudo add-apt-repository -y ppa:git-core/ppa
 	sudo add-apt-repository -y ppa:webupd8team/java
 
 	sudo apt-get update
 
-	cat straps/pkgs.apt-get | xargs sudo apt-get install -y
+	# just install a minimal set of useful packages in the bootstrap for now
+	cat straps/pkgs.apt-get.core | xargs sudo apt-get install -y
 
 # TODO install node / npm
 # cat straps/npms | xargs npm install -g
@@ -17,7 +20,7 @@ if [ $(which apt-get) ]; then
 # TODO install ruby
 # cat straps/gems | xargs gem install
 
-	curl https://sh.rustup.rs -sSf | sh
+#	curl https://sh.rustup.rs -sSf | sh
 
 fi
 

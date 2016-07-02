@@ -17,8 +17,3 @@ for file in $(ls -A); do
 		ln -s $dir/$contentdir/$file ~/$file && echo "Link ~/$file to $dir/$contentdir/$file"
 	fi
 done
-
-# fetch all of the expected submodules
-cd $dir
-git submodule init
-git submodule update
