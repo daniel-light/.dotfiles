@@ -3,5 +3,7 @@ avrdude
 emacs
 jq
 libpq-dev
-oracle-java8-installer
+libreadline-dev
+libssl-dev
 postgresql
+zlib1g-dev

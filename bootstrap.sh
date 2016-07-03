@@ -7,18 +7,22 @@ if [ $(which apt-get) ]; then
 
 	sudo add-apt-repository -y ppa:neovim-ppa/unstable
 	sudo add-apt-repository -y ppa:git-core/ppa
-	sudo add-apt-repository -y ppa:webupd8team/java
 
 	sudo apt-get update
 
 	# just install a minimal set of useful packages in the bootstrap for now
 	cat straps/pkgs.apt-get.core | xargs sudo apt-get install -y
 
+	if [ "$1" == "full" ]; then
+		cat straps/pkgs.apt-get.cli | xargs sudo apt-get install -y
+		cat straps/pkgs.apt-get.x11 | xargs sudo apt-get install -y
+		cat straps/pkgs.apt-get.extra | xargs sudo apt-get install -y
+	fi
+
 # TODO install node / npm
 # cat straps/npms | xargs npm install -g
 
 # TODO install ruby
-# cat straps/gems | xargs gem install
 
 #	curl https://sh.rustup.rs -sSf | sh
 
@@ -46,8 +50,19 @@ BUILD_DIR="$DOT_DIR/build"
 cd $DOT_DIR
 git submodule init
 git submodule update
-"$BUILD_DIR/fzf/install"
-# this will action put it in bin/share/whatever, which isn't actually what we want
-# PREFIX="$BIN_DIR" "$BUILD_DIR/ruby-build/install.sh"
-mkdir "$HOME/.rbenv/plugins"
-ln -s "$DOT_DIR/build/ruby-build" "$HOME/.rbenv/plugins/ruby-build" 
+
+"$BUILD_DIR/fzf/install" --bin # --bin so that it doesn't prompt or fuck with our config
+
+# this will action put it in bin/share/whatever, which isn't actually what we want # don't know what this comment is about anymore, maybe the output of fzf install?
+
+mkdir -p "$HOME/.rbenv/plugins"
+if [ ! -e "$HOME/.rbenv/plugins" ]; then 
+	ln -s "$DOT_DIR/build/ruby-build" "$HOME/.rbenv/plugins/ruby-build" 
+fi
+
+if [ "$1" == "full" ]; then
+	# this is definitely a good way to install ruby
+	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv install
+	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv global # what shell variables? nonsense
+	# cat straps/gems | xargs gem install
+fi
