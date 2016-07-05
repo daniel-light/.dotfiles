@@ -1,6 +1,16 @@
 #!/usr/bin/env ruby
 
+require 'tempfile'
+
 query_param = ARGV.join('+')
 ddg_url = "https://duckduckgo.com/?q=#{query_param}"
 
-exec("surf #{ddg_url}")
+DDG_BASE_COOKIE_FILE = "#{ENV['HOME']}/cookies/ddg.base"
+
+cookie_file = Tempfile.new
+if File::readable?(DDG_BASE_COOKIE_FILE)
+  cookie_file.write(File.read(DDG_BASE_COOKIE_FILE))
+  cookie_file.flush
+end
+
+exec("surf -c #{cookie_file.path} #{ddg_url}")
