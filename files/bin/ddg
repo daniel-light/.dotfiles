@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+query_param = ARGV.join('+')
+ddg_url = "https://duckduckgo.com/?q=#{query_param}"
+
+exec("surf #{ddg_url}")
