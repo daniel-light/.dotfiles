@@ -1,0 +1,11 @@
+#!/bin/sh
+
+DEVICE_ID=$(xinput list | grep [Tt]ouch[Pp]ad | cut -d = -f 2 | cut -f 1)
+STATE=$(xinput list-props $DEVICE_ID | grep 'Device Enabled' | cut -f 3)
+
+if [ $STATE -eq 1 ]; then
+	xinput disable $DEVICE_ID
+else
+	xinput enable $DEVICE_ID
+fi
+
