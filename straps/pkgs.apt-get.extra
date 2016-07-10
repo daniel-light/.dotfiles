@@ -1,9 +1,20 @@
+# lastpass-cli
+openssl
+libcurl4-openssl-dev
+libxml2
+libssl-dev
+libxml2-dev
+pinentry-curses
+xclip
+# other stuff
 avr-libc
 avrdude
 emacs
 jq
+libfontconfig-dev
 libpq-dev
 libreadline-dev
 libssl-dev
+libx11-dev
 postgresql
 zlib1g-dev

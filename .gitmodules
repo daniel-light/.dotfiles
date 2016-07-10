@@ -86,3 +86,6 @@
 [submodule "files/.vim/bundle/neomake"]
 	path = files/.vim/bundle/neomake
 	url = https://github.com/benekastah/neomake
+[submodule "build/lastpass-cli"]
+	path = build/lastpass-cli
+	url = git@github.com:lastpass/lastpass-cli

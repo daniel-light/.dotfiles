@@ -1,6 +1,9 @@
 #!/bin/bash
 # TODO don't require bash?
 
+# this script aspires to be an automagic installer, but in reality it's more of
+# a guide to answer "how the fuck did I do this last time"
+
 if [ $(which apt-get) ]; then
 
 	sudo apt-get install -y software-properties-common # required for add-apt-repository
@@ -65,4 +68,11 @@ if [ "$1" == "full" ]; then
 	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv install
 	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv global # what shell variables? nonsense
 	# cat straps/gems | xargs gem install
+fi
+
+if [ "$1" == "full" ]; then
+	cd "$BUILD_DIR/lastpass-cli"
+	make
+	sudo make install
+	sudo make install-doc # this is missing a dep atm
 fi
