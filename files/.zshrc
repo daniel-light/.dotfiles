@@ -24,3 +24,8 @@ autoload -Uz compinit && compinit
 setopt NO_COMPLETE_ALIASES
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# history settings
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=100
+SAVEHIST=100
