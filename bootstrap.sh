@@ -74,5 +74,6 @@ if [ "$1" == "full" ]; then
 	cd "$BUILD_DIR/lastpass-cli"
 	make
 	sudo make install
-	sudo make install-doc # this is missing a dep atm
+	# sudo apt-get install asciidoc # this will annihilate your disk space
+	# sudo make install-doc
 fi

@@ -11,6 +11,7 @@ alias -r bx='bundle exec' be='bundle exec' \
 
 fpath=(
          "$HOME/.config/zsh/zsh-completions/src"
+         "$HOME/.config/zsh/more-completions"
          # /usr/local/share/zsh-completions # for homebrew
          $fpath
 )
