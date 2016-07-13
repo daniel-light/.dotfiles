@@ -1,4 +1,5 @@
 bundler
+dotenv
 pry
 rerun
 sinatra

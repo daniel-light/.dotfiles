@@ -1,12 +1,3 @@
-# lastpass-cli
-openssl
-libcurl4-openssl-dev
-libxml2
-libssl-dev
-libxml2-dev
-pinentry-curses
-xclip
-# other stuff
 avr-libc
 avrdude
 emacs
@@ -18,3 +9,13 @@ libssl-dev
 libx11-dev
 postgresql
 zlib1g-dev
+
+openssl
+libcurl4-openssl-dev
+libxml2
+libssl-dev
+libxml2-dev
+pinentry-curses
+xclip
+
+libwebkitgtk-4.0-dev
