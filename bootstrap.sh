@@ -4,6 +4,18 @@
 # this script aspires to be an automagic installer, but in reality it's more of
 # a guide to answer "how the fuck did I do this last time"
 
+selected_targets=("$@")
+
+function is_target {
+	for target in $selected_targets; do
+		if [ $1 == $target -o $1 == "full" -o $target == "core" ]; then
+			return true
+		fi
+	done
+
+	return false
+}
+
 if [ $(which apt-get) ]; then
 
 	sudo apt-get install -y software-properties-common # required for add-apt-repository
@@ -25,8 +37,6 @@ if [ $(which apt-get) ]; then
 # TODO install node / npm
 # cat straps/npms | xargs npm install -g
 
-# TODO install ruby
-
 #	curl https://sh.rustup.rs -sSf | sh
 
 fi
@@ -45,10 +55,24 @@ if [ $(which brew) ]; then
 	brew install node zsh p7zip
 fi
 
-# build some files and shit
-
 DOT_DIR="$HOME/.dotfiles"
 BUILD_DIR="$DOT_DIR/build"
+
+if [ $(which pacman) ]; then
+	sudo pacman -Syu
+
+	selected_pkgs=""
+	for target in "$DOT_DIR/arch"; do
+		if is_target "$target"; then
+			target="$DOT_DIR/arch/$target"
+			selected_pkgs="${selected_pkgs}\n$(ls $target)"
+		fi
+	done
+
+	sudo pacman -s $selected_pkgs
+fi
+
+# build some files and shit
 
 cd $DOT_DIR
 git submodule init
@@ -71,9 +95,11 @@ if [ "$1" == "full" ]; then
 fi
 
 if [ "$1" == "full" ]; then
-	cd "$BUILD_DIR/lastpass-cli"
-	make
-	sudo make install
-	# sudo apt-get install asciidoc # this will annihilate your disk space
-	# sudo make install-doc
+	if [ $(which apt-get) ]; then # we're going to get this from the AUR on arch
+		cd "$BUILD_DIR/lastpass-cli"
+		make
+		sudo make install
+		# sudo apt-get install asciidoc # this will annihilate your disk space
+		# sudo make install-doc
+	fi
 fi
