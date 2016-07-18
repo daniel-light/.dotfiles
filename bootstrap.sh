@@ -38,9 +38,6 @@ if [ $(which apt-get) ]; then
 		cat straps/pkgs.apt-get.extra | xargs sudo apt-get install -y
 	fi
 
-# TODO install node / npm
-# cat straps/npms | xargs npm install -g
-
 fi
 
 # this doesn't work right now
@@ -99,7 +96,7 @@ if is_target ruby; then
 	# this is definitely a good way to install ruby
 	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv install --keep
 	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv global # what shell variables? nonsense
-	# cat straps/gems | xargs gem install
+	cat straps/gems | xargs gem install
 fi
 
 if is_target lastpass-cli; then
@@ -117,4 +114,17 @@ fi
 
 if is_target rust; then
 	curl https://sh.rustup.rs -sSf | sh -- --default-toolchain stable
+fi
+
+if is_target node; then
+	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+
+	# load the nvm function, since we usually only do this for interactives
+	export NVM_DIR="/home/daniel/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+	# node is an alias for the latest version of node
+	nvm install node  --reinstall-packages-from=node # the switch will preserve packages from the previous tip
+	nvm use node
+	cat "$DOT_DIR/straps/npms" | xargs npm install -g
 fi

@@ -39,3 +39,6 @@ SAVEHIST=100
 
 # fix this later
 PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
+
+export NVM_DIR="/home/daniel/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
