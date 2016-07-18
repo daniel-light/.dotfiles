@@ -41,8 +41,6 @@ if [ $(which apt-get) ]; then
 # TODO install node / npm
 # cat straps/npms | xargs npm install -g
 
-#	curl https://sh.rustup.rs -sSf | sh
-
 fi
 
 # this doesn't work right now
@@ -73,7 +71,7 @@ if [ $(which pacman) ]; then
 		fi
 	done
 
-	if [ is_target "full" ]; then
+	if is_target full; then
 		cd "$DOT_DIR/straps/arch"
 		for target in $(ls); do
 			selected_pkgs="${selected_pkgs} $(ls $DOT_DIR/straps/arch/$target)"
@@ -115,4 +113,8 @@ if is_target lastpass-cli; then
 		# sudo apt-get install asciidoc # this will annihilate your disk space
 		# sudo make install-doc
 	fi
+fi
+
+if is_target rust; then
+	curl https://sh.rustup.rs -sSf | sh -- --default-toolchain stable
 fi
