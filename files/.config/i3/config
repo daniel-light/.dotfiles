@@ -9,7 +9,10 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
+
+# exec setxkbmap -option "altwin:ctrl_win" # set left super to be an extra control
+exec setxkbmap -option "ctrl:nocaps" # set caps to an extra control
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -166,5 +169,3 @@ bindsym F7 exec brightness up
 bindsym F8 exec volume mute toggle
 bindsym F9 exec volume down
 bindsym F10 exec volume up
-
-exec setxkbmap -option "altwin:ctrl_win"
