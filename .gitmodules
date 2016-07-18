@@ -89,3 +89,7 @@
 [submodule "build/lastpass-cli"]
 	path = build/lastpass-cli
 	url = git@github.com:lastpass/lastpass-cli
+[submodule "build/aurget"]
+	path = build/aurget
+	url = https://aur.archlinux.org/aurget.git
+	ignore = dirty

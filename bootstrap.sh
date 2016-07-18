@@ -16,6 +16,10 @@ function is_target {
 	return 1
 }
 
+cd $DOT_DIR
+git submodule init
+git submodule update
+
 if [ $(which apt-get) ]; then
 
 	sudo apt-get install -y software-properties-common # required for add-apt-repository
@@ -59,17 +63,9 @@ DOT_DIR="$HOME/.dotfiles"
 BUILD_DIR="$DOT_DIR/build"
 
 if [ $(which pacman) ]; then
-	#sudo pacman -Syu
 	# you should check .pacnew files after bootstrapping
 
 	selected_pkgs=$(ls "$DOT_DIR/straps/arch/core")
-
-#	for target in "$DOT_DIR/straps/arch"; do
-#		if is_target "$target"; then
-#			target="$DOT_DIR/straps/arch/$target"
-#			selected_pkgs="${selected_pkgs}\n$(ls $target)"
-#		fi
-#	done
 
 	for target in $selected_targets; do
 		if [ -d "$DOT_DIR/straps/arch/$target" ]; then
@@ -84,15 +80,13 @@ if [ $(which pacman) ]; then
 		done
 	fi
 
-	sudo pacman -Syu --needed $selected_pkgs
-	echo $selected_pkgs
+	sudo pacman -Syu --noconfirm --needed $selected_pkgs
+
+	cd "$BUILD_DIR/aurget"
+	yes | makepkg -sri --needed
 fi
 
 # build some files and shit
-
-cd $DOT_DIR
-git submodule init
-git submodule update
 
 "$BUILD_DIR/fzf/install" --bin # --bin so that it doesn't prompt or fuck with our config
 
@@ -110,8 +104,11 @@ if is_target ruby; then
 	# cat straps/gems | xargs gem install
 fi
 
-if is_target lpass; then
-	if [ $(which apt-get) ]; then # we're going to get this from the AUR on arch
+if is_target lastpass-cli; then
+	if [ $(which pacman) ]; then
+		aurget -S --noedit --noconfirm --needed lastpass-cli
+
+	elif [ $(which apt-get) ]; then # we're going to get this from the AUR on arch
 		cd "$BUILD_DIR/lastpass-cli"
 		make
 		sudo make install
