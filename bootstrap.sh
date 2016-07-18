@@ -8,12 +8,12 @@ selected_targets=("$@")
 
 function is_target {
 	for target in $selected_targets; do
-		if [ $1 == $target -o $1 == "full" -o $target == "core" ]; then
-			return true
+		if [ $1 == $target -o $1 == "full" ]; then
+			return 0
 		fi
 	done
 
-	return false
+	return 1
 }
 
 if [ $(which apt-get) ]; then
@@ -59,17 +59,33 @@ DOT_DIR="$HOME/.dotfiles"
 BUILD_DIR="$DOT_DIR/build"
 
 if [ $(which pacman) ]; then
-	sudo pacman -Syu
+	#sudo pacman -Syu
+	# you should check .pacnew files after bootstrapping
 
-	selected_pkgs=""
-	for target in "$DOT_DIR/arch"; do
-		if is_target "$target"; then
-			target="$DOT_DIR/arch/$target"
-			selected_pkgs="${selected_pkgs}\n$(ls $target)"
+	selected_pkgs=$(ls "$DOT_DIR/straps/arch/core")
+
+#	for target in "$DOT_DIR/straps/arch"; do
+#		if is_target "$target"; then
+#			target="$DOT_DIR/straps/arch/$target"
+#			selected_pkgs="${selected_pkgs}\n$(ls $target)"
+#		fi
+#	done
+
+	for target in $selected_targets; do
+		if [ -d "$DOT_DIR/straps/arch/$target" ]; then
+			selected_pkgs="${selected_pkgs} $(ls $DOT_DIR/straps/arch/$target)"
 		fi
 	done
 
-	sudo pacman -s $selected_pkgs
+	if [ is_target "full" ]; then
+		cd "$DOT_DIR/straps/arch"
+		for target in $(ls); do
+			selected_pkgs="${selected_pkgs} $(ls $DOT_DIR/straps/arch/$target)"
+		done
+	fi
+
+	sudo pacman -Syu --needed $selected_pkgs
+	echo $selected_pkgs
 fi
 
 # build some files and shit
@@ -83,18 +99,18 @@ git submodule update
 # this will action put it in bin/share/whatever, which isn't actually what we want # don't know what this comment is about anymore, maybe the output of fzf install?
 
 mkdir -p "$HOME/.rbenv/plugins"
-if [ ! -e "$HOME/.rbenv/plugins" ]; then 
+if [ ! -e "$HOME/.rbenv/plugins/ruby-build" ]; then 
 	ln -s "$DOT_DIR/build/ruby-build" "$HOME/.rbenv/plugins/ruby-build" 
 fi
 
-if [ "$1" == "full" ]; then
+if is_target ruby; then
 	# this is definitely a good way to install ruby
-	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv install
+	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv install --keep
 	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv global # what shell variables? nonsense
 	# cat straps/gems | xargs gem install
 fi
 
-if [ "$1" == "full" ]; then
+if is_target lpass; then
 	if [ $(which apt-get) ]; then # we're going to get this from the AUR on arch
 		cd "$BUILD_DIR/lastpass-cli"
 		make
