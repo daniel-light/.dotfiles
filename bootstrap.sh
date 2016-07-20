@@ -16,6 +16,10 @@ function is_target {
 	return 1
 }
 
+function is_arch {
+	return [ $(which pacman) ]
+}
+
 cd $DOT_DIR
 git submodule init
 git submodule update
@@ -59,6 +63,12 @@ BUILD_DIR="$DOT_DIR/build"
 
 if [ $(which pacman) ]; then
 	# you should check .pacnew files after bootstrapping
+	
+	# we need multilib for steam, to enable:
+	# go to /etc/pacman.conf and uncomment the two lines for multilib NOT multilib-testing
+	# we also need to add the steam lib repo
+
+	# it would be good to set up netctl automatically as well
 
 	selected_pkgs=$(ls "$DOT_DIR/straps/arch/core")
 
@@ -127,4 +137,14 @@ if is_target node; then
 	nvm install node  --reinstall-packages-from=node # the switch will preserve packages from the previous tip
 	nvm use node
 	cat "$DOT_DIR/straps/npms" | xargs npm install -g
+fi
+
+if is_target steam; then
+	sudo usermod -a -G input $(whoami)
+
+	if is_arch; then
+		#aurget -S steam-libs xboxdrv
+		#sudo systemctl enable xboxdrv.service
+		#sudo systemctl start xboxdrv.service
+	fi
 fi
