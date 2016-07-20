@@ -20,6 +20,9 @@ function is_arch {
 	return [ $(which pacman) ]
 }
 
+DOT_DIR="$HOME/.dotfiles"
+BUILD_DIR="$DOT_DIR/build"
+
 cd $DOT_DIR
 git submodule init
 git submodule update
@@ -57,9 +60,6 @@ if [ $(which brew) ]; then
 	brew install avrdude --with-usb
 	brew install node zsh p7zip
 fi
-
-DOT_DIR="$HOME/.dotfiles"
-BUILD_DIR="$DOT_DIR/build"
 
 if [ $(which pacman) ]; then
 	# you should check .pacnew files after bootstrapping
@@ -142,9 +142,9 @@ fi
 if is_target steam; then
 	sudo usermod -a -G input $(whoami)
 
-	if is_arch; then
+	#if is_arch; then
 		#aurget -S steam-libs xboxdrv
 		#sudo systemctl enable xboxdrv.service
 		#sudo systemctl start xboxdrv.service
-	fi
+	#fi
 fi
