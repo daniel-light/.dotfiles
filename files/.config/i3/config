@@ -40,7 +40,6 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+o exec i3-sensible-terminal #colemak
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -177,6 +176,8 @@ bindsym F7 exec brightness up
 bindsym F8 exec volume mute toggle
 bindsym F9 exec volume down
 bindsym F10 exec volume up
+
+for_window [class="mpv"] floating enable
 
 #### bindings from old laptop - these likely need tweaking but hey
 
