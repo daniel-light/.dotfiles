@@ -148,3 +148,10 @@ if is_target steam; then
 		#sudo systemctl start xboxdrv.service
 	#fi
 fi
+
+if is_target dropbox; then
+	if is_arch; then
+		aurget -S dropbox dropbox-cli thunar-dropbox
+		sudo systemctl enable dropbox@$(whoami)
+	fi
+fi
