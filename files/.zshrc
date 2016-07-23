@@ -1,5 +1,9 @@
 PROMPT='[%* %m %c] '
 
+# zsh will think we want vi line editing mode - we don't
+export EDITOR="nvim"
+set -o emacs
+
 ## aliases ##
 
 # do this because gnu ls and bsd ls take different options for colorization
@@ -7,7 +11,9 @@ ls '--color=auto' > /dev/null 2>&1 && alias -r ls='ls --color=auto' || alias -r 
 alias -r bx='bundle exec' be='bundle exec' \
          g='git' \
          gtypist='gtypist -b' \
-         nv='nvim'
+         nv='nvim' \
+         n='nvim' \
+         drox='dropbox-cli'
 
 fpath=(
          "$HOME/.config/zsh/zsh-completions/src"
