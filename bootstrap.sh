@@ -4,6 +4,8 @@
 # this script aspires to be an automagic installer, but in reality it's more of
 # a guide to answer "how the fuck did I do this last time"
 
+set -e
+
 selected_targets=("$@")
 
 function is_target {
@@ -17,22 +19,38 @@ function is_target {
 }
 
 function is_arch {
-	return [ $(which pacman) ]
+	which pacman 2>&1 > /dev/null
+}
+
+function is_ubuntu {
+	which apt-get 2>&1 > /dev/null
 }
 
 DOT_DIR="$HOME/.dotfiles"
 BUILD_DIR="$DOT_DIR/build"
+STRAPS_DIR="$DOT_DIR/straps"
 
 cd $DOT_DIR
 git submodule init
 git submodule update
 
-if [ $(which apt-get) ]; then
+if is_ubuntu; then
+	echo Distro is ubuntu
 
-	sudo apt-get install -y software-properties-common # required for add-apt-repository
+	#echo Installing apt-add-repository
+	sudo apt-get install -y software-properties-common > /dev/null # required for add-apt-repository
+	echo apt-add-repository installed
 
-	sudo add-apt-repository -y ppa:neovim-ppa/unstable
-	sudo add-apt-repository -y ppa:git-core/ppa
+	target=core
+	for ppa in $(ls "$STRAPS_DIR/$target/" | grep -F '.ppa' ); do
+		ppa="$STRAPS_DIR/$target/$ppa"
+
+		if grep --quiet -F "$(cat $ppa | sed 's/ppa://')" /etc/apt/sources.list.d/*; then
+			echo $ppa exists, skipping...
+		else
+			sudo apt-add-repository -y $(cat "$ppa")
+		fi
+	done
 
 	sudo apt-get update
 
