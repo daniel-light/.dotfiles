@@ -37,6 +37,11 @@ git submodule update
 if is_ubuntu; then
 	echo Distro is ubuntu
 
+	if [ ! $LANG == en_US.UTF-8 ]; then
+		sudo locale-gen en_US.UTF-8
+		sudo update-locale LANG=en_US.UTF-8
+	fi
+
 	#echo Installing apt-add-repository
 	sudo apt-get install -y software-properties-common > /dev/null # required for add-apt-repository
 	echo apt-add-repository installed
@@ -115,14 +120,14 @@ fi
 
 # this will action put it in bin/share/whatever, which isn't actually what we want # don't know what this comment is about anymore, maybe the output of fzf install?
 
-mkdir -p "$HOME/.rbenv/plugins"
+mkdir -p "$HOME/.rbenv/{plugins,cache}" # if cache exists, then rbenv will cache downloads there by default
 if [ ! -e "$HOME/.rbenv/plugins/ruby-build" ]; then 
 	ln -s "$DOT_DIR/build/ruby-build" "$HOME/.rbenv/plugins/ruby-build" 
 fi
 
 if is_target ruby; then
 	# this is definitely a good way to install ruby
-	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv install --keep
+	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv install --skip-existing --keep # --keep will keep files once it's built
 	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv global # what shell variables? nonsense
 	cat straps/gems | xargs gem install
 fi
@@ -171,5 +176,11 @@ if is_target dropbox; then
 	if is_arch; then
 		aurget -S dropbox dropbox-cli thunar-dropbox
 		sudo systemctl enable dropbox@$(whoami)
+	elif is_ubuntu; then
+		# TODO we should detect if the system is 32 or 64 bit
+		cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+		curl https://www.dropbox.com/download?dl=packages/dropbox.py > "$DOT_DIR/files/bin/dropbox-cli"
 	fi
+
+	ln -s "$HOME/Dropbox/extradots/.hosts" "$HOME/.hosts"
 fi
