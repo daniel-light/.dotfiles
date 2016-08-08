@@ -5,7 +5,7 @@ require 'tempfile'
 query_param = ARGV.join('+')
 ddg_url = "https://duckduckgo.com/?q=#{query_param}"
 
-DDG_BASE_COOKIE_FILE = "#{ENV['HOME']}/cookies/ddg.base"
+DDG_BASE_COOKIE_FILE = "#{ENV['HOME']}/cookies/ddg.cookies.base"
 
 cookie_file = Tempfile.new
 if File::readable?(DDG_BASE_COOKIE_FILE)

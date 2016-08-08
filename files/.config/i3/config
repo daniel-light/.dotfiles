@@ -11,8 +11,10 @@
 
 set $mod Mod4
 
-# exec setxkbmap -option "altwin:ctrl_win" # set left super to be an extra control
-exec setxkbmap -option "ctrl:nocaps" # set caps to an extra control
+# per computer keyboard remapping
+# setxkbmap -option OPTION
+# interesting options: ctrl:nocaps altwin:swap_alt_win
+exec fuk-capslok
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

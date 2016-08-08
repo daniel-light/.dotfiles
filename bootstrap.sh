@@ -112,6 +112,8 @@ if [ $(which pacman) ]; then
 
 	cd "$BUILD_DIR/aurget"
 	yes | makepkg -sri --needed
+
+	sudo systemctl enable ntpd.service
 fi
 
 # build some files and shit
