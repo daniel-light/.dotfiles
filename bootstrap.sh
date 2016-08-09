@@ -46,27 +46,30 @@ if is_ubuntu; then
 	sudo apt-get install -y software-properties-common > /dev/null # required for add-apt-repository
 	echo apt-add-repository installed
 
-	target=core
-	for ppa in $(ls "$STRAPS_DIR/$target/" | grep -F '.ppa' ); do
-		ppa="$STRAPS_DIR/$target/$ppa"
+	for target in $selected_targets; do
+		selected_pkgs=""
 
-		if grep --quiet -F "$(cat $ppa | sed 's/ppa://')" /etc/apt/sources.list.d/*; then
-			echo $ppa exists, skipping...
-		else
-			sudo apt-add-repository -y $(cat "$ppa")
-		fi
+		# add any necessary ppas, but skip ones we detect because it takes
+		# a long time
+		for ppa in $(ls "$STRAPS_DIR/$target/" | grep -F '.ppa'); do
+			ppa="$STRAPS_DIR/$target/$ppa"
+
+			if grep --quiet -F "$(cat $ppa | sed 's/ppa://')" /etc/apt/sources.list.d/*; then
+				echo $ppa exists, skipping...
+			else
+				sudo apt-add-repository -y $(cat "$ppa")
+			fi
+		done
+
+		# build a package list
+		for pkg in $(ls "$STRAPS_DIR/$target/" | grep -F '.apt-get' | sed 's/.apt-get//'); do
+			selected_pkgs="${selected_pkgs} $pkg"
+		done
+
 	done
 
 	sudo apt-get update
-
-	# just install a minimal set of useful packages in the bootstrap for now
-	cat straps/pkgs.apt-get.core | xargs sudo apt-get install -y
-
-	if [ "$1" == "full" ]; then
-		cat straps/pkgs.apt-get.cli | xargs sudo apt-get install -y
-		cat straps/pkgs.apt-get.x11 | xargs sudo apt-get install -y
-		cat straps/pkgs.apt-get.extra | xargs sudo apt-get install -y
-	fi
+	sudo apt-get install -y $selected_pkgs
 
 fi
 
@@ -138,7 +141,7 @@ if is_target lastpass-cli; then
 	if [ $(which pacman) ]; then
 		aurget -S --noedit --noconfirm --needed lastpass-cli
 
-	elif [ $(which apt-get) ]; then # we're going to get this from the AUR on arch
+	elif [ $(which apt-get) ]; then
 		cd "$BUILD_DIR/lastpass-cli"
 		make
 		sudo make install

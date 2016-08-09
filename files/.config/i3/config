@@ -13,7 +13,8 @@ set $mod Mod4
 
 # per computer keyboard remapping
 # setxkbmap -option OPTION
-# interesting options: ctrl:nocaps altwin:swap_alt_win
+# see /usr/share/X11/xkb/rules/base.lst
+# interesting options: ctrl:nocaps altwin:swap_alt_win ctrl:swap_lwin_lctl
 exec fuk-capslok
 
 # Font for window titles. Will also be used by the bar unless a different font
