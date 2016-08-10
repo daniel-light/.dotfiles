@@ -1,0 +1,8 @@
+if grep --quiet -e ^port=177$ /etc/lightdm/lightdm.conf; then
+	echo '[XDMCPServer]' | sudo tee -a /etc/lightdm/lightdm.conf
+	echo 'enabled=true' | sudo tee -a /etc/lightdm/lightdm.conf
+	echo 'port=177' | sudo tee -a /etc/lightdm/lightdm.conf
+fi
+
+sudo systemctl enable lightdm.service
+sudo systemctl restart lightdm.service
