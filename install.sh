@@ -2,18 +2,35 @@
 set -u #-o nounset
 set -e #-o errexit
 
+DOT_DIR="$HOME/.dotfiles"
+OLD_DIR="$DOT_DIR/old"
+PUBLIC_DIR="$DOT_DIR/files"
+PRIVATE_DIR="$HOME/Dropbox/extradots"
 
-dir="$HOME/.dotfiles"
-contentdir='files'
-olddir='old'
+cd $HOME # just in case?
 
-mkdir -p $dir/$contentdir $dir/$olddir && echo 'Creating directory structure'
+# $OLD_DIR has no tracked files, and as such isn't guaranteed to exist
+mkdir -p "$OLD_DIR" && echo 'Creating directory structure'
 
 # make symlinks for dotfiles, saving existing files
-cd $dir/$contentdir
-for file in $(ls -A); do
-	if [ "$(readlink $HOME/$file)" != "$dir/$contentdir/$file" ]; then
-		mv ~/$file $dir/$olddir && echo "Backing up ~/$file to $dir/$olddir/$file"
-		ln -s $dir/$contentdir/$file ~/$file && echo "Link ~/$file to $dir/$contentdir/$file"
-	fi
+for files_dir in "$PUBLIC_DIR" "$PRIVATE_DIR"; do
+	for basename in $(ls -A "$files_dir"); do
+		full_path="$files_dir/$basename"
+		if [ "$(readlink $HOME/$basename)" != "$full_path" ]; then
+
+			# onlly back up if the file is not a symlink
+			if [ -L "$HOME/$basename" ]; then
+				rm "$HOME/$basename"
+			else
+				echo Backing up $basename
+				mv "$HOME/$basename" "$OLD_DIR"
+			fi
+
+			echo Linking $basename to $files_dir
+			ln -s "$full_path" "$HOME/$basename"
+
+		else
+			echo Skipping $basename
+		fi
+	done
 done
