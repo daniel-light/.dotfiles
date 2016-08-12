@@ -9,21 +9,25 @@ PATH_RVM="$HOME/.rvm/bin"
 PATH_CARGO="$HOME/.cargo/bin"
 PATH_PERL="$HOME/perl5/bin"
 
-# http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
-for x in "$HOME/bin" "$PATH_RBENV" "$PATH_RVM" "$PATH_CARGO" "$GOPATH/bin" "$PATH_PERL"; do
-  case ":$PATH:" in
-    *":$x:"*) :;; # already there
-    *) PATH="$x:$PATH";;
-  esac
-done
+function setup_path {
+  # http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
+  for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_RBENV" "$HOME/bin" ; do
+    case ":$PATH:" in
+      *":$x:"*) :;; # already there
+      *) PATH="$x:$PATH";;
+    esac
+  done
 
-# http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
-for x in "$PATH_HEROKU"; do
-  case ":$PATH:" in
-    *":$x:"*) :;; # already there
-    *) PATH="$PATH:$x";;
-  esac
-done
+  # http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
+  for x in "$PATH_HEROKU"; do
+    case ":$PATH:" in
+      *":$x:"*) :;; # already there
+      *) PATH="$PATH:$x";;
+    esac
+  done
+}
+
+setup_path
 
 if [[ -f "$HOME/.secure-env" ]]; then
 	source "$HOME/.secure-env"
