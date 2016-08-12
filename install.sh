@@ -21,7 +21,7 @@ for files_dir in "$PUBLIC_DIR" "$PRIVATE_DIR"; do
 			# onlly back up if the file is not a symlink
 			if [ -L "$HOME/$basename" ]; then
 				rm "$HOME/$basename"
-			else
+			elif [ -e "$HOME/$basename" ]; then
 				echo Backing up $basename
 				mv "$HOME/$basename" "$OLD_DIR"
 			fi
