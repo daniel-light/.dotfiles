@@ -1,0 +1,8 @@
+#!/bin/sh
+
+URL=https://www.instapaper.com/api/add
+
+username=$(lpass show instapaper.com --username)
+password=$(lpass show instapaper.com --password)
+
+curl $URL -d "username=$username&password=$password&url=$1"
