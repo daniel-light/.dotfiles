@@ -1,3 +1,4 @@
+export DOT_DIR="$HOME/.dotfiles"
 export FZF_DEFAULT_COMMAND='find .'
 export GOPATH="$HOME/.lib/go"
 export HOSTALIASES="$HOME/.hosts"
@@ -9,6 +10,7 @@ PATH_RVM="$HOME/.rvm/bin"
 PATH_CARGO="$HOME/.cargo/bin"
 PATH_PERL="$HOME/perl5/bin"
 
+# this is in a function so we can call it again in zshrc
 function setup_path {
   # http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
   for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_RBENV" "$HOME/bin" ; do

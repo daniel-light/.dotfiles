@@ -1,0 +1,30 @@
+#!/bin/zsh
+ 
+set -e
+
+function detect {
+	which $1 2>&1 > /dev/null
+}
+
+if detect apt-get; then
+	echo Upgrading apt packages
+	sudo apt-get update
+	sudo apt-get upgrade
+fi
+
+if detect pacman; then
+	sudo pacman -Syu
+fi
+
+if detect gem; then
+	if [[ $(which gem) =~ '^/usr/*' ]]; then
+		sudo gem upate
+	else
+		install-latest-ruby
+		gem update
+	fi
+fi
+
+if detect rustup; then
+	rustup update
+fi

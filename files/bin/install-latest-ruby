@@ -1,0 +1,12 @@
+#!/bin/sh
+
+cd $DOT_DIR
+git submodule update --remote build/ruby-build
+
+# this is definitely a good way to install ruby
+latest_ruby=$(rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1)
+echo Latest ruby is $latest_ruby, installing now
+
+rbenv install --skip-existing --keep $latest_ruby
+rbenv global $latest_ruby
+cat straps/gems | xargs gem install

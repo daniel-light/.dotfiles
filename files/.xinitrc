@@ -1,7 +1,8 @@
 udiskie &
-[ $(which ~/bin/notifyd-wrapper) ] && notifyd-wrapper &
+which ~/bin/notifyd-wrapper && notifyd-wrapper &
 [ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
+which autocutsel && autocutsel -fork &
+which autocutsel && autocutsel -selection PRIMARY -fork &
 [ -f ~/bin/fuk-capslok ] && ~/bin/fuk-capslok
+which syndaemon && syndaemon -i 0.5 -K -d
 exec i3

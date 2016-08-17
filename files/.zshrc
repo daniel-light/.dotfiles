@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 PROMPT='[%* %m %c] '
 
 # zsh will think we want vi line editing mode - we don't

@@ -131,10 +131,7 @@ if [ ! -e "$HOME/.rbenv/plugins/ruby-build" ]; then
 fi
 
 if is_target ruby; then
-	# this is definitely a good way to install ruby
-	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv install --skip-existing --keep # --keep will keep files once it's built
-	rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | xargs rbenv global # what shell variables? nonsense
-	cat straps/gems | xargs gem install
+	install-latest-ruby
 fi
 
 if is_target lastpass-cli; then
