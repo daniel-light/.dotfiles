@@ -4,5 +4,5 @@ which ~/bin/notifyd-wrapper && notifyd-wrapper &
 which autocutsel && autocutsel -fork &
 which autocutsel && autocutsel -selection PRIMARY -fork &
 [ -f ~/bin/fuk-capslok ] && ~/bin/fuk-capslok
-which syndaemon && syndaemon -i 0.2 -K -d
+which syndaemon && syndaemon -i 0.3 -K -d
 exec i3
