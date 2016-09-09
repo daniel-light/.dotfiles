@@ -1,0 +1,7 @@
+#!/bin/sh
+
+current_song=$(mpc status | head -n 1)
+master_volume=$(amixer get Master | grep dB | cut -d " " -f 5)
+date=$(date "+%Y-%m-%d %H:%M:%S")
+
+echo "${current_song} | ${master_volume}∰  | $date"
