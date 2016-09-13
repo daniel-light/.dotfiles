@@ -169,35 +169,29 @@ bindsym $mod+t exec touchpad-toggle
 bindsym $mod+F1 exec scrot
 
 # special keys
-#bindsym F6 exec brightness down
-#bindsym F7 exec brightness up
+#bindsym F6 exec brightness down #bindsym $mod+Insert xbacklight -inc 15
+#bindsym F7 exec brightness up #bindsym $mod+Delete xbacklight -dec 1
 bindsym F8 exec volume-mute
 bindsym F9 exec volume-down
 bindsym F10 exec volume-up
+# guake uses F11 & F12
+exec guake
 
-for_window [class="mpv"] floating enable
+bindsym KP_Down exec mpc volume -5
+bindsym KP_Up exec mpc volume +5
+bindsym KP_Begin exec mpc toggle
+bindsym KP_Left exec mpc prev
+bindsym KP_Right exec mpc next
 
 #### bindings from old laptop - these likely need tweaking but hey
 
-# keybinds for laptop buttons 1 ~= .75dB
-bindsym XF86AudioRaiseVolume exec amixer set Master 3+
-bindsym XF86AudioLowerVolume exec amixer set Master 3-
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec volume-up
+bindsym XF86AudioLowerVolume exec volume-down
+bindsym XF86AudioMute exec volume-mute
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86MonBrightnessDown exec xbacklight -dec 1
 bindsym XF86MonBrightnessUp exec xbacklight -inc 15
 
-# rebinds of that stuff to regular keyboard with function key
-bindsym $mod+KP_Down exec mpc volume -5
-bindsym $mod+KP_Up exec mpc volume +5
-bindsym $mod+KP_Begin exec mpc toggle
-bindsym $mod+KP_Left exec mpc prev
-bindsym $mod+KP_Right exec mpc next
-##bind enter to start ncmpc?
-#bindsym $mod+Insert xbacklight -inc 15
-#bindsym $mod+Delete xbacklight -dec 1
-#
-#bindsym $mod+Shift+y exec amixer set Headphone 70
-#bindsym $mod+Shift+u exec amixer set Headphone 87
+# adjustments for specific apps
 
-exec guake
+for_window [class="mpv"] floating enable
