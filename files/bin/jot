@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'date'
+
+jot_file_name = "#{ENV['HOME']}/jotfile"
+current_timestamp = DateTime.now.strftime("%Y-%m-%d %H:%M:%S\t")
+
+File.open(jot_file_name, 'a') do |jot_file|
+  jot_file.write(current_timestamp)
+  jot_file.write(STDIN.read.chomp("\n") + "\n")
+end

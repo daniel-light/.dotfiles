@@ -13,7 +13,7 @@ PATH_PERL="$HOME/perl5/bin"
 # this is in a function so we can call it again in zshrc
 function setup_path {
   # http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
-  for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_RBENV" "$HOME/bin" ; do
+  for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$HOME/.local/bin" "$PATH_RBENV" "$HOME/bin" ; do
     case ":$PATH:" in
       *":$x:"*) :;; # already there
       *) PATH="$x:$PATH";;
