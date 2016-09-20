@@ -88,7 +88,7 @@
 	url = https://github.com/benekastah/neomake
 [submodule "build/lastpass-cli"]
 	path = build/lastpass-cli
-	url = git@github.com:lastpass/lastpass-cli
+	url = https://github.com/lastpass/lastpass-cli
 [submodule "build/aurget"]
 	path = build/aurget
 	url = https://aur.archlinux.org/aurget.git
