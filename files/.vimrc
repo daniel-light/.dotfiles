@@ -48,6 +48,8 @@ noremap ' ;
 map Q <Nop>
 " J for Join, K for Krack?
 nnoremap K mmi<cr><esc>`m
+nmap <Up> <c-y>k
+nmap <Down> <c-e>j
 
 " tmux navigator plugin settings and mappings
 let g:tmux_navigator_no_mappings = 1
