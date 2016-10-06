@@ -1,0 +1,4 @@
+#!/bin/sh
+
+systemctl --user start psd.service
+systemctl --user enable psd.service
