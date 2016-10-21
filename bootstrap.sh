@@ -147,10 +147,6 @@ if is_target lastpass-cli; then
 	fi
 fi
 
-if is_target rust; then
-	curl https://sh.rustup.rs -sSf | sh -- --default-toolchain stable
-fi
-
 if is_target node; then
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 

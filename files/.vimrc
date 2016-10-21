@@ -55,10 +55,10 @@ nmap <Down> <c-e>j
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 0 " 0 is default
 
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+" nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+" nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+" nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 runtime macros/matchit.vim
 
@@ -77,12 +77,12 @@ set rtp+=~/.dotfiles/build/fzf
 nnoremap \t :FZF<cr>
 
 " fugitive leader key mappings
-nnoremap \g   :Git
-nnoremap \gd  :Gdiff
-nnoremap \gg  :Ggrep
-nnoremap \gl  :Glog
-nnoremap \gs  :Gstatus
-nnoremap \gci :Gcommit
+nnoremap \g   :G
+" nnoremap \gd  :Gdiff
+" nnoremap \gg  :Ggrep
+" nnoremap \gl  :Glog
+" nnoremap \gs  :Gstatus
+" nnoremap \gci :Gcommit
 
 " autocomplete stuff
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
