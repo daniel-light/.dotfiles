@@ -93,3 +93,6 @@
 	path = build/aurget
 	url = https://aur.archlinux.org/aurget.git
 	ignore = dirty
+[submodule "files/.vim/bundle/pony-vim-syntax"]
+	path = files/.vim/bundle/pony-vim-syntax
+	url = https://github.com/dleonard0/pony-vim-syntax
