@@ -96,3 +96,6 @@
 [submodule "files/.vim/bundle/pony-vim-syntax"]
 	path = files/.vim/bundle/pony-vim-syntax
 	url = https://github.com/dleonard0/pony-vim-syntax
+[submodule "files/.vim/bundle/pytest.vim"]
+	path = files/.vim/bundle/pytest.vim
+	url = https://github.com/alfredodeza/pytest.vim
