@@ -1,0 +1,3 @@
+AllCops:
+    UseCache: true
+    CacheRootDirectory: '~/.cache'
