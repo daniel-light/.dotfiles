@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+##
+# This class, when run, tracks a pomodoro alternating between a 32 minute work
+# period and an 8 minute break period. It outputs to standard out and a file
+# (~/.pomo.timer).
 class Pomodoro
   attr_accessor :period_type, :period_start
   attr_reader :pomo_file_name
@@ -7,7 +11,7 @@ class Pomodoro
   PERIOD_LENGTH = {
     work: 60 * 32, # seconds
     break: 60 * 8, # seconds
-  }
+  }.freeze
 
   def initialize
     self.period_type = :work
@@ -31,16 +35,14 @@ class Pomodoro
     Time.at(remaining_time).strftime('%M:%S')
   end
 
-  def update_period
-    if elapsed_time > period_length
-      self.period_type = (period_type == :work ? :break : :work)
-      self.period_start = Time.now
-    end
+  def switch_period
+    self.period_type = (period_type == :work ? :break : :work)
+    self.period_start = Time.now
   end
 
   def write_formatted_string
     File.open(pomo_file_name, 'w') do |file|
-      time_string = "#{formatted_clock} #{period_type}"
+      time_string = "#{formatted_clock} #{period_type} 🍅"
       puts time_string
       file.write(time_string)
     end
@@ -49,7 +51,7 @@ class Pomodoro
   def run
     trap_term
     while sleep(3)
-      update_period
+      switch_period if elapsed_time > period_length
       write_formatted_string
     end
   end
@@ -70,6 +72,4 @@ class Pomodoro
   end
 end
 
-if $PROGRAM_NAME == __FILE__
-  Pomodoro.new.run
-end
+Pomodoro.new.run if $PROGRAM_NAME == __FILE__

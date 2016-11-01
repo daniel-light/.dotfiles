@@ -11,12 +11,14 @@ set -o emacs
 # do this because gnu ls and bsd ls take different options for colorization
 ls '--color=auto' > /dev/null 2>&1 && alias -r ls='ls --color=auto' || alias -r ls="ls -G"
 alias -r \
+         b='bert' \
+         be='bundle exec' \
+         bee='beemind' \
          c='pushd' \
+         drox='dropbox-cli' \
          g='git' \
-         n='nvim' \
-         bx='bundle exec' be='bundle exec' \
          gtypist='gtypist -b' \
-         drox='dropbox-cli'
+         n='nvim' \
 
 fpath=(
          "$HOME/.config/zsh/zsh-completions/src"

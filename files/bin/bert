@@ -1,0 +1,7 @@
+#!/bin/sh
+
+site=$(ls "$HOME/cookies" | fzf)
+
+echo going to $site
+
+surf -c "$HOME/cookies/$site" "$site" &

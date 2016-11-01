@@ -1,0 +1,9 @@
+#!/bin/sh
+
+which pacman && sudo pacman -Syu
+which aurget && aurget -Syu
+which gem && gem update
+which rustup && rustup update
+[ -z "$DOT_DIR" ] && [ -d "$DOT_DIR" ] && cd "$DOT_DIR" && git submodule init && git submodule update
+
+which maintenance && maintenance
