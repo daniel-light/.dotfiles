@@ -2,9 +2,9 @@ zmodload zsh/zprof
 
 PROMPT='[%* %m %c] '
 
-# zsh will think we want vi line editing mode - we don't
+export DIFFPROG="nvim -d"
 export EDITOR="nvim"
-set -o emacs
+set -o emacs # zsh will think we want vi line editing mode - we don't
 
 ## aliases ##
 
