@@ -2,10 +2,19 @@
 
 require 'date'
 
+ARGV.shift while ARGV.first =~ /^-/
+
 jot_file_name = "#{ENV['HOME']}/jotfile"
-current_timestamp = DateTime.now.strftime("%Y-%m-%d %H:%M:%S\t")
+current_timestamp = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
+
+def jot_text
+  if ARGV.empty?
+    STDIN.read.chomp("\n")
+  else
+    ARGV.join(' ')
+  end
+end
 
 File.open(jot_file_name, 'a') do |jot_file|
-  jot_file.write(current_timestamp)
-  jot_file.write(STDIN.read.chomp("\n") + "\n")
+  jot_file.write("#{current_timestamp}\t#{jot_text}\n")
 end

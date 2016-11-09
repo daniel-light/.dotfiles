@@ -1,6 +1,7 @@
 AllCops:
+    TargetRubyVersion: 2.3
     UseCache: true
-    CacheRootDirectory: '~/.cache'
+    CacheRootDirectory: '/home/daniel/.cache'
 
 Style/WordArray:
     Enabled: false
