@@ -195,3 +195,4 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 15
 # adjustments for specific apps
 
 for_window [class="mpv"] floating enable
+for_window [class="qjackctl"] floating enable
