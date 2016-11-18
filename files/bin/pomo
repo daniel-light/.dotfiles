@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-##
 # This class, when run, tracks a pomodoro alternating between a 32 minute work
 # period and an 8 minute break period. It outputs to standard out and a file
 # (~/.pomo.timer).
@@ -16,7 +15,7 @@ class Pomodoro
   def initialize
     self.period_type = :work
     self.period_start = Time.now
-    @pomo_file_name = "#{ENV['HOME']}/.pomo.timer"
+    @pomo_file_name = '/tmp/pomo.timer'
   end
 
   def period_length
@@ -38,6 +37,9 @@ class Pomodoro
   def switch_period
     self.period_type = (period_type == :work ? :break : :work)
     self.period_start = Time.now
+    play_sound("#{ENV['HOME']}/#{period_type}_start.mp3")
+
+    nil
   end
 
   def write_formatted_string
@@ -46,6 +48,8 @@ class Pomodoro
       puts time_string
       file.write(time_string)
     end
+
+    nil
   end
 
   def run
@@ -54,10 +58,14 @@ class Pomodoro
       switch_period if elapsed_time > period_length
       write_formatted_string
     end
+
+    nil
   end
 
   def cleanup
     File.delete(pomo_file_name) if File.exist?(pomo_file_name)
+
+    nil
   end
 
   def trap_term
@@ -69,6 +77,14 @@ class Pomodoro
 
     Signal.trap('TERM', &on_trap)
     Signal.trap('INT', &on_trap)
+
+    nil
+  end
+
+  def play_sound(filename)
+    system("mpv #{filename}") if File.exist?(filename)
+
+    nil
   end
 end
 

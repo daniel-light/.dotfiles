@@ -1,4 +1,3 @@
-# udiskie &
 which ~/bin/notifyd-wrapper && notifyd-wrapper &
 [ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
 which autocutsel && autocutsel -fork &

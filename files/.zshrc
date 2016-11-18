@@ -9,7 +9,7 @@ set -o emacs # zsh will think we want vi line editing mode - we don't
 ## aliases ##
 
 # do this because gnu ls and bsd ls take different options for colorization
-ls '--color=auto' > /dev/null 2>&1 && alias -r ls='ls --color=auto' || alias -r ls="ls -G"
+ls '--color=auto' > /dev/null 2>&1 && alias -r ls='ls -h --color=auto' || alias -r ls="ls -G"
 alias -r \
          b='bert' \
          be='bundle exec' \
@@ -19,6 +19,8 @@ alias -r \
          g='git' \
          gtypist='gtypist -b' \
          n='nvim' \
+         sctl='systemctl' \
+         sudo='sudo ' # this enables alias expansion in sudo commands
 
 fpath=(
          "$HOME/.config/zsh/zsh-completions/src"

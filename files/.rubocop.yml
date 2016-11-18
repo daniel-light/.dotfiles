@@ -3,5 +3,7 @@ AllCops:
     UseCache: true
     CacheRootDirectory: '/home/daniel/.cache'
 
+Style/FrozenStringLiteralComment:
+    Enabled: false
 Style/WordArray:
     Enabled: false

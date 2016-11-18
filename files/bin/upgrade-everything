@@ -2,8 +2,9 @@
 
 which pacman && sudo pacman -Syu
 which aurget && aurget -Syu
-which gem && gem update
-which rustup && rustup update
 [ -z "$DOT_DIR" ] && [ -d "$DOT_DIR" ] && cd "$DOT_DIR" && git submodule init && git submodule update
+
+which rustup && rustup update &
+which install-latest-ruby && install-latest-ruby; which gem && gem update &
 
 which maintenance && maintenance
