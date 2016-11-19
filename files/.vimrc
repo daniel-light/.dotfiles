@@ -30,6 +30,12 @@ hi Search ctermfg=grey ctermbg=0
 hi IndentGuidesOdd  ctermbg=white
 hi IndentGuidesEven ctermbg=lightgrey
 
+" active rainbow parentheses in case of emergency
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
+
 " indentation settings
 set ai
 set nosi
@@ -48,8 +54,8 @@ noremap ' ;
 map Q <Nop>
 " J for Join, K for Krack?
 nnoremap K mmi<cr><esc>`m
-nmap <Up> <c-y>k
-nmap <Down> <c-e>j
+" nmap <Up> <c-y>k
+" nmap <Down> <c-e>j
 
 " tmux navigator plugin settings and mappings
 let g:tmux_navigator_no_mappings = 1
