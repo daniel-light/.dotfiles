@@ -99,3 +99,6 @@
 [submodule "files/.vim/bundle/pytest.vim"]
 	path = files/.vim/bundle/pytest.vim
 	url = https://github.com/alfredodeza/pytest.vim
+[submodule "build/gem/beeminder-gem"]
+	path = build/gems/beeminder-gem
+	url = https://github.com/beeminder/beeminder-gem

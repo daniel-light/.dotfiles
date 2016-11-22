@@ -1,0 +1,12 @@
+#!/bin/sh
+
+GEM_DIR="$DOT_DIR/build/gems"
+
+for gem in ls $GEM_DIR; do
+	cd "$GEM_DIR"
+	git submodule update --remote $gem
+	cd $gem
+	gem build *.gemspec
+	gem install --local *.gem
+done
+

@@ -2,6 +2,8 @@
 
 site=$(ls "$HOME/cookies" | fzf)
 
-echo going to $site
+if [ ! -z $site ]; then
+	echo going to $site
 
-surf -c "$HOME/cookies/$site" "$site" &
+	surf -c "$HOME/cookies/$site" "$site" &
+fi

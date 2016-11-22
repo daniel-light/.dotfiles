@@ -4,5 +4,5 @@ pry
 rerun
 sinatra
 rubocop
-beeminder
 ruby-prof
+tumblr_client
