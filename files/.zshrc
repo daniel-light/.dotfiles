@@ -17,7 +17,7 @@ alias -r \
          c='pushd' \
          drox='dropbox-cli' \
          g='git' \
-         gtypist='gtypist -b' \
+         gtypist='gtypist --personal-best --word-processor' \
          n='nvim' \
          sctl='systemctl' \
          sudo='sudo ' # this enables alias expansion in sudo commands

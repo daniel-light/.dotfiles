@@ -3,7 +3,7 @@
 # This class, when run, tracks a pomodoro alternating between a 32 minute work
 # period and an 8 minute break period. It outputs to standard out and a file
 # (~/.pomo.timer).
-class Pomodoro
+class Pomo
   attr_accessor :period_type, :period_start
   attr_reader :pomo_file_name
 
@@ -87,5 +87,3 @@ class Pomodoro
     nil
   end
 end
-
-Pomodoro.new.run if $PROGRAM_NAME == __FILE__

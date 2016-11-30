@@ -1,8 +1,9 @@
 #!/bin/sh
+set -e
 
 GEM_DIR="$DOT_DIR/build/gems"
 
-for gem in ls $GEM_DIR; do
+for gem in $(ls $GEM_DIR); do
 	cd "$GEM_DIR"
 	git submodule update --remote $gem
 	cd $gem

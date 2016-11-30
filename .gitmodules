@@ -102,3 +102,9 @@
 [submodule "build/gem/beeminder-gem"]
 	path = build/gems/beeminder-gem
 	url = https://github.com/beeminder/beeminder-gem
+[submodule "files/.tmux-plugins/tmux-resurrect"]
+	path = files/.tmux-plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "files/.vim/bundle/vim-obsession"]
+	path = files/.vim/bundle/vim-obsession
+	url = https://github.com/tpope/vim-obsession
