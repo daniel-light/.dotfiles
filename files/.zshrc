@@ -19,6 +19,7 @@ alias -r \
          g='git' \
          gtypist='gtypist --personal-best --word-processor' \
          n='nvim' \
+         p='popd' \
          sctl='systemctl' \
          sudo='sudo ' # this enables alias expansion in sudo commands
 
