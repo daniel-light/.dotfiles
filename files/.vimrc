@@ -51,9 +51,16 @@ syntax on
 
 map ; :
 noremap ' ;
-map Q <Nop>
+
+" Never used it
+nnoremap Q <Nop>
+
+" I prefer cc and mostly hit this when I mean C
+nnoremap S <Nop>
+
 " J for Join, K for Krack?
 nnoremap K mmi<cr><esc>`m
+
 " nmap <Up> <c-y>k
 " nmap <Down> <c-e>j
 

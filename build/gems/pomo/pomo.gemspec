@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name = 'pomo'
+  s.name = 'pomo-daniel-light'
   s.version = '0.0.0'
   s.date = '2016-11-30'
   s.summary = 'My personal pomo timer'

@@ -5,5 +5,9 @@ AllCops:
 
 Style/FrozenStringLiteralComment:
     Enabled: false
+Style/TrailingCommaInArguments:
+    EnforcedStyleForMultiline: comma
+Style/TrailingCommaInLiteral:
+    EnforcedStyleForMultiline: comma
 Style/WordArray:
     Enabled: false

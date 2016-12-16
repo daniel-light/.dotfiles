@@ -2,6 +2,7 @@ export DOT_DIR="$HOME/.dotfiles"
 export FZF_DEFAULT_COMMAND='find .'
 export GOPATH="$HOME/.lib/go"
 export HOSTALIASES="$HOME/.hosts"
+export ANDROID_HOME="/opt/android-sdk"
 
 # path setup
 PATH_RBENV="$HOME/.rbenv/bin"
