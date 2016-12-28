@@ -111,3 +111,6 @@
 [submodule "files/.vim/bundle/vim-fireplace"]
 	path = files/.vim/bundle/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace
+[submodule "files/.tmux-plugins/tmux-continuum"]
+	path = files/.tmux-plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
