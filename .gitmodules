@@ -108,6 +108,7 @@
 [submodule "files/.vim/bundle/vim-obsession"]
 	path = files/.vim/bundle/vim-obsession
 	url = https://github.com/tpope/vim-obsession
+	ignore = dirty
 [submodule "files/.vim/bundle/vim-fireplace"]
 	path = files/.vim/bundle/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace
