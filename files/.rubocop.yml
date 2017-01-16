@@ -1,10 +1,13 @@
 AllCops:
-    TargetRubyVersion: 2.3
+    TargetRubyVersion: 2.4
     UseCache: true
     CacheRootDirectory: '/home/daniel/.cache'
 
 Style/FrozenStringLiteralComment:
     Enabled: false
+Style/PercentLiteralDelimiters:
+    PreferredDelimiters:
+        "%w": "[]"
 Style/TrailingCommaInArguments:
     EnforcedStyleForMultiline: comma
 Style/TrailingCommaInLiteral:

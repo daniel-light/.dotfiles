@@ -81,7 +81,7 @@ class Pomo
   end
 
   def play_sound(filename)
-    system("mpv #{filename}") if File.exist?(filename)
+    Process.detach(fork { system("mpv #{filename}") }) if File.exist?(filename)
 
     nil
   end

@@ -7,6 +7,6 @@ for gem in $(ls $GEM_DIR); do
 	cd "$GEM_DIR"
 	git submodule update --remote $gem
 	cd $gem
-	gem build *.gemspec && gem install --local *.gem || echo ERROR ERROR ERROR
+	gem build *.gemspec && gem install ./*.gem || echo ERROR ERROR ERROR
 done
 

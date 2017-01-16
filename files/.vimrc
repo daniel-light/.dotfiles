@@ -35,6 +35,7 @@ augroup rainbow_lisp
   autocmd!
   autocmd FileType lisp,clojure,scheme RainbowParentheses
 augroup END
+let g:rainbow#blacklist = [0]
 
 " indentation settings
 set ai
