@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+require 'pomo/version'
 
 # This class, when run, tracks a pomodoro alternating between a 32 minute work
 # period and an 8 minute break period. It outputs to standard out and a file

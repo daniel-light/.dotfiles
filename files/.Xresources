@@ -1,4 +1,4 @@
-URxvt.font: xft:Dejavu Sans Mono:size=13
+URxvt.font: xft:Inconsolata:size=12
  !Theme Four dat phraktured
  *background: rgb:00/00/00
  *foreground: rgb:ff/ff/ff
