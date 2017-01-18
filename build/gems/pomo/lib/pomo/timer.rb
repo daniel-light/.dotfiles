@@ -1,43 +1,5 @@
-require 'pomo/version'
-require 'pomo/timer'
-
-# This class, when run, tracks a pomodoro alternating between a 32 minute work
-# period and an 8 minute break period. It outputs to standard out and a file
 module Pomo
-  class Runner
-    def initialize
-      @timer = Timer.new
-    end
-
-    def run
-      trap_term
-      while sleep(3)
-        timer.switch_period if timer.elapsed_time > timer.period_length
-        timer.write_formatted_string
-      end
-
-      nil
-    end
-
-    private
-
-    attr_accessor :timer
-
-    def trap_term
-      on_trap = proc do
-        puts 'Removing pomo timer file'
-        timer.cleanup
-        exit
-      end
-
-      Signal.trap('TERM', &on_trap)
-      Signal.trap('INT', &on_trap)
-
-      nil
-    end
-  end
-
-  class Pomo
+  class Timer
     attr_accessor :period_type, :period_start
     attr_reader :pomo_file_name
 
@@ -86,31 +48,8 @@ module Pomo
       nil
     end
 
-    def run
-      trap_term
-      while sleep(3)
-        switch_period if elapsed_time > period_length
-        write_formatted_string
-      end
-
-      nil
-    end
-
     def cleanup
       File.delete(pomo_file_name) if File.exist?(pomo_file_name)
-
-      nil
-    end
-
-    def trap_term
-      on_trap = proc do
-        puts 'Removing pomo timer file'
-        cleanup
-        exit
-      end
-
-      Signal.trap('TERM', &on_trap)
-      Signal.trap('INT', &on_trap)
 
       nil
     end

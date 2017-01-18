@@ -2,4 +2,4 @@
 
 require 'pomo'
 
-Pomo.new.run
+Pomo::Runner.new.run

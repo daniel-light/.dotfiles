@@ -10,6 +10,11 @@ Gem::Specification.new do |s|
   s.summary = 'My personal pomo timer'
   s.authors = ['Daniel Light']
   s.email = 'gem.pomo@daniel-light.net'
-  s.files = ['lib/pomo.rb']
+  s.files = Dir.glob('lib/**/*.rb')
   s.executables = ['pomo']
+
+  s.add_development_dependency 'bundler'
+  s.add_development_dependency 'pry'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec'
 end
