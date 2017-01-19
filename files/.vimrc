@@ -69,10 +69,17 @@ nnoremap K mmi<cr><esc>`m
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 0 " 0 is default
 
-" nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-" nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-" nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-" nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
+
+if has("nvim")
+  tnoremap <silent> <m-h> <c-\><c-n>:TmuxNavigateLeft<cr>
+  tnoremap <silent> <m-j> <c-\><c-n>:TmuxNavigateDown<cr>
+  tnoremap <silent> <m-k> <c-\><c-n>:TmuxNavigateUp<cr>
+  tnoremap <silent> <m-l> <c-\><c-n>:TmuxNavigateRight<cr>
+end
 
 runtime macros/matchit.vim
 

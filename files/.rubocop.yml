@@ -2,7 +2,7 @@ AllCops:
     TargetRubyVersion: 2.4
     UseCache: true
     CacheRootDirectory: '/home/daniel/.cache'
-    AllowSymlinksInCacheRootDirectory: false
+    AllowSymlinksInCacheRootDirectory: true
 
 Style/FrozenStringLiteralComment:
     Enabled: false
