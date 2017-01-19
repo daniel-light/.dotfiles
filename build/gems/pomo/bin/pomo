@@ -2,4 +2,4 @@
 
 require 'pomo'
 
-Pomo::Runner.new.run
+Pomo::Runner.new(Pomo::Timer.new).run
