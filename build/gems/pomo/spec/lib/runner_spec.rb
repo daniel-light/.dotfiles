@@ -21,22 +21,11 @@ describe Pomo::Runner do
   end
 
   context 'signal handling' do
-    before(:each) do
-      runner.trap_signals
-    end
-
     context '#trap_signals' do
-      xit 'traps SIGTERM' do
-        expect(runner).to receive(:on_terminate)
-
-        Process.kill 'TERM', 0
-      end
-
-      xit 'traps SIGUSR1' do
-        # expect(runner).to receive(:on_rotate)
-        expect(timer).to receive(:switch_period)
-
-        Process.kill 'USR1', 0
+      xit 'traps signals' do
+        # I can test that we're calling Signal.trap
+        # but I can't figure how to actually send the signal
+        # without driving rspec totally insane
       end
     end
   end

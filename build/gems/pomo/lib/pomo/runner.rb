@@ -34,17 +34,7 @@ module Pomo
 
     def trap_signals
       SIGNALS_TO_HANDLE.each do |signal, handler_name|
-        Signal.trap(signal, method(handler_name))
-        # Signal.trap(signal) { |signo|
-        #   case Signal.signame(signo)
-        #   when 'TERM'
-        #     on_terminate
-        #   when 'INT'
-        #     on_terminate
-        #   when SIG_ROTATE
-        #     on_rotate
-        #   end
-        # }
+        Signal.trap(signal) { __send__(handler_name) }
       end
 
       nil
@@ -61,13 +51,13 @@ module Pomo
 
     attr_accessor :timer, :pomo_file_name, :sounds_dir
 
-    def on_terminate(_signo)
+    def on_terminate
       puts 'Removing pomo timer file'
       cleanup
       exit
     end
 
-    def on_rotate(_signo)
+    def on_rotate
       puts "Changing period in response to #{SIG_ROTATE}"
       timer.switch_period
     end
