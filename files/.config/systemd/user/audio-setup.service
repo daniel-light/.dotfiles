@@ -1,0 +1,12 @@
+[Unit]
+Description=Audio setup on login
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/amixer sset 'Auto-Mute Mode' Disabled
+ExecStart=/usr/bin/amixer sset 'Headphone' 64
+ExecStart=/usr/bin/amixer sset 'Front' 64
+ExecStart=/usr/bin/jack_control start
+
+[Install]
+WantedBy=default.target

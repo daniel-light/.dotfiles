@@ -33,7 +33,7 @@ hi IndentGuidesEven ctermbg=lightgrey
 " active rainbow parentheses in case of emergency
 augroup rainbow_lisp
   autocmd!
-  autocmd FileType lisp,clojure,scheme RainbowParentheses
+  autocmd FileType lisp,clojure,clojurescript,scheme RainbowParentheses
 augroup END
 let g:rainbow#blacklist = [0]
 
