@@ -66,8 +66,8 @@
 	url = https://github.com/sstephenson/ruby-build
 	ignore = dirty
 [submodule "files/.vim/bundle/rainbow_parentheses"]
-	path = files/.vim/bundle/rainbow_parentheses
-	url = https://github.com/junegunn/rainbow_parentheses
+	path = files/.vim/bundle/rainbow_parentheses.vim
+	url = https://github.com/junegunn/rainbow_parentheses.vim
 [submodule "files/.vim/bundle/vim-indent-guides"]
 	path = files/.vim/bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
