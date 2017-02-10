@@ -2,8 +2,7 @@
 
 current_song=$(mpc status | head -n 1)
 master_volume=$(amixer get Master | grep dB | cut -d " " -f 5)
-date=$(date "+%Y-%m-%d %H:%M:%S")
-# pomo=$([ -f "$HOME/.pomo.timer" ] && cat "$HOME/.pomo.timer")
+date=$(date "+%m-%d %H:%M:%S")
 pomo=$([ -f "/tmp/pomo.timer" ] && cat "/tmp/pomo.timer")
 
 echo "${current_song} ♫ ${master_volume} ∰  ${pomo} | $date"
