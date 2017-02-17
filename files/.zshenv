@@ -3,6 +3,7 @@ export FZF_DEFAULT_COMMAND='find .'
 export GOPATH="$HOME/.lib/go"
 export HOSTALIASES="$HOME/.hosts"
 export ANDROID_HOME="/opt/android-sdk"
+export TERMINAL="st" # nonstandard var that i3-sensible-terminal looks for
 
 # path setup
 PATH_RBENV="$HOME/.rbenv/bin"

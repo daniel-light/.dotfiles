@@ -25,6 +25,8 @@ set smartcase
 set incsearch
 set hlsearch
 hi Search ctermfg=grey ctermbg=0
+nnoremap n //<return>
+nnoremap N ??<return>
 
 " indent guides settings (black / darkgrey is default for dark colorschemes)
 hi IndentGuidesOdd  ctermbg=white
