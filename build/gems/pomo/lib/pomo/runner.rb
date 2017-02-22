@@ -24,9 +24,9 @@ module Pomo
 
       while sleep(1)
         if timer.period_complete?
+          Timeout.timeout(30) { beeminder_prompt } if timer.period_type == :work
           timer.switch_period
           play_sound(timer.period_type)
-          Timeout.timeout(30) { beeminder_prompt }
         end
 
         write_formatted_string
@@ -72,7 +72,7 @@ module Pomo
 
     def beemind(comment)
       time = Time.now
-      annotated_comment = time.strftime('%d-%H:%M') + comment
+      annotated_comment = time.strftime('%d-%H:%M') + ' ' + comment
       goal = time.hour < 12 ? 'pomo-morning' : 'pomo'
       system('beemind', goal, '1', annotated_comment)
     end
