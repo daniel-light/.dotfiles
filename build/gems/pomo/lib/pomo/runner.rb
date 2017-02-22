@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'shellwords'
+
 module Pomo
   # This class, when run, tracks a pomodoro alternating between a 32 minute work
   # period and an 8 minute break period. It outputs to standard out and a file
@@ -24,6 +26,7 @@ module Pomo
         if timer.period_complete?
           timer.switch_period
           play_sound(timer.period_type)
+          Timeout.timeout(30) { beeminder_prompt }
         end
 
         write_formatted_string
@@ -45,6 +48,33 @@ module Pomo
       SIGNALS_TO_HANDLE.each { |signal, _| Signal.trap(signal, 'DEFAULT') }
 
       nil
+    end
+
+    def beeminder_prompt
+      comment = prompt_user('pomo topic: ')
+
+      if comment.blank?
+        notify('Empty comment, not sending pomo')
+      elsif beemind(comment)
+        notify('Recorded pomo with: ' + comment)
+      else
+        notify('Pomo sending failed')
+      end
+    end
+
+    def prompt_user(prompt)
+      `cat /dev/null | dmenu -p #{Shellwords.shellescape(prompt)}`.strip
+    end
+
+    def notify(message)
+      Process.detach(fork { system('notify-send', message) })
+    end
+
+    def beemind(comment)
+      time = Time.now
+      annotated_comment = time.strftime('%d-%H:%M') + comment
+      goal = time.hour < 12 ? 'pomo-morning' : 'pomo'
+      system('beemind', goal, '1', annotated_comment)
     end
 
     private
