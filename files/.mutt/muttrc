@@ -1,0 +1,16 @@
+set editor = `echo \$EDITOR`
+
+# set imap_user = "hello@daniel-light.net"
+# set imap_pass =
+# set header_cache = "~/.cache/mutt"
+# set message_cachedir = "~/.cache/mutt"
+
+# IMAP: offlineimap
+set mbox_type=Maildir
+set folder = "~/data/mail"
+source ~/.mutt/mailboxes
+set spoolfile = "+INBOX"
+set record = "+main/Sent"
+set postponed = "+main/Drafts"
+
+

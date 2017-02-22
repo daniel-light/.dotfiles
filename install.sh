@@ -29,8 +29,8 @@ for files_dir in "$PUBLIC_DIR" "$PRIVATE_DIR"; do
 			echo Linking $basename to $files_dir
 			ln -s "$full_path" "$HOME/$basename"
 
-		else
-			echo Skipping $basename
+		# else
+			# echo Skipping $basename
 		fi
 	done
 done
