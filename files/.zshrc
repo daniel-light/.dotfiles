@@ -20,7 +20,8 @@ alias -r \
          gtypist='gtypist --personal-best --word-processor' \
          n='nvim' \
          p='popd' \
-         sctl='systemctl' \
+         sdctl='systemctl' \
+         usdctl='systemctl --user'
          sudo='sudo ' # this enables alias expansion in sudo commands
 
 fpath=(

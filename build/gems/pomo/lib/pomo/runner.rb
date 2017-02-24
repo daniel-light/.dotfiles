@@ -23,16 +23,18 @@ module Pomo
       trap_signals
 
       while sleep(1)
-        if timer.period_complete?
-          Timeout.timeout(30) { beeminder_prompt } if timer.period_type == :work
-          timer.switch_period
-          play_sound(timer.period_type)
-        end
+        switch_period if timer.period_complete?
 
         write_formatted_string
       end
 
       nil
+    end
+
+    def switch_period
+      timer.switch_period
+      play_sound(timer.period_type)
+      ask_user_for_pomo_topic if timer.period_type == :break
     end
 
     def trap_signals
@@ -50,9 +52,18 @@ module Pomo
       nil
     end
 
-    def beeminder_prompt
-      comment = prompt_user('pomo topic: ')
+    def ask_user_for_pomo_topic
+      Process.detach(fork do
+        sleep(2)
 
+        Timeout.timeout(30) do
+          comment = prompt_user('pomo topic: ')
+          beemind_and_notify(comment)
+        end
+      end)
+    end
+
+    def beemind_and_notify(comment)
       if comment.blank?
         notify('Empty comment, not sending pomo')
       elsif beemind(comment)
@@ -67,7 +78,7 @@ module Pomo
     end
 
     def notify(message)
-      Process.detach(fork { system('notify-send', message) })
+      Process.detach(fork { exec('notify-send', message) })
     end
 
     def beemind(comment)
@@ -104,7 +115,7 @@ module Pomo
 
     def play_sound(period)
       file = "#{sounds_dir}/pomo_#{period}_start.mp3"
-      Process.detach(fork { system("mpv #{file}") }) if File.exist?(file)
+      Process.detach(fork { exec("mpv #{file}") }) if File.exist?(file)
 
       nil
     end
