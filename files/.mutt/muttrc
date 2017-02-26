@@ -13,4 +13,4 @@ set spoolfile = "+INBOX"
 set record = "+main/Sent"
 set postponed = "+main/Drafts"
 
-
+macro index,pager A "<save-message>+Archive<enter><enter>" "Archive Message"
