@@ -807,6 +807,8 @@ remoteport = 993
 #
 remoteuser = hello@daniel-light.net
 
+remotepassfile = ~/.mail.pass
+
 
 # This option stands in the [Repository RemoteExample] section.
 #

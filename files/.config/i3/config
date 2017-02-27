@@ -205,7 +205,7 @@ bindsym F8 exec volume-mute
 bindsym F9 exec volume-down
 bindsym F10 exec volume-up
 # guake uses F11 & F12
-exec guake
+# exec guake
 
 bindsym KP_Down exec mpc volume -5
 bindsym KP_Up exec mpc volume +5

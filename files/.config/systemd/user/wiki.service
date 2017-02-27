@@ -1,0 +1,8 @@
+[Unit]
+Description=personal wiki
+
+[Service]
+ExecStart=/home/daniel/bin/wiki
+
+[Install]
+WantedBy=default.target

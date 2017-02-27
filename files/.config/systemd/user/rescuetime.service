@@ -1,0 +1,8 @@
+[Unit]
+Description=rescuetime
+
+[Service]
+ExecStart=/usr/bin/rescuetime
+
+[Install]
+WantedBy=default.target

@@ -14,3 +14,10 @@ set record = "+main/Sent"
 set postponed = "+main/Drafts"
 
 macro index,pager A "<save-message>+Archive<enter><enter>" "Archive Message"
+
+set quit # don't ask, just do!!
+
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump # don't collapse on an unread message # ?
+set sort_re # thread based on regex # ?

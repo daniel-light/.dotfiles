@@ -1,0 +1,3 @@
+#!/bin/sh
+
+gollum $HOME/site/wiki
