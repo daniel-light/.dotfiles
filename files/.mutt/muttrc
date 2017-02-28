@@ -6,14 +6,27 @@ set editor = `echo \$EDITOR`
 # set message_cachedir = "~/.cache/mutt"
 
 # IMAP: offlineimap
+
 set mbox_type=Maildir
-set folder = "~/data/mail"
+set folder = "~/mail"
 source ~/.mutt/mailboxes
 set spoolfile = "+INBOX"
-set record = "+main/Sent"
-set postponed = "+main/Drafts"
+set record = "+Sent"
+set postponed = "+Drafts"
 
-macro index,pager A "<save-message>+Archive<enter><enter>" "Archive Message"
+# notmuch integration
+
+macro index <F5> \
+     "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" \
+     "notmuch: search mail"
+macro index <F6> \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
+     "notmuch: reconstruct thread"
+macro index <F7> \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -inbox<enter>" \
+     "notmuch: remove message from inbox"
+
+# index
 
 set quit # don't ask, just do!!
 
@@ -21,3 +34,15 @@ set sort = threads
 set sort_aux = reverse-last-date-received
 set uncollapse_jump # don't collapse on an unread message # ?
 set sort_re # thread based on regex # ?
+
+macro index,pager A "<save-message>+Archive<enter><enter>" "Archive Message"
+bind index,pager N search-opposite
+
+# sending mail
+
+set from = "hello@daniel-light.net"
+set sendmail = "msmtp -a mailinabox"
+set sendmail_wait = 0 # wait for errors from msmtp before returning
+
+bind compose p postpone-message
+bind compose P pgp-menu

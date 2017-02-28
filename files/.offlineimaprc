@@ -261,6 +261,7 @@ footer = "\n"
 localrepository = main-local
 remoterepository = main-remote
 
+postsynchook = notmuch new
 
 ########## Advanced settings
 
@@ -466,7 +467,7 @@ type = Maildir
 # to maildirs created under this path.  Offlineimap will create the
 # maildirs for you as needed.
 #
-localfolders = ~/data/mail
+localfolders = ~/mail
 
 
 # This option stands in the [Repository LocalExample] section.
