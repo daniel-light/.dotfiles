@@ -111,3 +111,6 @@
 [submodule "files/.tmux-plugins/tmux-continuum"]
 	path = files/.tmux-plugins/tmux-continuum
 	url = https://github.com/tmux-plugins/tmux-continuum
+[submodule "build/TagTime"]
+	path = build/TagTime
+	url = https://github.com/dreeves/TagTime

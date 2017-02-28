@@ -1,0 +1,3 @@
+#!/bin/sh
+
+$DOT_DIR/build/TagTime/tagtimed.pl -l
