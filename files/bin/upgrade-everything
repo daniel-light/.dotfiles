@@ -4,7 +4,14 @@ set -o errexit
 
 which pacman && sudo pacman -Syu
 which aurget && aurget -Syu
-[ -z "$DOT_DIR" ] && [ -d "$DOT_DIR" ] && cd "$DOT_DIR" && git submodule init && git submodule update
+
+if [ -z "$DOT_DIR" ] && [ -d "$DOT_DIR" ]; then
+	cd "$DOT_DIR"
+	git fetch
+	git rebase
+	git submodule init
+	git submodule update
+fi
 
 (which rustup && rustup update) &
 (which install-latest-ruby && install-latest-ruby; which gem && gem update && upgrade-gems-local) &
