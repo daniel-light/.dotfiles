@@ -9,13 +9,24 @@ module Pomo
       @bee = bee
     end
 
-    def record(time, topic)
-      comment = "#{time.strftime('%H:%M')} #{topic}"
+    def record(time, comment)
+      Pomo::Config.beeminder_hooks.each do |hook|
+        data = datapoint_hash_for(time, comment)
 
-      bee.send('pomo', 1, comment)
-      bee.send('morning-pomo', 1, comment) if time.hour < 12
+        if hook[:filter].call(data)
+          goal = bee.goal(hook[:goal])
+          dp = Beeminder::Datapoint.new(data)
+          goal.add(dp)
+        end
+      end
+    end
 
-      nil
+    def datapoint_hash_for(time, comment)
+      {
+        timestamp: time,
+        comment: comment,
+        value: value,
+      }
     end
 
     def self.from_rc

@@ -1,4 +1,5 @@
 require 'pomo/version'
+require 'pomo/config'
 require 'pomo/timer'
 require 'pomo/runner'
 require 'active_support/all'

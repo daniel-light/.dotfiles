@@ -84,8 +84,9 @@ module Pomo
     def beemind(comment)
       time = Time.now
       annotated_comment = time.strftime('%d-%H:%M') + ' ' + comment
-      goal = time.hour < 12 ? 'pomo-morning' : 'pomo'
-      system('beemind', goal, '1', annotated_comment)
+      # goal = time.hour < 12 ? 'pomo-morning' : 'pomo'
+      # system('beemind', goal, '1', annotated_comment)
+      # TODO call the bee?
     end
 
     private
