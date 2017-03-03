@@ -21,7 +21,7 @@ alias -r \
          n='nvim' \
          p='popd' \
          sdctl='systemctl' \
-         usdctl='systemctl --user'
+         usdctl='systemctl --user' \
          sudo='sudo ' # this enables alias expansion in sudo commands
 
 fpath=(
