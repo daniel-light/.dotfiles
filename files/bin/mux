@@ -1,1 +1,7 @@
-tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+#!/bin/sh
+
+if tmux has-session -t "$USER"; then
+	tmux attach-session -t "$USER"
+else
+	tmux new-session -s "$USER"
+fi
