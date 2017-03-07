@@ -1,3 +1,4 @@
+# this doesn't work, because you need stuff that isn't available until X comes up
 [Unit]
 Description=rescuetime
 

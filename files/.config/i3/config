@@ -204,8 +204,11 @@ bindsym $mod+F1 exec scrot
 bindsym F8 exec volume-mute
 bindsym F9 exec volume-down
 bindsym F10 exec volume-up
-# guake uses F11 & F12
-# exec guake
+
+# start a bunch of stuff that really ought to get started somewhere else
+exec guake # guake uses F11 & F12
+exec rescuetime
+exec tagtime
 
 bindsym KP_Down exec mpc volume -5
 bindsym KP_Up exec mpc volume +5
