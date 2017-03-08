@@ -15,6 +15,8 @@ module Pomo
 
     def initialize(timer, opts = {})
       @timer = timer
+
+      @bee = opts[:bee]
       @pomo_file_name = opts[:pomo_file_name] || '/tmp/pomo.timer'
       @sounds_dir = opts[:sounds_dir] || ENV['HOME']
     end
@@ -32,9 +34,12 @@ module Pomo
     end
 
     def switch_period
+      if timer.period_complete? && timer.period_type == :work
+        ask_user_for_pomo_topic
+      end
+
       timer.switch_period
       play_sound(timer.period_type)
-      ask_user_for_pomo_topic if timer.period_type == :break
     end
 
     def trap_signals
@@ -54,7 +59,7 @@ module Pomo
 
     def ask_user_for_pomo_topic
       Process.detach(fork do
-        sleep(2)
+        sleep(1.5)
 
         Timeout.timeout(30) do
           comment = prompt_user('pomo topic: ')
@@ -84,6 +89,8 @@ module Pomo
     def beemind(comment)
       time = Time.now
       annotated_comment = time.strftime('%d-%H:%M') + ' ' + comment
+
+      bee.record(time, annotated_comment)
       # goal = time.hour < 12 ? 'pomo-morning' : 'pomo'
       # system('beemind', goal, '1', annotated_comment)
       # TODO call the bee?

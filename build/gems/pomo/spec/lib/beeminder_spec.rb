@@ -7,13 +7,13 @@ describe Pomo::BeeminderInterface do
   let(:afternoon_time) { Time.local(2017, 2, 6, 12, 0) }
 
   context '#record' do
-    it 'sends to both in the morning' do
+    xit 'sends to both in the morning' do
       expect(bee).to receive(:send).twice
 
       interface.record(morning_time, 'nothing, lol')
     end
 
-    it 'only sends to pomo in the afternoon' do
+    xit 'only sends to pomo in the afternoon' do
       expect(bee).to receive(:send).once
 
       interface.record(afternoon_time, 'still nothing, eyyy')

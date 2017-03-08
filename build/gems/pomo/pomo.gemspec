@@ -13,6 +13,9 @@ Gem::Specification.new do |s|
   s.files = Dir.glob('lib/**/*.rb')
   s.executables = ['pomo']
 
+  s.add_dependency 'activesupport'
+  s.add_dependency 'beeminder'
+
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'rake'
