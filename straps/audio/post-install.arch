@@ -1,0 +1,7 @@
+sudo groupadd audio
+sudo gpasswd -a $(whoami) audio
+
+# /etc/security/limits.conf
+# @audio	-	rtprio	80
+# @audio	-	nice	-10
+# @audio	-	rtprio	500000

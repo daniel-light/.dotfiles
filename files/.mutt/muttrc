@@ -38,6 +38,10 @@ set sort_re # thread based on regex # ?
 macro index,pager A "<save-message>+Archive<enter><enter>" "Archive Message"
 bind index,pager N search-opposite
 
+# pager
+
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
 # sending mail
 
 set from = "hello@daniel-light.net"
