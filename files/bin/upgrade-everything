@@ -2,9 +2,9 @@
 set -o nounset
 set -o errexit
 
-which pacman && sudo pacman -Syu
-which aurget && aurget -Syu
-which apt-get && sudo apt-get update && sudo apt-get upgrade -y
+which pacman > /dev/null 2>&1 && sudo pacman -Syu
+which aurget > /dev/null 2>&1 && aurget -Syu
+which apt-get > /dev/null 2>&1 && sudo apt-get update && sudo apt-get upgrade -y
 
 (upgrade-dotfiles)
 

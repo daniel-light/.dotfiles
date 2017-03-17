@@ -5,6 +5,6 @@ origin = `tmux display -p '#S'`.strip
 listener = 'two'
 targetw = "#{listener}:#{origin}"
 
-`tmux has-session -t #{listener} || tmux new -s #{listener}`
+`tmux has-session -t #{listener} || tmux new -d -s #{listener}`
 system('tmux', 'selectw', '-t', targetw) || `tmux neww -t #{listener} -n #{origin}`
 system('tmux', 'send-keys', '-t', targetw, command, 'Enter')
