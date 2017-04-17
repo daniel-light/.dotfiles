@@ -229,3 +229,4 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 15
 
 for_window [class="mpv"] floating enable
 for_window [class="qjackctl"] floating enable
+for_window [title="POMO"] floating enable
