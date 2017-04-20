@@ -1,3 +1,13 @@
 #!/bin/sh
 
-ssh mail-box -- 'sudo apt-get update && sudo apt-get upgrade -y && reboot'
+ssh mail-box -- 'apt-get update && apt-get upgrade -y && apt-get autoremove -y && reboot'
+
+if false; then
+  curl -s https://mailinabox.email/setup.sh | bash
+  apt-get -y purge python3-openssl
+  rm -rf /usr/local/lib/python3.4/dist-packages/{OpenSSL,cryptography}*
+  pip3 install pyOpenSSL
+  sudo apt-get install python3-openssl
+  mailinabox
+  reboot
+fi
