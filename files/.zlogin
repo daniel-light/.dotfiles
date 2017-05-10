@@ -3,4 +3,7 @@ which rbenv > /dev/null && eval "$(rbenv init -)"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+# temporarily here instead of zshrc, still not great
+autoload -Uz compinit && compinit
+
 which systemctl >&- && systemctl 2>&- --user import-environment PATH

@@ -114,3 +114,6 @@
 [submodule "build/TagTime"]
 	path = build/TagTime
 	url = https://github.com/dreeves/TagTime
+[submodule "files/.vim/bundle/vim-racket"]
+	path = files/.vim/bundle/vim-racket
+	url = https://github.com/wlangstroth/vim-racket.git
