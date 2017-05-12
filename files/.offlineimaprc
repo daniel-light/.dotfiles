@@ -320,7 +320,7 @@ postsynchook = notmuch new
 # The historical backend is 'plain' which writes out the state in plain text
 # files. See manual.
 #
-status_backend = sqlite
+# status_backend = sqlite
 
 
 # This option stands in the [Account Test] section.
