@@ -9,9 +9,13 @@ call pathogen#helptags()
 " set mouse= " rodents, man
 
 set autoread " automatically reload buffers that have changed on disk
-au FocusGained,BufEnter * :checktime " hopefully notice when files do change
-au FocusLost * silent! wa " hopefully save things when focus is lost
-au BufWrite * silent! :Neomake
+augroup autoready
+  autocmd!
+  au FocusGained,BufEnter * :checktime " hopefully notice when files do change
+  au FocusLost * silent! wa " hopefully save things when focus is lost
+  au BufWritePost * silent! :Neomake
+  au BufRead * silent! :Neomake
+augroup END
 
 set ruler " the numbers in the lower right corner
 set hidden " automatically hide modified buffers ons switch
@@ -46,7 +50,10 @@ set ts=4
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup all_file_types
+  autocmd!
+  au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
 if has("autocmd")
   filetype plugin indent on
 endif
