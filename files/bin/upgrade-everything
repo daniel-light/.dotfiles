@@ -7,6 +7,5 @@ which aurget > /dev/null 2>&1 && aurget -Syu
 which apt-get > /dev/null 2>&1 && sudo apt-get update && sudo apt-get upgrade -y
 
 (upgrade-dotfiles)
-
-(which rustup && rustup update) &
-(which install-latest-ruby && install-latest-ruby; which gem && gem update && upgrade-gems-local) &
+(which install-latest-ruby && install-latest-ruby; which gem && gem update && upgrade-gems-local)
+(which rustup && rustup update)

@@ -5,3 +5,5 @@ eslint
 babel-eslint
 coffee-script
 coffeelint
+jasmine
+jasmine-node
