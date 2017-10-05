@@ -12,6 +12,8 @@ set -o emacs # zsh will think we want vi line editing mode - we don't
 
 # do this because gnu ls and bsd ls take different options for colorization
 ls '--color=auto' > /dev/null 2>&1 && alias -r ls='ls -h --color=auto' || alias -r ls="ls -G"
+
+# having a space at the end of an alias enables expansion inside of the alias
 alias -r \
          b='bert' \
          be='bundle exec' \
@@ -24,7 +26,8 @@ alias -r \
          p='popd' \
          sdctl='systemctl' \
          usdctl='systemctl --user' \
-         sudo='sudo ' # this enables alias expansion in sudo commands
+         sudo='sudo ' \
+         t='tmux'
 
 fpath=(
          "$HOME/.config/zsh/zsh-completions/src"
