@@ -150,14 +150,16 @@ fi
 if is_target node; then
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 
-	# load the nvm function, since we usually only do this for interactives
-	export NVM_DIR="/home/daniel/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+	upgrade-node
 
-	# node is an alias for the latest version of node
-	nvm install node  --reinstall-packages-from=node # the switch will preserve packages from the previous tip
-	nvm use node
-	cat "$DOT_DIR/straps/npms" | xargs npm install -g
+	# # load the nvm function, since we usually only do this for interactives
+	# export NVM_DIR="/home/daniel/.nvm"
+	# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+	# # node is an alias for the latest version of node
+	# nvm install node  --reinstall-packages-from=node # the switch will preserve packages from the previous tip
+	# nvm use node
+	# cat "$DOT_DIR/straps/npms" | xargs npm install -g
 fi
 
 if is_target steam; then

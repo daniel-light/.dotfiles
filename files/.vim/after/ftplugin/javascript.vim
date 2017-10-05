@@ -11,6 +11,8 @@ augroup END
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 
+let g:jsx_ext_required = 0 " allow jsx syntax in js files
+
 function! LintFix()
   !eslint --fix %
 endfunction

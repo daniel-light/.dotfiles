@@ -208,7 +208,7 @@ bindsym F10 exec volume-up
 # start a bunch of stuff that really ought to get started somewhere else
 exec guake # guake uses F11 & F12
 exec rescuetime
-exec tagtime
+# exec tagtime
 
 bindsym KP_Down exec mpc volume -5
 bindsym KP_Up exec mpc volume +5
