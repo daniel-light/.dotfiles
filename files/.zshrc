@@ -27,6 +27,7 @@ alias -r \
          sdctl='systemctl' \
          usdctl='systemctl --user' \
          sudo='sudo ' \
+         s='sudo ' \
          t='tmux'
 
 fpath=(
