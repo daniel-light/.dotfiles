@@ -16,4 +16,7 @@ fi
 
 # Key bindings
 # ------------
-source "$HOME/.dotfiles/build/fzf/shell/key-bindings.zsh"
+
+if [[ -f "$HOME/.dotfiles/build/fzf/shell/key-bindings.zsh" ]]; then
+  source "$HOME/.dotfiles/build/fzf/shell/key-bindings.zsh"
+fi

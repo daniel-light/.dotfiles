@@ -91,11 +91,14 @@
     isNormalUser = true;
     home = "/home/daniel";
     description = "Daniel Light";
+    shell = pkgs.zsh;
     extraGroups = ["wheel" "networkmanager"];
   };
 
   environment.systemPackages = [ pkgs.firefox 
-pkgs.git pkgs.neovim pkgs.networkmanagerapplet];
+pkgs.git pkgs.neovim pkgs.networkmanagerapplet pkgs.zsh pkgs.tmux ];
 
   networking.networkmanager.enable = true;
+
+  system.autoUpgrade.enable = true;
 }
