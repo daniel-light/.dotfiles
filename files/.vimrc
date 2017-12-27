@@ -3,6 +3,7 @@ set modelines=0 " http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2
 " set this above the call to pathogen (so it doesn't get set off)
 let g:go_disable_autoinstall = 1
 
+let g:pathogen_disabled = ["neomake"]
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -13,9 +14,20 @@ augroup autoready
   autocmd!
   au FocusGained,BufEnter * :checktime " hopefully notice when files do change
   au FocusLost * silent! wa " hopefully save things when focus is lost
-  au BufWritePost * silent! :Neomake
-  au BufRead * silent! :Neomake
+  " au BufWritePost * silent! :Neomake
+  " au BufRead * silent! :Neomake
 augroup END
+
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_enter = 1 " default
+" let g:ale_lint_on_save = 1 " default
+
+" let g:ale_sign_error = '>>'
+" let g:ale_sign_warning = '--'
+" highlight clear ALEErrorSign
+" highlight clear ALEWarningSign
 
 set ruler " the numbers in the lower right corner
 set hidden " automatically hide modified buffers ons switch

@@ -117,3 +117,6 @@
 [submodule "files/.vim/bundle/vim-racket"]
 	path = files/.vim/bundle/vim-racket
 	url = https://github.com/wlangstroth/vim-racket.git
+[submodule "files/.vim/pack/git-plugins/start/ale"]
+	path = files/.vim/pack/git-plugins/start/ale
+	url = https://github.com/w0rp/ale
