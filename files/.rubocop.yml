@@ -4,6 +4,10 @@ AllCops:
     CacheRootDirectory: '/home/daniel/.cache'
     AllowSymlinksInCacheRootDirectory: true
 
+Metrics:
+    LineLength:
+        IgnoredPatterns: []
+
 Style/FrozenStringLiteralComment:
     Enabled: false
 Style/PercentLiteralDelimiters:
