@@ -18,3 +18,5 @@ function! LintFix()
 endfunction
 
 command! LintFix call LintFix()
+
+" TODO remove jshint plugin?

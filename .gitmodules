@@ -120,3 +120,6 @@
 [submodule "files/.vim/pack/git-plugins/start/ale"]
 	path = files/.vim/pack/git-plugins/start/ale
 	url = https://github.com/w0rp/ale
+[submodule "files/.vim/bundle/vim-javascript"]
+	path = files/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
