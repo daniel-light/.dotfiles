@@ -24,11 +24,11 @@ alias -r \
          gtypist='gtypist --personal-best --word-processor' \
          n='nvim' \
          p='popd' \
-         sdctl='systemctl' \
-         usdctl='systemctl --user' \
-         sudo='sudo ' \
          s='sudo ' \
-         t='tmux'
+         sdctl='systemctl' \
+         sudo='sudo ' \
+         t='tmux' \
+         usdctl='systemctl --user'
 
 fpath=(
          "$HOME/.config/zsh/zsh-completions/src"
@@ -58,5 +58,5 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100
 SAVEHIST=100
 
-export NVM_DIR="/home/daniel/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
