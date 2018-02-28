@@ -167,7 +167,7 @@ accounts = main
 # SQLite honors this option since v7.0.8+. However, those SQLite improvements
 # are still EXPERIMENTAL.
 #
-#fsync = true
+fsync = false
 
 
 ##################################################
@@ -261,7 +261,12 @@ footer = "\n"
 localrepository = main-local
 remoterepository = main-remote
 
+# technically considered experimental, but apparently losing it isn't considered catastrophic?
+status_backend = sqlite
+
 postsynchook = notmuch new
+
+# TODO folderfilters (see man page)
 
 ########## Advanced settings
 
@@ -638,11 +643,6 @@ type = IMAP
 # The returned value must be unicode type.
 #remotepasseval = getcredentials("filename", "hostname", "passwd")
 
-
-# This option stands in the [Repository RemoteExample] section.
-#
-# Specify the remote hostname.
-#
 remotehost = mail.daniel-light.net
 
 
@@ -794,22 +794,13 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 #
 #tls_level = tls_compat
 
-
-# This option stands in the [Repository RemoteExample] section.
-#
-# Specify the port.  If not specified, use a default port.
-#
 remoteport = 993
-
-
-# This option stands in the [Repository RemoteExample] section.
-#
-# Specify the remote user name.
-#
 remoteuser = hello@daniel-light.net
-
 remotepassfile = ~/.mail.pass
 
+# the developer says using this is probably inadvisable
+# http://www.offlineimap.org/configuration/2016/01/29/why-i-m-not-using-maxconnctions.html
+maxconnections = 2
 
 # This option stands in the [Repository RemoteExample] section.
 #
