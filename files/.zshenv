@@ -11,11 +11,12 @@ PATH_HEROKU="/usr/local/heroku/bin"
 PATH_RVM="$HOME/.rvm/bin"
 PATH_CARGO="$HOME/.cargo/bin"
 PATH_PERL="$HOME/perl5/bin"
+PATH_LUAROCKS="$HOME/.luarocks/bin"
 
 # this is in a function so we can call it again in zshrc
 function setup_path {
   # http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
-  for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$HOME/.local/bin" "$PATH_RBENV" "$HOME/bin" ; do
+  for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_LUAROCKS" "$HOME/.local/bin" "$PATH_RBENV" "$HOME/bin" ; do
     case ":$PATH:" in
       *":$x:"*) :;; # already there
       *) PATH="$x:$PATH";;

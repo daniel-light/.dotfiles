@@ -144,3 +144,6 @@ endfunction
 cmap w!! w !sudo tee '%' > /dev/null
 
 command! ReopenInSplit call ReopenInSplit()
+
+" TODO I think we only need this in after/ftplugin/javascript.vim, but I'm not sure
+let g:jsx_ext_required = 0 " allow jsx syntax in js files
