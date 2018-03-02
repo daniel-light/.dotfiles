@@ -24,6 +24,7 @@ alias -r \
          gtypist='gtypist --personal-best --word-processor' \
          n='nvim' \
          p='popd' \
+         rb='rbenv' \
          s='sudo ' \
          sdctl='systemctl' \
          sudo='sudo ' \
