@@ -9,5 +9,6 @@ which systemctl && systemctl --user import-environment XAUTHORITY DISPLAY # why 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+which fcitx && fcitx
 
 exec i3

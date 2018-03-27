@@ -262,7 +262,8 @@ localrepository = main-local
 remoterepository = main-remote
 
 # technically considered experimental, but apparently losing it isn't considered catastrophic?
-status_backend = sqlite
+# no longer technically considered experimental - this is the default and the option is now an error
+# status_backend = sqlite
 
 postsynchook = notmuch new
 

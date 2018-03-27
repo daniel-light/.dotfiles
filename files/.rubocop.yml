@@ -4,12 +4,25 @@ AllCops:
     CacheRootDirectory: '/home/daniel/.cache'
     AllowSymlinksInCacheRootDirectory: true
 
+Layout:
+    ConditionPosition: true
+    SpaceInsideHashLiteralBraces:
+        EnforcedStyle: no_space
+
+Lint:
+    IneffectiveAccessModifier:
+        Enabled: false
+
 Metrics:
     LineLength:
         IgnoredPatterns: []
 
-Style/FrozenStringLiteralComment:
-    Enabled: false
+Style:
+    RegexpLiteral:
+        EnforcedStyle: slashes
+        AllowInnerSlashes: true
+    FrozenStringLiteralComment:
+        Enabled: when_needed
 Style/PercentLiteralDelimiters:
     PreferredDelimiters:
         "%w": "[]"
