@@ -124,3 +124,6 @@
 [submodule "files/.vim/bundle/vim-javascript"]
 	path = files/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
+[submodule "build/rbenv-communal-gems"]
+	path = build/rbenv-communal-gems
+	url = https://github.com/tpope/rbenv-communal-gems

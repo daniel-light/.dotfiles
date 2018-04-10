@@ -89,7 +89,7 @@ fi
 
 if [ $(which pacman) ]; then
 	# you should check .pacnew files after bootstrapping
-	
+
 	# we need multilib for steam, to enable:
 	# go to /etc/pacman.conf and uncomment the two lines for multilib NOT multilib-testing
 	# we also need to add the steam lib repo
@@ -125,10 +125,19 @@ fi
 
 # this will action put it in bin/share/whatever, which isn't actually what we want # don't know what this comment is about anymore, maybe the output of fzf install?
 
-mkdir -p "$HOME/.rbenv/{plugins,cache}" # if cache exists, then rbenv will cache downloads there by default
-if [ ! -e "$HOME/.rbenv/plugins/ruby-build" ]; then 
-	ln -s "$DOT_DIR/build/ruby-build" "$HOME/.rbenv/plugins/ruby-build" 
+function link_rbenv_plugin {
+if [ ! -e "$HOME/.rbenv/plugins/$1" ]; then
+	ln -s "$DOT_DIR/build/$1" "$HOME/.rbenv/plugins/$1"
 fi
+}
+
+mkdir -p "$HOME/.rbenv/{plugins,cache}" # if cache exists, then rbenv will cache downloads there by default
+
+for plugin in ruby-build rbenv-communal-gems; do
+	link_rbenv_plugin "$plugin";
+done
+
+rbenv communize --all
 
 if is_target ruby; then
 	install-latest-ruby
