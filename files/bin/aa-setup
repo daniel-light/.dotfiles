@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+npm init --yes
+npm install --save webpack react babel-core babel-loader babel-preset-env babel-preset-react
+npm install --save-dev webpack-cli
+# configure webpack!
+# inject after "scripts":
+#   "webpack": "webpack",

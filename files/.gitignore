@@ -4,7 +4,7 @@
 *.swo
 Session.vim
 *.idea/*
-.DS*
+.DS* # tbh not sure what this is doing in editor files at this point
 
 # Compiled source #
 ###################
@@ -37,24 +37,35 @@ Session.vim
 # OS generated files #
 ######################
 .DS_Store?
+.AppleDouble
+.LSOverride
 ehthumbs.db
 Icon?
 Thumbs.db
 
-# Local installation files #
+# ruby #
 ############################
 .bundle/*
 Gemfile.tmp
 Gemfile.tmp.lock
 .local-gems
+.byebug_history
 
 # automatically generated config files #
 ########################################
 files/.config/fish/fish_history
 files/.config/fish/fishd.*
 
+# node #
+########
+node_modules
+bundle.js # TODO AA rec - what for?
+bundle.js.map
+
+# clojure #
+###########
+.nrepl-port
+
 # Local tmp files #
 ###################
-.nrepl-port
-.byebug_history
-node_modules
+/*tmp*/

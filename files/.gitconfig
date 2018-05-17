@@ -20,6 +20,7 @@
 	a = add
 	b = branch
 	d = diff
+	dc = diff --cached
 	e = rebase
 	f = fetch --prune --tags --recurse-submodules=on-demand
 	g = grep
