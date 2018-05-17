@@ -201,7 +201,7 @@ bindsym $mod+F1 exec scrot
 # special keys
 #bindsym F6 exec brightness down #bindsym $mod+Insert xbacklight -inc 15
 #bindsym F7 exec brightness up #bindsym $mod+Delete xbacklight -dec 1
-bindsym F8 exec volume-mute
+# bindsym F8 exec volume-mute
 bindsym F9 exec volume-down
 bindsym F10 exec volume-up
 
@@ -230,3 +230,5 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 15
 for_window [class="mpv"] floating enable
 for_window [class="qjackctl"] floating enable
 for_window [title="POMO"] floating enable
+for_window [class="pavucontrol"] floating enable
+for_window [title="Volume Control"] floating enable

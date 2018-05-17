@@ -29,6 +29,7 @@ alias -r \
          sdctl='systemctl' \
          sudo='sudo ' \
          t='tmux' \
+         timestamp='date "+%Y-%m-%d-%T"' \
          usdctl='systemctl --user'
 
 fpath=(
