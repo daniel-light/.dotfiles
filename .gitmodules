@@ -127,3 +127,7 @@
 [submodule "build/rbenv-communal-gems"]
 	path = build/rbenv-communal-gems
 	url = https://github.com/tpope/rbenv-communal-gems
+[submodule "files/.vim/bundle/vim-eunuch"]
+	path = files/.vim/bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+	ignore = dirty
