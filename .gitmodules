@@ -131,3 +131,6 @@
 	path = files/.vim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch
 	ignore = dirty
+[submodule "files/.pyenv"]
+	path = files/.pyenv
+	url = https://github.com/pyenv/pyenv
