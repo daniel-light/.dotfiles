@@ -4,9 +4,11 @@
 # this script aspires to be an automagic installer, but in reality it's more of
 # a guide to answer "how the fuck did I do this last time"
 
-set -e
+set -o nounset
+set -o errexit
 
-selected_targets=("$@")
+# TODO core is apparently not a default target?
+selected_targets=("core $@")
 
 function is_target {
 	for target in $selected_targets; do
@@ -31,13 +33,15 @@ BUILD_DIR="$DOT_DIR/build"
 STRAPS_DIR="$DOT_DIR/straps"
 
 cd $DOT_DIR
+sh install.sh
 git submodule init
 git submodule update
 
 if is_ubuntu; then
 	echo Distro is ubuntu
 
-	if [ ! $LANG == en_US.UTF-8 ]; then
+	# "${VAR-}" checks for unset in bash?
+	if [ ! -n "${LANG-}" ] || [ ! $LANG == en_US.UTF-8 ]; then
 		sudo locale-gen en_US.UTF-8
 		sudo update-locale LANG=en_US.UTF-8
 	fi
@@ -133,14 +137,23 @@ fi
 
 mkdir -p "$HOME/.rbenv/{plugins,cache}" # if cache exists, then rbenv will cache downloads there by default
 
-for plugin in ruby-build rbenv-communal-gems; do
-	link_rbenv_plugin "$plugin";
-done
+if [ -d "$HOME/.rbenv" ]; then
+	mkdir -p "$HOME/.rbenv/plugins"
+
+	for plugin in ruby-build rbenv-communal-gems; do
+		link_rbenv_plugin "$plugin";
+	done
+fi
 
 rbenv communize --all
 
 if is_target ruby; then
-	install-latest-ruby
+	upgrade-ruby-version
+fi
+
+if is_target pyenv; then
+	mkdir -p "$HOME/.pyenv/{plugins,cache}" # TODO see if the cache thing also works for pyenv
+	upgrade-python-version
 fi
 
 if is_target lastpass-cli; then
