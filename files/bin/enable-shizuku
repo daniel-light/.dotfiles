@@ -1,0 +1,4 @@
+#!bin/sh
+
+# from https://forum.xda-developers.com/moto-e4/how-to/guide-root-appops-manager-t3703600
+adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/files/start.sh
