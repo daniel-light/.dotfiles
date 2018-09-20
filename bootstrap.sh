@@ -135,7 +135,7 @@ if [ ! -e "$HOME/.rbenv/plugins/$1" ]; then
 fi
 }
 
-mkdir -p "$HOME/.rbenv/{plugins,cache}" # if cache exists, then rbenv will cache downloads there by default
+mkdir -p "$HOME/.rbenv/cache" # if cache exists, then rbenv will cache downloads there by default
 
 if [ -d "$HOME/.rbenv" ]; then
 	mkdir -p "$HOME/.rbenv/plugins"
@@ -152,7 +152,8 @@ if is_target ruby; then
 fi
 
 if is_target pyenv; then
-	mkdir -p "$HOME/.pyenv/{plugins,cache}" # TODO see if the cache thing also works for pyenv
+	mkdir -p "$HOME/.pyenv/plugins" # TODO see if the cache thing also works for pyenv
+	mkdir -p "$HOME/.pyenv/cache" # TODO see if the cache thing also works for pyenv
 	upgrade-python-version
 fi
 
