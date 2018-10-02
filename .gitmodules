@@ -134,3 +134,6 @@
 [submodule "files/.pyenv"]
 	path = files/.pyenv
 	url = https://github.com/pyenv/pyenv
+[submodule "files/.nvm"]
+	path = files/.nvm
+	url = https://github.com/creationix/nvm
