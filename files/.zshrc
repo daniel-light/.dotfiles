@@ -19,6 +19,7 @@ alias -r \
          be='bundle exec' \
          bee='beemind' \
          c='pushd' \
+         cdc='cd $(pwd)' \
          drox='dropbox-cli' \
          g='git' \
          gtypist='gtypist --personal-best --word-processor' \
@@ -59,6 +60,3 @@ setopt NO_COMPLETE_ALIASES
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100
 SAVEHIST=100
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

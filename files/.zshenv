@@ -36,6 +36,17 @@ function setup_path {
 
 setup_path
 
+export NVM_DIR="$HOME/.nvm"
+
+if [ -d "$HOME/.nvm" ] && ; then
+  function nvm () {
+    unset -f nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 2> /dev/null # This loads nvm
+    nvm use --delete-prefix default --silent
+    nvm $*
+  }
+fi
+
 if [[ -f "$HOME/.secure-env" ]]; then
 	source "$HOME/.secure-env"
 fi
