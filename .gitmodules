@@ -137,3 +137,4 @@
 [submodule "files/.nvm"]
 	path = files/.nvm
 	url = https://github.com/creationix/nvm
+	ignore = dirty
