@@ -14,6 +14,11 @@ mkdir -p "$OLD_DIR" && echo 'Creating directory structure'
 
 # make symlinks for dotfiles, saving existing files
 for files_dir in "$PUBLIC_DIR" "$PRIVATE_DIR"; do
+	if [ ! -d "$files_dir" ]; then
+		echo Skipping $files_dir
+		continue;
+	fi
+
 	for basename in $(ls -A "$files_dir"); do
 		full_path="$files_dir/$basename"
 		if [ "$(readlink $HOME/$basename)" != "$full_path" ]; then
