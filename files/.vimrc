@@ -118,13 +118,11 @@ endfunction
 set rtp+=~/.dotfiles/build/fzf
 nnoremap \t :FZF<cr>
 
-" fugitive leader key mappings
+" fugitive config
 nnoremap \g   :G
-" nnoremap \gd  :Gdiff
-" nnoremap \gg  :Ggrep
-" nnoremap \gl  :Glog
-" nnoremap \gs  :Gstatus
-" nnoremap \gci :Gcommit
+:command Gs Gstatus
+:command Gd Gdiff
+:command Gci Gcommit
 
 " autocomplete stuff
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
