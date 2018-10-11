@@ -24,6 +24,7 @@
 	e = rebase
 	f = fetch --prune --tags --recurse-submodules=on-demand
 	g = grep
+	i = !/home/daniel/.dotfiles/build/git-issue/git-issue.sh
 	l = log
 	m = merge
 	s = status -sb
@@ -34,6 +35,7 @@
 	co = checkout
 	home = rev-parse --show-toplevel
 	dsf = "!git diff --color $@ | diff-highlight | diff-so-fancy | less --RAW-CONTROL-CHARS"
+	issue = !/home/daniel/.dotfiles/build/git-issue/git-issue.sh
 
 [merge]
 	tool = vimdiff

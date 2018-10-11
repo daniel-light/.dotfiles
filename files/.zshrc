@@ -6,6 +6,7 @@ which most 2>&1 > /dev/null && export PAGER="most"
 
 export DIFFPROG="nvim -d"
 export EDITOR="nvim"
+export VISUAL="nvim"
 set -o emacs # zsh will think we want vi line editing mode - we don't
 
 ## aliases ##

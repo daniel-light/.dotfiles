@@ -1,3 +1,6 @@
+# ignore the repo for git issue
+.issues/
+
 # both of these tend to have a lot of junk we don't want to sync
 files/bin
 files/.config

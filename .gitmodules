@@ -138,3 +138,6 @@
 	path = files/.nvm
 	url = https://github.com/creationix/nvm
 	ignore = dirty
+[submodule "build/git-issue"]
+	path = build/git-issue
+	url = https://github.com/dspinellis/git-issue
