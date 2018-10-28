@@ -4,5 +4,7 @@ set -o nounset
 set -o errexit
 
 (upgrade-dotfiles)
-(which install-latest-ruby && install-latest-ruby; which gem && gem update && upgrade-gems-local)
+# (which upgrade-ruby-version && upgrade-ruby-version; which gem && gem update && upgrade-gems-local)
+(which upgrade-python-version && upgrade-python-version)
+(which upgrade-node-version && upgrade-node-version)
 (which rustup && rustup update)
