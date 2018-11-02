@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+set -o nounset
+set -o errexit
+
+for remote in $(cd $(git remote get-url origin) && git remote); do
+	# skip or set url for existing remotes?
+	if git remote show "$remote"; then
+		git remote set-url "$remote" $(cd $(git remote get-url origin) && git remote get-url "$remote")
+	else
+		git remote add "$remote" $(cd $(git remote get-url origin) && git remote get-url "$remote")
+	fi
+done
