@@ -20,7 +20,7 @@ alias -r \
          be='bundle exec' \
          bee='beemind' \
          c='pushd' \
-         cdc='cd $(pwd)' \
+         cdc='cd "$(pwd)"' \
          drox='dropbox-cli' \
          g='git' \
          gtypist='gtypist --personal-best --word-processor' \

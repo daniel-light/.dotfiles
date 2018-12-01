@@ -47,6 +47,10 @@ if [ -d "$HOME/.nvm" ] && ; then
   }
 fi
 
+if [[ -f "$HOME/.env" ]]; then
+	source "$HOME/.env"
+fi
+# is there a principled difference between these two? idk dude
 if [[ -f "$HOME/.secure-env" ]]; then
 	source "$HOME/.secure-env"
 fi
