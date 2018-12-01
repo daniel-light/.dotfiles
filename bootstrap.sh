@@ -10,6 +10,10 @@ set -o errexit
 # TODO core is apparently not a default target?
 selected_targets=("core $@")
 
+function has_cmd {
+	which $1 2>&1 > /dev/null
+}
+
 function is_target {
 	for target in $selected_targets; do
 		if [ $1 == $target -o $1 == "full" ]; then
@@ -21,11 +25,11 @@ function is_target {
 }
 
 function is_arch {
-	which pacman 2>&1 > /dev/null
+	has_cmd pacman
 }
 
 function is_ubuntu {
-	which apt-get 2>&1 > /dev/null
+	has_cmd apt-get
 }
 
 DOT_DIR="$HOME/.dotfiles"
