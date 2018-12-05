@@ -7,4 +7,4 @@ cd ~/.dotfiles
 ./bootstrap.sh
 chsh -s /bin/zsh
 zsh --login
-./bootstrap.sh ruby # TARGETS
+./bootstrap.sh ruby pyenv node lastpass-cli dropbox # TARGETS

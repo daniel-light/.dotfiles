@@ -159,6 +159,8 @@ if is_target pyenv; then
 	mkdir -p "$HOME/.pyenv/plugins" # TODO see if the cache thing also works for pyenv
 	mkdir -p "$HOME/.pyenv/cache" # TODO see if the cache thing also works for pyenv
 	upgrade-python-version
+	pip install --upgrade pip
+	pip install --user pipenv # TODO is this the best place for this?
 fi
 
 if is_target lastpass-cli; then
@@ -208,7 +210,9 @@ if is_target dropbox; then
 		# TODO we should detect if the system is 32 or 64 bit
 		cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 		curl https://www.dropbox.com/download?dl=packages/dropbox.py > "$DOT_DIR/files/bin/dropbox-cli"
+		chmod +x "$DOT_DIR/files/bin/dropbox-cli"
+		~/.dropbox-dist/dropboxd # this requires user intervention TODO ?
 	fi
 
-	ln -s "$HOME/Dropbox/extradots/.hosts" "$HOME/.hosts"
+	# ln -s "$HOME/Dropbox/extradots/.hosts" "$HOME/.hosts"
 fi
