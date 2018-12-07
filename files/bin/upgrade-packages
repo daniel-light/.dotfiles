@@ -1,17 +1,30 @@
-#!/bin/sh
+#!/bin/zsh
 
 set -o nounset
 set -o errexit
 
-which pacman > /dev/null 2>&1 && sudo pacman -Syu --noconfirm
-which aurget > /dev/null 2>&1 && aurget -Syu --noedit --noconfirm
-which apt-get > /dev/null 2>&1 && sudo apt-get update && sudo apt-get upgrade -y
+source ~/.shell-functions.sh
 
-if which gem > /dev/null 2 >&1; then
-	if [[ $(which gem) =~ '^/usr/*' ]]; then
+has_cmd pacman && sudo pacman -Syu --noconfirm
+has_cmd aurget && aurget -Syu --noedit --noconfirm
+has_cmd apt-get && sudo apt-get update && sudo apt-get upgrade -y
+
+if has_cmd rbenv; then
+	if [[ $(rbenv which gem) =~ '^/usr/*' ]]; then
 		sudo gem upate
 	else
-		install-latest-ruby
-		gem update
+		rbenv exec gem update
 	fi
 fi
+
+if has_cmd pyenv; then
+	# https://stackoverflow.com/questions/25805200/update-user-installed-packages-with-pip
+	pyenv exec pip freeze --user | \
+		cut -d'=' -f1 | \
+		xargs pyenv exec pip install --user -U
+fi
+
+if has_cmd nvm; then
+	nvm run npm update -g
+fi
+

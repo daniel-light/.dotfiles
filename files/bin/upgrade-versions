@@ -1,10 +1,14 @@
-#!/bin/sh
+#!/bin/zsh
 
 set -o nounset
 set -o errexit
 
+. ~/.shell-functions.sh
+
 (upgrade-dotfiles)
-# (which upgrade-ruby-version && upgrade-ruby-version; which gem && gem update && upgrade-gems-local)
-(which upgrade-python-version && upgrade-python-version)
-(which upgrade-node-version && upgrade-node-version)
-(which rustup && rustup update)
+# TODO these should check that we *have* installed a version, rather than just doing it
+# TODO also they should preferably preserve packages, I think some of them try to?
+has_cmd upgrade-ruby-version && upgrade-ruby-version
+has_cmd upgrade-python-version && upgrade-python-version
+has_cmd upgrade-node-version && upgrade-node-version
+has_cmd rustup && rustup update

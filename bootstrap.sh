@@ -10,9 +10,7 @@ set -o errexit
 # TODO core is apparently not a default target?
 selected_targets=("core $@")
 
-function has_cmd {
-	which $1 2>&1 > /dev/null
-}
+source files/.shell-functions.sh
 
 function is_target {
 	for target in $selected_targets; do
@@ -187,7 +185,7 @@ if is_target node; then
 	# TODO this is probably bad if you already have an nvm setup
 	nvm install node
 	nvm use node
-	nvm alias default node
+	nvm alias default node # TODO this seems not to have worked for me? or possibly I didn't actually run this block for some reason
 
 	cat "$DOT_DIR/straps/npms" | xargs npm install -g
 fi

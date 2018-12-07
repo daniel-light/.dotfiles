@@ -12,4 +12,4 @@ echo Latest ruby is $latest_ruby, installing now
 
 rbenv install --skip-existing --keep $latest_ruby
 rbenv global $latest_ruby
-cat straps/gems | xargs gem install
+cat straps/gems | xargs rbenv exec gem install
