@@ -5,10 +5,14 @@ export HOSTALIASES="$HOME/.hosts"
 export ANDROID_HOME="/opt/android-sdk"
 export TERMINAL="st" # nonstandard var that i3-sensible-terminal looks for
 export PYENV_ROOT="$HOME/.pyenv"
+export RBENV_SHELL="zsh" # manual rbenv setup
+export PYENV_SHELL="zsh" # manual pyenv setup
 
 # path setup
 PATH_RBENV="$HOME/.rbenv/bin"
+PATH_RBENV_SHIMS="$HOME/.rbenv/shims" # manual rbenv setup
 PATH_PYENV="$PYENV_ROOT/bin"
+PATH_PYENV_SHIMS="$PYENV_ROOT/shims" # manual pyenv setup
 PATH_HEROKU="/usr/local/heroku/bin"
 PATH_RVM="$HOME/.rvm/bin"
 PATH_CARGO="$HOME/.cargo/bin"
@@ -18,7 +22,7 @@ PATH_LUAROCKS="$HOME/.luarocks/bin"
 # this is in a function so we can call it again in zshrc
 function setup_path {
   # http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
-  for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_LUAROCKS" "$HOME/.local/bin" "$PATH_PYENV" "$PATH_RBENV" "$HOME/bin" ; do
+  for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_LUAROCKS" "$HOME/.local/bin" "$PATH_PYENV" "$PATH_PYENV_SHIMS" "$PATH_RBENV" "$PATH_RBENV_SHIMS" "$HOME/bin" ; do
     case ":$PATH:" in
       *":$x:"*) :;; # already there
       *) PATH="$x:$PATH";;

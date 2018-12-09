@@ -37,6 +37,8 @@ alias -r \
 fpath=(
          "$HOME/.config/zsh/zsh-completions/src"
          "$HOME/.config/zsh/more-completions"
+         "$HOME/.rbenv/completions" # manual rbenv config
+         "$PYENV_ROOT/completions" # manual pyenv config
          # /usr/local/share/zsh-completions # for homebrew
          $fpath
 )
