@@ -1,6 +1,4 @@
-zmodload zsh/zprof
-
-PROMPT='[%* %m %c] '
+[ $ZINSTRUMENT ] && . "$HOME/.zinstrumentation"
 
 which most 2>&1 > /dev/null && export PAGER="most"
 
@@ -63,3 +61,10 @@ setopt NO_COMPLETE_ALIASES
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100
 SAVEHIST=100
+
+if [ $ZINSTRUMENT ]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
+fi
+PROMPT='[%* %m %c] '
+[ $ZINSTRUMENT ] && zprof

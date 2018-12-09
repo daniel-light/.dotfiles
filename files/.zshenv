@@ -1,3 +1,5 @@
+[ $ZINSTRUMENT ] && . "$HOME/.zinstrumentation"
+
 export DOT_DIR="$HOME/.dotfiles"
 export FZF_DEFAULT_COMMAND='find .'
 export GOPATH="$HOME/.lib/go"

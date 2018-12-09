@@ -1,0 +1,15 @@
+#!/bin/zsh
+set -o nounset
+set -o errexit
+
+if [ "$1" = 'run' ]; then
+	ZINSTRUMENT='true' zsh --login -i -c 'echo -n'
+elif [ "$1" = 'raw' ]; then
+	cat $(ls ~/zsh_profile.* -t | head -n 1)
+elif [ "$1" = 'sort' ]; then
+	ZINSTRUMENT='' sort_timings.zsh $(ls ~/zsh_profile.* -t | head -n 1)
+elif [ "$1" = 'clean' ]; then
+	rm ~/zsh_profile.* 2 > /dev/null
+else
+	echo unknown command $@
+fi
