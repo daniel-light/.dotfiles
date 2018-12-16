@@ -38,6 +38,7 @@ fpath=(
          "$HOME/.rbenv/completions" # manual rbenv config
          "$PYENV_ROOT/completions" # manual pyenv config
          # /usr/local/share/zsh-completions # for homebrew
+         "$DOT_DIR/build/ytcc/completions/zsh"
          $fpath
 )
 

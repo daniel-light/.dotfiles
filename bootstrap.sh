@@ -1,6 +1,8 @@
 #!/bin/bash
 # TODO don't require bash?
 
+# TODO install .pip packages, maybe hook something like this up for gems?
+
 # this script aspires to be an automagic installer, but in reality it's more of
 # a guide to answer "how the fuck did I do this last time"
 

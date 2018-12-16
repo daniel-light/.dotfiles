@@ -141,3 +141,6 @@
 [submodule "build/git-issue"]
 	path = build/git-issue
 	url = https://github.com/dspinellis/git-issue
+[submodule "build/ytcc"]
+	path = build/ytcc
+	url = https://github.com/woefe/ytcc
