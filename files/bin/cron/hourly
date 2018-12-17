@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+cd ~/site
+zsh backup-tumblr.zsh
