@@ -6,11 +6,6 @@
 
 # [[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
-# temporarily here instead of zshrc, still not great
-# what does -C do? I think it doesn't check the dump, which means this shit will get stale
-# TODO task to automatically refresh that shit or something?
-autoload -Uz compinit && compinit -C
-
 # TODO really it would be better to watch the gems dir or something
 (rbenv rehash &) &> /dev/null # manual rbenv setup
 (pyenv rehash &) &> /dev/null # manual pyenv setup

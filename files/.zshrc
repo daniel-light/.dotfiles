@@ -34,22 +34,19 @@ alias -r \
 
 fpath=(
          "$HOME/.config/zsh/zsh-completions/src"
-         "$HOME/.config/zsh/more-completions"
          "$HOME/.rbenv/completions" # manual rbenv config
          "$PYENV_ROOT/completions" # manual pyenv config
          # /usr/local/share/zsh-completions # for homebrew
          "$DOT_DIR/build/ytcc/completions/zsh"
          $fpath
 )
+autoload -Uz compinit && compinit
 
 # perl stuff
 PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
-
-# this is slow, need a better place for it # temporarily relocated to zlogin
-# autoload -Uz compinit && compinit
 
 #options
 #PUSHD_MINUS

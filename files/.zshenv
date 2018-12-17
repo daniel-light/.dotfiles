@@ -1,5 +1,7 @@
 [ $ZINSTRUMENT ] && . "$HOME/.zinstrumentation"
 
+setopt noglobalrcs
+
 export DOT_DIR="$HOME/.dotfiles"
 export FZF_DEFAULT_COMMAND='find .'
 export GOPATH="$HOME/.lib/go"
@@ -22,6 +24,8 @@ PATH_PERL="$HOME/perl5/bin"
 PATH_LUAROCKS="$HOME/.luarocks/bin"
 
 # this is in a function so we can call it again in zshrc
+# not that we actually do that? idk man
+# oh, we do in .zprofile, because apparently arch will fuck it up otherwise
 function setup_path {
   # http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
   for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_LUAROCKS" "$HOME/.local/bin" "$PATH_PYENV" "$PATH_PYENV_SHIMS" "$PATH_RBENV" "$PATH_RBENV_SHIMS" "$HOME/bin" ; do
