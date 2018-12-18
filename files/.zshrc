@@ -36,13 +36,13 @@ alias -r \
 
 fpath=(
          "$HOME/.config/zsh/zsh-completions/src"
-         "$HOME/.rbenv/completions" # manual rbenv config
-         "$PYENV_ROOT/completions" # manual pyenv config
-         "$HOME/.nodenv/completions" # manual nodenv config
          # /usr/local/share/zsh-completions # for homebrew
          "$DOT_DIR/build/ytcc/completions/zsh"
          $fpath
 )
+source "$HOME/.rbenv/completions/rbenv.zsh"
+source "$PYENV_ROOT/completions/pyenv.zsh"
+source "$HOME/.nodenv/completions/nodenv.zsh"
 autoload -Uz compinit && compinit
 
 # perl stuff
