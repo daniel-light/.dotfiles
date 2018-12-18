@@ -24,7 +24,9 @@ alias -r \
          gtypist='gtypist --personal-best --word-processor' \
          n='nvim' \
          p='popd' \
-         rb='rbenv' \
+         rbe='rbenv ' \
+         pye='pyenv ' \
+         noe='nodenv ' \
          s='sudo ' \
          sdctl='systemctl' \
          sudo='sudo ' \
@@ -36,6 +38,7 @@ fpath=(
          "$HOME/.config/zsh/zsh-completions/src"
          "$HOME/.rbenv/completions" # manual rbenv config
          "$PYENV_ROOT/completions" # manual pyenv config
+         "$HOME/.nodenv/completions" # manual nodenv config
          # /usr/local/share/zsh-completions # for homebrew
          "$DOT_DIR/build/ytcc/completions/zsh"
          $fpath

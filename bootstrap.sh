@@ -133,10 +133,11 @@ fi
 
 # this will action put it in bin/share/whatever, which isn't actually what we want # don't know what this comment is about anymore, maybe the output of fzf install?
 
-function link_rbenv_plugin {
-if [ ! -e "$HOME/.rbenv/plugins/$1" ]; then
-	ln -s "$DOT_DIR/build/$1" "$HOME/.rbenv/plugins/$1"
-fi
+function link_env_plugin {
+	target_path="${HOME}/.${2-rbenv}/plugins/${1}"
+	if [ ! -e "${target_path}"]; then
+		ln -s "${DOT_DIR}/build/${1}" "${target_path}"
+	fi
 }
 
 mkdir -p "$HOME/.rbenv/cache" # if cache exists, then rbenv will cache downloads there by default
@@ -145,11 +146,17 @@ if [ -d "$HOME/.rbenv" ]; then
 	mkdir -p "$HOME/.rbenv/plugins"
 
 	for plugin in ruby-build rbenv-communal-gems; do
-		link_rbenv_plugin "$plugin";
+		link_env_plugin "$plugin";
 	done
 fi
 
 rbenv communize --all
+
+if [ -d "$HOME/.nodenv" ]; then
+	mkdir -p "$HOME/.nodenv/plugins"
+
+	link_env_plugin node-build nodenv
+fi
 
 if is_target ruby; then
 	upgrade-ruby-version
@@ -176,21 +183,21 @@ if is_target lastpass-cli; then
 	fi
 fi
 
-if is_target node; then
-	# this doesn't work
-	# well maybe it should? nvm should be installed as a submodule
+# if is_target node; then
+# 	# this doesn't work
+# 	# well maybe it should? nvm should be installed as a submodule
 
-	# load the nvm function, since we usually only do this for interactives
-	export NVM_DIR="/home/daniel/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# 	# load the nvm function, since we usually only do this for interactives
+# 	export NVM_DIR="/home/daniel/.nvm"
+# 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-	# TODO this is probably bad if you already have an nvm setup
-	nvm install node
-	nvm use node
-	nvm alias default node # TODO this seems not to have worked for me? or possibly I didn't actually run this block for some reason
+# 	# TODO this is probably bad if you already have an nvm setup
+# 	nvm install node
+# 	nvm use node
+# 	nvm alias default node # TODO this seems not to have worked for me? or possibly I didn't actually run this block for some reason
 
-	cat "$DOT_DIR/straps/npms" | xargs npm install -g
-fi
+# 	cat "$DOT_DIR/straps/npms" | xargs npm install -g
+# fi
 
 if is_target steam; then
 	sudo usermod -a -G input $(whoami)

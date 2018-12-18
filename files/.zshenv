@@ -17,6 +17,8 @@ PATH_RBENV="$HOME/.rbenv/bin"
 PATH_RBENV_SHIMS="$HOME/.rbenv/shims" # manual rbenv setup
 PATH_PYENV="$PYENV_ROOT/bin"
 PATH_PYENV_SHIMS="$PYENV_ROOT/shims" # manual pyenv setup
+PATH_NODENV="$HOME/.nodenv/bin"
+PATH_NODENV_SHIMS="$HOME/.nodenv/shims" # manual nodenv setup
 PATH_HEROKU="/usr/local/heroku/bin"
 PATH_RVM="$HOME/.rvm/bin"
 PATH_CARGO="$HOME/.cargo/bin"
@@ -28,7 +30,7 @@ PATH_LUAROCKS="$HOME/.luarocks/bin"
 # oh, we do in .zprofile, because apparently arch will fuck it up otherwise
 function setup_path {
   # http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
-  for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_LUAROCKS" "$HOME/.local/bin" "$PATH_PYENV" "$PATH_PYENV_SHIMS" "$PATH_RBENV" "$PATH_RBENV_SHIMS" "$HOME/bin" ; do
+  for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_LUAROCKS" "$HOME/.local/bin" "$PATH_PYENV" "$PATH_PYENV_SHIMS" "$PATH_NODENV" "$PATH_NODENV_SHIMS" "$PATH_RBENV" "$PATH_RBENV_SHIMS" "$HOME/bin" ; do
     case ":$PATH:" in
       *":$x:"*) :;; # already there
       *) PATH="$x:$PATH";;

@@ -9,5 +9,6 @@
 # TODO really it would be better to watch the gems dir or something
 (rbenv rehash &) &> /dev/null # manual rbenv setup
 (pyenv rehash &) &> /dev/null # manual pyenv setup
+(nodenv rehash &) &> /dev/null # manual nodenv setup
 
 which systemctl >&- && systemctl 2>&- --user import-environment PATH

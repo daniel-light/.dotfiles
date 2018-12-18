@@ -144,3 +144,9 @@
 [submodule "build/ytcc"]
 	path = build/ytcc
 	url = https://github.com/woefe/ytcc
+[submodule "files/.nodenv"]
+	path = files/.nodenv
+	url = https://github.com/nodenv/nodenv
+[submodule "build/node-build"]
+	path = build/node-build
+	url = https://github.com/nodenv/node-build
