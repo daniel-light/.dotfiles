@@ -37,6 +37,7 @@
 	home = rev-parse --show-toplevel
 	dsf = "!git diff --color $@ | diff-highlight | diff-so-fancy | less --RAW-CONTROL-CHARS"
 	issue = !/home/daniel/.dotfiles/build/git-issue/git-issue.sh
+	sm = submodule
 
 [merge]
 	tool = vimdiff

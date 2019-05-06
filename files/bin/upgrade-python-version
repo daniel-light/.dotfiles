@@ -4,6 +4,7 @@ set -o nounset
 set -o errexit
 
 cd $DOT_DIR
+git submodule update --remote files/.pyenv
 # git submodule update --remote build/ruby-build # TODO
 
 # this is definitely a good way to install python also
@@ -12,3 +13,7 @@ echo Latest python is $latest_python, installing now
 
 pyenv install --skip-existing --keep $latest_python
 pyenv global $latest_python
+pip install --upgrade pip
+
+pip install --user \
+	pipenv

@@ -166,8 +166,6 @@ if is_target pyenv; then
 	mkdir -p "$HOME/.pyenv/plugins" # TODO see if the cache thing also works for pyenv
 	mkdir -p "$HOME/.pyenv/cache" # TODO see if the cache thing also works for pyenv
 	upgrade-python-version
-	pip install --upgrade pip
-	pip install --user pipenv # TODO is this the best place for this?
 fi
 
 if is_target lastpass-cli; then

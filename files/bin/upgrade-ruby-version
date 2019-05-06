@@ -4,6 +4,7 @@ set -o nounset
 set -o errexit
 
 cd $DOT_DIR
+git submodule update --remote files/.rbenv
 git submodule update --remote build/ruby-build
 
 # this is definitely a good way to install ruby
@@ -12,4 +13,10 @@ echo Latest ruby is $latest_ruby, installing now
 
 rbenv install --skip-existing --keep $latest_ruby
 rbenv global $latest_ruby
-cat straps/gems | xargs rbenv exec gem install
+
+rbenv exec gem install \
+	bundler \
+	dotenv \
+	pry \
+	rerun \
+	rubocop
