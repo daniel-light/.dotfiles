@@ -1,5 +1,6 @@
 #!/bin/zsh
 
-yes | rm -r "$HOME/.rbenv/sources/"*
+yes | rm -r "$HOME/.rbenv/{sources,cache}/"*
+yes | rm -r "$HOME/.pyenv/{sources,cache}/"*
 which apt-get 2>&1 > /dev/null && sudo apt-get autoremove
 which apt-get 2>&1 > /dev/null && sudo apt-get clean

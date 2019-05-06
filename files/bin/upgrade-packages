@@ -19,6 +19,7 @@ fi
 
 if has_cmd pyenv; then
 	# https://stackoverflow.com/questions/25805200/update-user-installed-packages-with-pip
+	pyenv exec pip install --upgrade pip
 	pyenv exec pip freeze --user | \
 		cut -d'=' -f1 | \
 		xargs pyenv exec pip install --user -U

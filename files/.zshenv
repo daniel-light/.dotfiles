@@ -30,7 +30,7 @@ PATH_LUAROCKS="$HOME/.luarocks/bin"
 # oh, we do in .zprofile, because apparently arch will fuck it up otherwise
 function setup_path {
   # http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
-  for x in "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_LUAROCKS" "$HOME/.local/bin" "$PATH_PYENV" "$PATH_PYENV_SHIMS" "$PATH_NODENV" "$PATH_NODENV_SHIMS" "$PATH_RBENV" "$PATH_RBENV_SHIMS" "$HOME/bin" ; do
+  for x in "$DOT_DIR/build/IBM_Cloud_CLI" "$PATH_PERL" "$GOPATH/bin" "$PATH_CARGO" "$PATH_RVM" "$PATH_LUAROCKS" "$HOME/.local/bin" "$PATH_PYENV" "$PATH_PYENV_SHIMS" "$PATH_NODENV" "$PATH_NODENV_SHIMS" "$PATH_RBENV" "$PATH_RBENV_SHIMS" "$HOME/bin" ; do
     case ":$PATH:" in
       *":$x:"*) :;; # already there
       *) PATH="$x:$PATH";;
@@ -66,3 +66,5 @@ fi
 if [[ -f "$HOME/.secure-env" ]]; then
 	source "$HOME/.secure-env"
 fi
+
+export TRANSMISSION_HOME="$HOME/.config/transmission"

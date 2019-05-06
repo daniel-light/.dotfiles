@@ -1,4 +1,8 @@
 #!/bin/zsh
 
+set -o errexit
+
+echo starting hourly tasks at $(date)
 cd ~/site
 zsh backup-tumblr.zsh
+echo finished hourly tasks at $(date)
