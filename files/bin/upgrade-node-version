@@ -13,6 +13,7 @@ echo Latest ruby is $latest_node, installing now
 
 nodenv install --skip-existing --keep $latest_node
 nodenv global $latest_node
+npm install --global npm
 
 nodenv exec npm install --global \
 	eslint

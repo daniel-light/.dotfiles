@@ -4,19 +4,47 @@ set -o nounset
 set -o errexit
 
 cd $DOT_DIR
+
 git submodule update --remote files/.rbenv
 git submodule update --remote build/ruby-build
 
 # this is definitely a good way to install ruby
-latest_ruby=$(rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1)
+latest_ruby=$(rbenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1 | tr -d '[:space:]')
 echo Latest ruby is $latest_ruby, installing now
 
+
+current_ruby=$(rbenv version-name)
 rbenv install --skip-existing --keep $latest_ruby
 rbenv global $latest_ruby
 
+# cleanup # TODO replicate this in eqv scripts
+rm -rf "$HOME/.rbenv/sources/"*
+rm -rf "$HOME/.rbenv/cache/"*
+for old_version in $(rbenv versions --bare); do
+	[ "$latest_ruby" = "$old_version" ] && continue
+	while true; do
+		read -p "Uninstall old rbenv version $old_version ([y]/n)? " choice
+		case "$choice" in
+			''|y|Y )
+				echo removing $old_version
+				yes | rbenv uninstall $old_version
+				break;;
+			n|N ) echo "keeping $old_version" for now; break;;
+			* ) echo "invalid";;
+		esac
+	done
+done
+
+# TODO don't reinstall these if they're already up to date
 rbenv exec gem install \
 	bundler \
 	dotenv \
 	pry \
 	rerun \
 	rubocop
+
+# TODO make this quiet when there's nothing to commit
+# TODO replicate this in equivalent scripts
+git add files/.rbenv build/ruby-build
+installed_version_message=$([ "$current_ruby" = "$latest_ruby" ] && echo "" || echo "Latest ruby upgraded from $current_ruby to $latest_ruby")
+git commit -m "Automated rbenv upgrade" -m "$installed_version_message" -e

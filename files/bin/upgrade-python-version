@@ -5,14 +5,14 @@ set -o errexit
 
 cd $DOT_DIR
 git submodule update --remote files/.pyenv
-# git submodule update --remote build/ruby-build # TODO
 
 # this is definitely a good way to install python also
+# TODO we should also install the latest python 2
 latest_python=$(pyenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1)
 echo Latest python is $latest_python, installing now
 
 pyenv install --skip-existing --keep $latest_python
-pyenv global $latest_python
+pyenv global $latest_python # $latest_python_2
 pip install --upgrade pip
 
 pip install --user \
