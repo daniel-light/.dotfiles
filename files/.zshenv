@@ -3,7 +3,11 @@
 setopt noglobalrcs
 
 export DOT_DIR="$HOME/.dotfiles"
-export FZF_DEFAULT_COMMAND='find .'
+if which fd 2>&1 > /dev/null; then
+  export FZF_DEFAULT_COMMAND='fd --type f'
+else
+  export FZF_DEFAULT_COMMAND='find .'
+fi
 export GOPATH="$HOME/.lib/go"
 export HOSTALIASES="$HOME/.hosts"
 export ANDROID_HOME="/opt/android-sdk"

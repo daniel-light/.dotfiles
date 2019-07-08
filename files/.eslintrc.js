@@ -15,6 +15,12 @@ module.exports = {
             "error",
             "unix"
         ],
+        "no-unexpected-multiline": [
+            "error",
+        ],
+        "no-unreachable": [
+            "error",
+        ],
         "quotes": [
             "warn",
             "single"
@@ -26,6 +32,6 @@ module.exports = {
         "strict": [
             "error",
             "safe"
-        ]
+        ],
     }
 };
