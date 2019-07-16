@@ -25,7 +25,7 @@ if has_cmd pyenv; then
 		xargs pyenv exec pip install --user -U
 fi
 
-if has_cmd nvm; then
-	nvm run npm update -g
+if has_cmd nodenv; then
+	nodenv exec npm update -g
 fi
 

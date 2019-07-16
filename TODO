@@ -1,4 +1,3 @@
 - Add a lein dep to build, or something
 - link .ssh/config to $EXTRADOTS/.ssh_config (this moved from being need at ~/.ssh_config)
 - bootstrap cron-hourly
-- get rid of nvm

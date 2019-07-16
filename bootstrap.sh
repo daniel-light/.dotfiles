@@ -181,22 +181,6 @@ if is_target lastpass-cli; then
 	fi
 fi
 
-# if is_target node; then
-# 	# this doesn't work
-# 	# well maybe it should? nvm should be installed as a submodule
-
-# 	# load the nvm function, since we usually only do this for interactives
-# 	export NVM_DIR="/home/daniel/.nvm"
-# 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# 	# TODO this is probably bad if you already have an nvm setup
-# 	nvm install node
-# 	nvm use node
-# 	nvm alias default node # TODO this seems not to have worked for me? or possibly I didn't actually run this block for some reason
-
-# 	cat "$DOT_DIR/straps/npms" | xargs npm install -g
-# fi
-
 if is_target steam; then
 	sudo usermod -a -G input $(whoami)
 
