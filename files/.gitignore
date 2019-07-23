@@ -66,6 +66,10 @@ bundle.js.map
 ###########
 .nrepl-port
 
+# python #
+##########
+.pyc
+
 # Local tmp files #
 ###################
 /*tmp*/
