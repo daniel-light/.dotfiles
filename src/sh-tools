@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -o nounset
+set -o errexit
+
+prompt_yes_no() {
+	while true; do
+		read -p $1 choice
+		case "$choice" in
+			''|y|Y ) return true;;
+			n|N ) return false;;
+			* ) echo "invalid";;
+		esac
+	done
+}

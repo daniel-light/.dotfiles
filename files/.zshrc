@@ -35,6 +35,7 @@ alias -r \
          usdctl='systemctl --user'
 
 fpath=(
+         "$DOT_DIR/src/zsh-completions"
          "$HOME/.config/zsh/zsh-completions/src"
          # /usr/local/share/zsh-completions # for homebrew
          "$DOT_DIR/build/ytcc/completions/zsh"

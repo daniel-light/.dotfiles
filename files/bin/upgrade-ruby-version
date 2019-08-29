@@ -4,7 +4,7 @@ set -o nounset
 set -o errexit
 
 cd $DOT_DIR
-. sh-tools
+. src/sh-tools
 
 git submodule update --remote files/.rbenv
 git submodule update --remote build/ruby-build
