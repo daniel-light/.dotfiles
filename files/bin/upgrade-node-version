@@ -7,9 +7,16 @@ cd $DOT_DIR
 git submodule update --remote files/.nodenv
 git submodule update --remote build/node-build
 
-# this is definitely a good way to install ruby
+# this is definitely a good way to install --ruby-- node
 latest_node=$(nodenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1)
-echo Latest ruby is $latest_node, installing now
+echo Latest node is $latest_node, installing now
+
+current_node=$(nodenv version-name)
+
+# cleanup
+rm -rf "$HOME/.nodenv/sources/"*
+
+# TODO add old version remover
 
 nodenv install --skip-existing --keep $latest_node
 nodenv global $latest_node
@@ -17,3 +24,7 @@ npm install --global npm
 
 nodenv exec npm install --global \
 	eslint
+
+git add files/.nodenv build/node-build
+installed_version_message=$([ "$current_node" = "$latest_node" ] && echo "" || echo "Latest node upgraded from $current_node to $latest_node")
+git commit -m "Automated rbenv upgrade" -m "$installed_version_message" -e

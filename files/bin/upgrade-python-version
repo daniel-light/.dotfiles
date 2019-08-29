@@ -7,13 +7,27 @@ cd $DOT_DIR
 git submodule update --remote files/.pyenv
 
 # this is definitely a good way to install python also
-# TODO we should also install the latest python 2
+# TODO we should also install the latest python 2 # actually I think python2 is finally being deprecated? let's not bother lol
 latest_python=$(pyenv install --list | grep '^[[:space:]]*[[:digit:]]' | grep -v '-' | tail -n 1)
 echo Latest python is $latest_python, installing now
 
+current_python=$(pyenv version-name)
+
 pyenv install --skip-existing --keep $latest_python
 pyenv global $latest_python # $latest_python_2
-pip install --upgrade pip
 
+# cleanup
+rm -rf "$HOME/.pyenv/sources/"*
+rm -rf "$HOME/.pyenv/cache/"*
+
+# TODO import the old version remover at some point. haven't done it yet since pyvenvs are picky and I still need a 2.7 and I don't want to think about it.
+
+pip install --upgrade pip
 pip install --user \
-	pipenv
+	pipenv \
+	pylint \
+	yapf
+
+git add files/.pyenv
+installed_version_message=$([ "$current_python" = "$latest_python" ] && echo "" || echo "Latest python upgraded from $current_python to $latest_python")
+git commit -m "Automated pyenv upgrade" -m "$installed_version_message" -e
