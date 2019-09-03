@@ -29,7 +29,7 @@ for old_version in $(rbenv versions --bare); do
 		echo removing $old_version
 		yes | rbenv uninstall $old_version
 	else
-		echo "keeping $old_version" for now; break;;
+		echo "keeping $old_version" for now
 	fi
 done
 
