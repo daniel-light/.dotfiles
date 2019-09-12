@@ -23,10 +23,10 @@ alias -r \
          g='git' \
          gtypist='gtypist --personal-best --word-processor' \
          n='nvim' \
-         p='popd' \
-         rbe='rbenv ' \
-         pye='pyenv ' \
          noe='nodenv ' \
+         p='popd' \
+         pye='pyenv ' \
+         rbe='rbenv ' \
          s='sudo ' \
          sdctl='systemctl' \
          sudo='sudo ' \
