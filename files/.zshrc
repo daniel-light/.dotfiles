@@ -27,6 +27,7 @@ alias -r \
          p='popd' \
          pye='pyenv ' \
          rbe='rbenv ' \
+         remount='s mount $(readlink ~/nixos) -o remount,exec ' \
          s='sudo ' \
          sdctl='systemctl' \
          sudo='sudo ' \
