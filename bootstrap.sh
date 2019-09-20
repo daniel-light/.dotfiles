@@ -205,3 +205,7 @@ if is_target dropbox; then
 
 	# ln -s "$HOME/Dropbox/extradots/.hosts" "$HOME/.hosts"
 fi
+
+# add-apt-repository ppa:avsm/ppa
+# apt update
+# apt install opam
