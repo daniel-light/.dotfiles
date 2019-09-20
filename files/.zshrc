@@ -5,7 +5,7 @@ which most 2>&1 > /dev/null && export PAGER="most"
 export DIFFPROG="nvim -d"
 export EDITOR="nvim"
 export VISUAL="nvim"
-set -o emacs # zsh will think we want vi line editing mode - we don't
+set -o emacs # zsh will see $EDITOR think we want vi line editing mode - we don't
 
 ## aliases ##
 
@@ -20,6 +20,7 @@ alias -r \
          c='pushd' \
          cdc='cd "$(pwd)"' \
          drox='dropbox-cli' \
+         e='echo ' \
          g='git' \
          gtypist='gtypist --personal-best --word-processor' \
          n='nvim' \
