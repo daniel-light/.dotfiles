@@ -1,21 +1,3 @@
-[user]
-	name = Daniel Light
-	email = daniel.sj.light@gmail.com
-
-[core]
-	excludesfile = ~/.gitignore
-	autocrlf = input
-
-[push]
-	default = simple
-
-[color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
-	ui = auto
-
 [alias]
 	a = add
 	ax = annex
@@ -39,28 +21,47 @@
 	issue = !/home/daniel/.dotfiles/build/git-issue/git-issue.sh
 	sm = submodule
 
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = auto
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[commit]
+	template = ~/.gitmessage
+
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+
+[diff]
+	algorithm = histogram
+
+[grep]
+	extendedRegexp = true
+
+[init]
+	templatedir = ~/.git_template
+
 [merge]
 	tool = vimdiff
 
 [mergetool "deltawalker"]
 	cmd = '/Applications/DeltaWalker.app/Contents/MacOS/git-merge' "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 
-[diff]
-	algorithm = histogram
+[push]
+	default = simple
 
 [rebase]
 	autosquash = true
 
-[grep]
-	extendedRegexp = true
-
-[commit]
-	template = ~/.gitmessage
-
-[init]
-	templatedir = ~/.git_template
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+[user]
+	name = Daniel Light
+	email = daniel.sj.light@gmail.com
