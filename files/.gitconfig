@@ -56,6 +56,9 @@
 [mergetool "deltawalker"]
 	cmd = '/Applications/DeltaWalker.app/Contents/MacOS/git-merge' "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 
+[pager]
+	branch = false
+
 [push]
 	default = simple
 
