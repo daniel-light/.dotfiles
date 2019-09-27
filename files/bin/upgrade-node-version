@@ -27,4 +27,4 @@ nodenv exec npm install --global \
 
 git add files/.nodenv build/node-build
 installed_version_message=$([ "$current_node" = "$latest_node" ] && echo "" || echo "Latest node upgraded from $current_node to $latest_node")
-git commit -m "Automated rbenv upgrade" -m "$installed_version_message" -e
+git commit -m "Automated node upgrade" -m "$installed_version_message" -e

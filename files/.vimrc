@@ -71,6 +71,12 @@ if has("autocmd")
 endif
 syntax on
 
+
+" colors
+highlight Pmenu ctermbg=brown
+highlight PmenuSel ctermbg=lightgray cterm=bold ctermfg=darkred
+
+" mappings
 map ; :
 noremap ' ;
 
