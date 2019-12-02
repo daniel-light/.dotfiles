@@ -145,7 +145,7 @@ endfunction
 
 " custom commands
 
-cmap w!! w !sudo tee '%' > /dev/null
+cnoremap w!! w !sudo tee '%' > /dev/null
 
 command! ReopenInSplit call ReopenInSplit()
 
